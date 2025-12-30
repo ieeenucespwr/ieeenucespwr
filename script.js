@@ -160,37 +160,37 @@ const eventsData = [
         title: "Tech Talk: AI & Machine Learning",
         date: "January 15, 2026",
         description: "Join us for an insightful session on the latest trends in AI and ML with industry experts.",
-        image: "https://via.placeholder.com/400x300/4F46E5/FFFFFF?text=AI+Tech+Talk"
+        image: "assets/placeholder.jpg"
     },
     {
         title: "Arduino Workshop",
         date: "January 22, 2026",
         description: "Hands-on workshop where you'll build IoT projects using Arduino and various sensors.",
-        image: "https://via.placeholder.com/400x300/06B6D4/FFFFFF?text=Arduino+Workshop"
+        image: "assets/placeholder.jpg"
     },
     {
         title: "Coding Competition",
         date: "February 5, 2026",
         description: "Test your programming skills in our annual coding competition with exciting prizes.",
-        image: "https://via.placeholder.com/400x300/10B981/FFFFFF?text=Coding+Competition"
+        image: "assets/placeholder.jpg"
     },
     {
         title: "Web Development Bootcamp",
         date: "February 12, 2026",
         description: "Intensive 3-day bootcamp covering modern web development technologies and frameworks.",
-        image: "https://via.placeholder.com/400x300/8B5CF6/FFFFFF?text=Web+Bootcamp"
+        image: "assets/placeholder.jpg"
     },
     {
         title: "IEEE Day Celebration",
         date: "October 1, 2026",
         description: "Celebrate IEEE Day with networking, presentations, and fun activities.",
-        image: "https://via.placeholder.com/400x300/F59E0B/FFFFFF?text=IEEE+Day"
+        image: "assets/placeholder.jpg"
     },
     {
         title: "Robotics Showcase",
         date: "March 20, 2026",
         description: "Exhibition of innovative robotics projects created by our talented members.",
-        image: "https://via.placeholder.com/400x300/EF4444/FFFFFF?text=Robotics+Showcase"
+        image: "assets/placeholder.jpg"
     }
 ];
 
@@ -223,25 +223,25 @@ const spotlightData = [
         name: "Ahmed Hassan",
         achievement: "Winner of National Robotics Competition 2025",
         description: "Ahmed led his team to victory in the national robotics competition with an innovative autonomous navigation system.",
-        image: "https://via.placeholder.com/150"
+        image: "assets/placeholder.jpg"
     },
     {
         name: "Fatima Zahra",
         achievement: "Published Research in IEEE Journal",
         description: "Fatima's research on renewable energy systems was published in a prestigious IEEE journal at the age of 22.",
-        image: "https://via.placeholder.com/150"
+        image: "assets/placeholder.jpg"
     },
     {
         name: "Usman Khalid",
         achievement: "Internship at Microsoft",
         description: "Secured a competitive internship position at Microsoft's Azure team, working on cloud infrastructure.",
-        image: "https://via.placeholder.com/150"
+        image: "assets/placeholder.jpg"
     },
     {
         name: "Ayesha Malik",
         achievement: "Founder of Tech Startup",
         description: "Founded a successful EdTech startup that's now serving over 10,000 students across Pakistan.",
-        image: "https://via.placeholder.com/150"
+        image: "assets/placeholder.jpg"
     }
 ];
 
@@ -273,37 +273,37 @@ const testimonialsData = [
         name: "Ali Raza",
         role: "Alumni, Software Engineer at Google",
         text: "IEEE NUCES PWR shaped my career. The workshops and networking opportunities were invaluable.",
-        image: "https://via.placeholder.com/100"
+        image: "assets/placeholder.jpg"
     },
     {
         name: "Sara Khan",
         role: "Current Member, CS Senior",
         text: "Being part of IEEE helped me develop both technical and leadership skills. The community is amazing!",
-        image: "https://via.placeholder.com/100"
+        image: "assets/placeholder.jpg"
     },
     {
         name: "Hassan Mahmood",
         role: "Alumni, Robotics Engineer",
         text: "The hands-on projects and competitions prepared me for real-world engineering challenges.",
-        image: "https://via.placeholder.com/100"
+        image: "assets/placeholder.jpg"
     },
     {
         name: "Zainab Ahmed",
         role: "Current Member, EE Junior",
         text: "IEEE provided me with mentorship and resources that accelerated my learning journey significantly.",
-        image: "https://via.placeholder.com/100"
+        image: "assets/placeholder.jpg"
     },
     {
         name: "Imran Ali",
         role: "Alumni, Data Scientist",
         text: "The professional development courses offered by IEEE were instrumental in landing my dream job.",
-        image: "https://via.placeholder.com/100"
+        image: "assets/placeholder.jpg"
     },
     {
         name: "Maryam Noor",
         role: "Current Member, CS Sophomore",
         text: "I love being part of a community that's passionate about technology and innovation!",
-        image: "https://via.placeholder.com/100"
+        image: "assets/placeholder.jpg"
     }
 ];
 
