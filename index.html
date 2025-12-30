@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="IEEE NUCES PWR Student Branch - Building technology for humanity">
+    <meta name="keywords" content="IEEE, NUCES, PWR, Student Branch, Technology, Engineering">
+    <title>IEEE NUCES PWR Student Branch</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS - Animate On Scroll -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    colors: {
+                        'ieee-blue': '#00629B',
+                        'ieee-blue-dark': '#004A7C'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-poppins bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-indigo-600 z-50 transition-all duration-300"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/80 dark:bg-gray-900/80 backdrop-blur-lg z-40 shadow-md transition-all duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="https://brand.ieee.org/wp-content/uploads/2021/09/IEEE-Logo-Digital-RGB.png" alt="IEEE Logo" class="h-12">
+                    <span class="text-lg font-semibold hidden lg:block">NUCES PWR</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 transition-colors duration-300">About Us</a>
+                    <a href="#events" class="nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 transition-colors duration-300">Events</a>
+                    <a href="#spotlight" class="nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 transition-colors duration-300">Member Spotlight</a>
+                    <a href="#testimonials" class="nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 transition-colors duration-300">Testimonials</a>
+                    <a href="#courses" class="nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 transition-colors duration-300">Courses</a>
+                    <a href="#join" class="nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 transition-colors duration-300">Join Us</a>
+                </div>
+                
+                <!-- Dark Mode Toggle & Mobile Menu -->
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-700">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-800 shadow-2xl transform translate-x-full transition-transform duration-300 z-50 md:hidden">
+        <div class="flex flex-col p-6 space-y-6">
+            <button id="close-mobile-menu" class="self-end p-2 rounded-lg bg-gray-200 dark:bg-gray-700">
+                <i class="fas fa-times"></i>
+            </button>
+            <a href="#about" class="mobile-nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 py-2 transition-colors duration-300">About Us</a>
+            <a href="#events" class="mobile-nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 py-2 transition-colors duration-300">Events</a>
+            <a href="#spotlight" class="mobile-nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 py-2 transition-colors duration-300">Member Spotlight</a>
+            <a href="#testimonials" class="mobile-nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 py-2 transition-colors duration-300">Testimonials</a>
+            <a href="#courses" class="mobile-nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 py-2 transition-colors duration-300">Courses</a>
+            <a href="#join" class="mobile-nav-link text-gray-700 dark:text-gray-300 hover:text-ieee-blue dark:hover:text-blue-400 py-2 transition-colors duration-300">Join Us</a>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden"></div>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Particles Background -->
+        <div id="particles-js" class="absolute inset-0"></div>
+        
+        <!-- Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-indigo-900/30"></div>
+        
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4" data-aos="fade-up">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-lg">
+                IEEE NUCES PWR
+                <span class="block text-3xl md:text-5xl mt-4 text-blue-200">Student Branch</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-8 max-w-3xl mx-auto">
+                Building Technology for Humanity
+            </p>
+            <p class="text-lg md:text-xl text-white/80 mb-12 max-w-2xl mx-auto">
+                Empowering students to innovate, collaborate, and shape the future of technology
+            </p>
+            
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a href="#about" class="px-8 py-4 bg-ieee-blue hover:bg-ieee-blue-dark text-white rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    Learn More
+                </a>
+                <a href="#events" class="px-8 py-4 bg-white hover:bg-gray-100 text-ieee-blue rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    Upcoming Events
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-3xl"></i>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up">
+                About <span class="text-ieee-blue">Us</span>
+            </h2>
+            
+            <!-- Faculty Head -->
+            <div class="max-w-6xl mx-auto mb-24" data-aos="fade-up">
+                <h3 class="text-3xl font-bold text-center mb-12">Faculty Head</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <!-- Photo -->
+                    <div class="flex justify-center" data-aos="fade-right">
+                        <div class="relative">
+                            <div class="w-64 h-64 rounded-full border-4 border-ieee-blue overflow-hidden shadow-2xl">
+                                <img src="https://via.placeholder.com/300" alt="Dr. Suleman Mir" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Info Card -->
+                    <div class="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-8 text-white shadow-2xl" data-aos="fade-left">
+                        <h4 class="text-2xl font-bold mb-2">Dr. Suleman Mir</h4>
+                        <p class="text-blue-100 mb-4">Ph.D., Faculty Advisor</p>
+                        <p class="text-white/90 mb-6 leading-relaxed">
+                            Dr. Suleman Mir is a distinguished faculty member with extensive experience in electrical engineering 
+                            and a passion for student development. He guides our branch in fostering innovation and excellence 
+                            in technical education.
+                        </p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </a>
+                            <a href="mailto:suleman.mir@example.com" class="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors duration-300">
+                                <i class="fas fa-envelope text-white"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Executive Body 2025-26 -->
+            <div class="max-w-6xl mx-auto mb-24" data-aos="fade-up">
+                <h3 class="text-3xl font-bold text-center mb-12">Executive Body 2025-26</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <!-- Vice Chairperson -->
+                    <div class="flip-card group h-96 perspective">
+                        <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d">
+                            <!-- Front -->
+                            <div class="flip-card-front absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://via.placeholder.com/400x600" alt="Usman Sohail" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                    <h4 class="text-2xl font-bold">Usman Sohail</h4>
+                                    <p class="text-blue-300">Vice Chairperson</p>
+                                </div>
+                            </div>
+                            <!-- Back -->
+                            <div class="flip-card-back absolute w-full h-full backface-hidden rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-700 p-6 text-white flex flex-col justify-between shadow-2xl rotate-y-180">
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-2">Usman Sohail</h4>
+                                    <p class="text-blue-200 mb-4">Vice Chairperson</p>
+                                    <p class="text-sm leading-relaxed">
+                                        Leading initiatives in technical workshops and member engagement. 
+                                        Passionate about embedded systems and IoT development.
+                                    </p>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chairperson -->
+                    <div class="flip-card group h-96 perspective">
+                        <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d">
+                            <!-- Front -->
+                            <div class="flip-card-front absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://via.placeholder.com/400x600" alt="Abdullah Asim" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                    <h4 class="text-2xl font-bold">Abdullah Asim</h4>
+                                    <p class="text-blue-300">Chairperson</p>
+                                </div>
+                            </div>
+                            <!-- Back -->
+                            <div class="flip-card-back absolute w-full h-full backface-hidden rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-700 p-6 text-white flex flex-col justify-between shadow-2xl rotate-y-180">
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-2">Abdullah Asim</h4>
+                                    <p class="text-blue-200 mb-4">Chairperson</p>
+                                    <p class="text-sm leading-relaxed">
+                                        Steering the IEEE NUCES PWR Student Branch towards excellence. 
+                                        Specializes in AI/ML and computer vision applications.
+                                    </p>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- General Secretary -->
+                    <div class="flip-card group h-96 perspective">
+                        <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d">
+                            <!-- Front -->
+                            <div class="flip-card-front absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-2xl">
+                                <img src="https://via.placeholder.com/400x600" alt="Dilawer Khan" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                    <h4 class="text-2xl font-bold">Dilawer Khan</h4>
+                                    <p class="text-blue-300">General Secretary</p>
+                                </div>
+                            </div>
+                            <!-- Back -->
+                            <div class="flip-card-back absolute w-full h-full backface-hidden rounded-2xl bg-gradient-to-br from-purple-600 to-pink-700 p-6 text-white flex flex-col justify-between shadow-2xl rotate-y-180">
+                                <div>
+                                    <h4 class="text-2xl font-bold mb-2">Dilawer Khan</h4>
+                                    <p class="text-blue-200 mb-4">General Secretary</p>
+                                    <p class="text-sm leading-relaxed">
+                                        Managing operations and ensuring smooth execution of all branch activities. 
+                                        Expert in project management and team coordination.
+                                    </p>
+                                </div>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fab fa-linkedin"></i>
+                                    </a>
+                                    <a href="#" class="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors">
+                                        <i class="fas fa-envelope"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <!-- Team Categories -->
+            <div class="max-w-7xl mx-auto mb-24">
+                <h3 class="text-3xl font-bold text-center mb-16">Our Teams</h3>
+                
+                <!-- Graphics Team -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center justify-center mb-8">
+                        <i class="fas fa-palette text-5xl text-pink-500 mr-4"></i>
+                        <h4 class="text-2xl font-bold">Graphics Team</h4>
+                    </div>
+                    <p class="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+                        Our creative visionaries bring ideas to life through stunning visual designs, 
+                        posters, and branding materials for all IEEE events and campaigns.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <!-- Team Lead -->
+                        <div class="flex flex-col items-center" data-aos="zoom-in">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-pink-500 mb-3 shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Graphics Lead" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-semibold text-center">Sarah Ahmed</p>
+                            <p class="text-sm text-pink-500">Team Lead</p>
+                        </div>
+                        <!-- Team Members -->
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Ali Hassan</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Fatima Khan</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Omar Malik</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Web Development Team -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center justify-center mb-8">
+                        <i class="fas fa-code text-5xl text-blue-500 mr-4"></i>
+                        <h4 class="text-2xl font-bold">Web Development Team</h4>
+                    </div>
+                    <p class="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+                        Building and maintaining our digital presence with cutting-edge web technologies 
+                        and responsive designs.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <div class="flex flex-col items-center" data-aos="zoom-in">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500 mb-3 shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Web Dev Lead" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-semibold text-center">Ahmed Raza</p>
+                            <p class="text-sm text-blue-500">Team Lead</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Zainab Ali</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Hassan Nawaz</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Marketing Team -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center justify-center mb-8">
+                        <i class="fas fa-bullhorn text-5xl text-orange-500 mr-4"></i>
+                        <h4 class="text-2xl font-bold">Marketing Team</h4>
+                    </div>
+                    <p class="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+                        Spreading the word about our events and initiatives through strategic campaigns 
+                        and social media engagement.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <div class="flex flex-col items-center" data-aos="zoom-in">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-orange-500 mb-3 shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Marketing Lead" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-semibold text-center">Aisha Siddiqui</p>
+                            <p class="text-sm text-orange-500">Team Lead</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Bilal Tariq</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Maryam Shah</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Operations Team -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center justify-center mb-8">
+                        <i class="fas fa-cogs text-5xl text-gray-600 mr-4"></i>
+                        <h4 class="text-2xl font-bold">Operations Team</h4>
+                    </div>
+                    <p class="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+                        Ensuring smooth logistics and operational excellence for all our activities and events.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <div class="flex flex-col items-center" data-aos="zoom-in">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-600 mb-3 shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Operations Lead" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-semibold text-center">Kamran Ali</p>
+                            <p class="text-sm text-gray-600">Team Lead</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Sana Iqbal</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Media Team -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center justify-center mb-8">
+                        <i class="fas fa-camera text-5xl text-purple-500 mr-4"></i>
+                        <h4 class="text-2xl font-bold">Media Team</h4>
+                    </div>
+                    <p class="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+                        Capturing memorable moments through photography and videography at all IEEE events.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <div class="flex flex-col items-center" data-aos="zoom-in">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-purple-500 mb-3 shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Media Lead" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-semibold text-center">Faisal Mahmood</p>
+                            <p class="text-sm text-purple-500">Team Lead</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Hira Noor</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content Creation Team -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center justify-center mb-8">
+                        <i class="fas fa-pen text-5xl text-green-500 mr-4"></i>
+                        <h4 class="text-2xl font-bold">Content Creation Team</h4>
+                    </div>
+                    <p class="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+                        Crafting engaging content, articles, and social media posts to tell our IEEE story.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <div class="flex flex-col items-center" data-aos="zoom-in">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-green-500 mb-3 shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Content Lead" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-semibold text-center">Nadia Kamal</p>
+                            <p class="text-sm text-green-500">Team Lead</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Umar Farooq</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Event Coordination Team -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center justify-center mb-8">
+                        <i class="fas fa-calendar text-5xl text-red-500 mr-4"></i>
+                        <h4 class="text-2xl font-bold">Event Coordination Team</h4>
+                    </div>
+                    <p class="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+                        Planning and executing exceptional events from workshops to competitions and seminars.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <div class="flex flex-col items-center" data-aos="zoom-in">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-red-500 mb-3 shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Events Lead" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-semibold text-center">Hamza Yousaf</p>
+                            <p class="text-sm text-red-500">Team Lead</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Ayesha Butt</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Decor Team -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="flex items-center justify-center mb-8">
+                        <i class="fas fa-paint-brush text-5xl text-yellow-500 mr-4"></i>
+                        <h4 class="text-2xl font-bold">Decor Team</h4>
+                    </div>
+                    <p class="text-center text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
+                        Transforming venues into inspiring spaces with creative decorations and ambiance design.
+                    </p>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                        <div class="flex flex-col items-center" data-aos="zoom-in">
+                            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-500 mb-3 shadow-lg">
+                                <img src="https://via.placeholder.com/150" alt="Decor Lead" class="w-full h-full object-cover">
+                            </div>
+                            <p class="font-semibold text-center">Laiba Rizwan</p>
+                            <p class="text-sm text-yellow-500">Team Lead</p>
+                        </div>
+                        <div class="flex flex-col items-center" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                                <img src="https://via.placeholder.com/150" alt="Member" class="w-full h-full object-cover">
+                            </div>
+                            <p class="text-sm font-medium text-center">Saad Ahmed</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- General Body Members -->
+            <div class="max-w-7xl mx-auto" data-aos="fade-up">
+                <h3 class="text-3xl font-bold text-center mb-12">General Body Members</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Asad Ullah</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Nimra Sheikh</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Talha Imran</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Anum Zahid</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Waqar Ahmed</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Farah Naz</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Rizwan Ali</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Mahnoor Khan</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Shahzad Ali</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Zara Malik</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Adnan Tariq</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-20 h-20 rounded-full overflow-hidden border-2 border-gray-300 mb-2 shadow">
+                            <img src="https://via.placeholder.com/100" alt="Member" class="w-full h-full object-cover">
+                        </div>
+                        <p class="text-xs text-center font-medium">Sidra Javed</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Events Section -->
+    <section id="events" class="py-20 bg-gray-100 dark:bg-gray-800 relative overflow-hidden">
+        <!-- Circuit Pattern Background -->
+        <div class="absolute inset-0 opacity-5 dark:opacity-10">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <pattern id="circuit" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                    <circle cx="10" cy="10" r="2" fill="currentColor"/>
+                    <circle cx="50" cy="50" r="2" fill="currentColor"/>
+                    <circle cx="90" cy="90" r="2" fill="currentColor"/>
+                    <line x1="10" y1="10" x2="50" y2="50" stroke="currentColor" stroke-width="1"/>
+                    <line x1="50" y1="50" x2="90" y2="90" stroke="currentColor" stroke-width="1"/>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#circuit)"/>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-4 relative z-10">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up">
+                Our <span class="text-ieee-blue">Events</span>
+            </h2>
+            
+            <!-- Events Grid -->
+            <div id="events-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Events will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Member Spotlight Section -->
+    <section id="spotlight" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up">
+                Member <span class="text-ieee-blue">Spotlight</span>
+            </h2>
+            
+            <!-- Spotlight Grid -->
+            <div id="spotlight-grid" class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Spotlight items will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-100 dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up">
+                What Our <span class="text-ieee-blue">Members Say</span>
+            </h2>
+            
+            <!-- Testimonials Grid -->
+            <div id="testimonials-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonials will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Professional Courses Section -->
+    <section id="courses" class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Professional <span class="text-ieee-blue">Courses</span>
+                </h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    Enhance your skills with our industry-relevant courses designed by experts
+                </p>
+            </div>
+            
+            <!-- Course Features -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" data-aos="fade-up">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-6 text-center">
+                    <i class="fas fa-chalkboard-teacher text-4xl text-blue-600 mb-3"></i>
+                    <h4 class="font-semibold mb-2">Expert Instructors</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Learn from industry professionals</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-6 text-center">
+                    <i class="fas fa-laptop-code text-4xl text-indigo-600 mb-3"></i>
+                    <h4 class="font-semibold mb-2">Hands-on Projects</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Real-world practical applications</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-6 text-center">
+                    <i class="fas fa-certificate text-4xl text-purple-600 mb-3"></i>
+                    <h4 class="font-semibold mb-2">Certificate of Completion</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Industry-recognized credentials</p>
+                </div>
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-6 text-center">
+                    <i class="fas fa-users text-4xl text-pink-600 mb-3"></i>
+                    <h4 class="font-semibold mb-2">Networking Opportunities</h4>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Connect with peers and mentors</p>
+                </div>
+            </div>
+            
+            <!-- Course Filters -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up">
+                <button class="course-filter-btn px-6 py-2 rounded-full bg-ieee-blue text-white font-medium transition-all duration-300 hover:shadow-lg" data-filter="all">
+                    All Courses
+                </button>
+                <button class="course-filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium transition-all duration-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="programming">
+                    Programming
+                </button>
+                <button class="course-filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium transition-all duration-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="hardware">
+                    Hardware
+                </button>
+                <button class="course-filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium transition-all duration-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="soft-skills">
+                    Soft Skills
+                </button>
+                <button class="course-filter-btn px-6 py-2 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 font-medium transition-all duration-300 hover:bg-gray-300 dark:hover:bg-gray-600" data-filter="certification">
+                    Certification
+                </button>
+            </div>
+            
+            <!-- Courses Grid -->
+            <div id="courses-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                
+                <!-- Course Card 1: Web Development -->
+                <div class="course-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300" data-category="programming" data-aos="fade-up">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250/4F46E5/FFFFFF?text=Web+Development" alt="Web Development" class="w-full h-48 object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full">Beginner</span>
+                        <span class="absolute top-3 right-3 px-3 py-1 bg-red-500 text-white text-xs font-semibold rounded-full ribbon">Popular</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Full Stack Web Development</h3>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>156 enrolled</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-star text-yellow-500 mr-1"></i>
+                            <span>4.8</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            Master HTML, CSS, JavaScript, and modern frameworks to build responsive web applications.
+                        </p>
+                        <div class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>8 weeks</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-2"></i>
+                                <span>24 hours</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-signal mr-2"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold text-ieee-blue">PKR 4,999</span>
+                                <span class="text-sm line-through text-gray-400 ml-2">PKR 7,999</span>
+                            </div>
+                            <button class="px-4 py-2 bg-ieee-blue hover:bg-ieee-blue-dark text-white rounded-lg transition-colors duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 2: Arduino -->
+                <div class="course-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300" data-category="hardware" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250/06B6D4/FFFFFF?text=Arduino+Workshop" alt="Arduino" class="w-full h-48 object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full">Intermediate</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Arduino & IoT Fundamentals</h3>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>98 enrolled</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-star text-yellow-500 mr-1"></i>
+                            <span>4.7</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            Learn microcontroller programming and build IoT projects with Arduino and sensors.
+                        </p>
+                        <div class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>6 weeks</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-2"></i>
+                                <span>18 hours</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-signal mr-2"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold text-ieee-blue">PKR 5,999</span>
+                                <span class="text-sm line-through text-gray-400 ml-2">PKR 9,999</span>
+                            </div>
+                            <button class="px-4 py-2 bg-ieee-blue hover:bg-ieee-blue-dark text-white rounded-lg transition-colors duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 3: Machine Learning -->
+                <div class="course-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300" data-category="programming" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250/8B5CF6/FFFFFF?text=Machine+Learning" alt="Machine Learning" class="w-full h-48 object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-red-500 text-white text-xs font-semibold rounded-full">Advanced</span>
+                        <span class="absolute top-3 right-3 px-3 py-1 bg-yellow-500 text-white text-xs font-semibold rounded-full ribbon">New</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Machine Learning Essentials</h3>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>72 enrolled</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-star text-yellow-500 mr-1"></i>
+                            <span>4.9</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            Dive into AI and ML algorithms, neural networks, and practical model building.
+                        </p>
+                        <div class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>10 weeks</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-2"></i>
+                                <span>30 hours</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-signal mr-2"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold text-ieee-blue">PKR 7,999</span>
+                                <span class="text-sm line-through text-gray-400 ml-2">PKR 12,999</span>
+                            </div>
+                            <button class="px-4 py-2 bg-ieee-blue hover:bg-ieee-blue-dark text-white rounded-lg transition-colors duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 4: Leadership -->
+                <div class="course-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300" data-category="soft-skills" data-aos="fade-up">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250/F59E0B/FFFFFF?text=Leadership+Skills" alt="Leadership" class="w-full h-48 object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-green-500 text-white text-xs font-semibold rounded-full">Beginner</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Leadership & Communication</h3>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>134 enrolled</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-star text-yellow-500 mr-1"></i>
+                            <span>4.6</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            Develop essential leadership, teamwork, and communication skills for career success.
+                        </p>
+                        <div class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>4 weeks</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-2"></i>
+                                <span>12 hours</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-signal mr-2"></i>
+                                <span>Beginner</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold text-ieee-blue">PKR 3,499</span>
+                                <span class="text-sm line-through text-gray-400 ml-2">PKR 5,999</span>
+                            </div>
+                            <button class="px-4 py-2 bg-ieee-blue hover:bg-ieee-blue-dark text-white rounded-lg transition-colors duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 5: Mobile Dev -->
+                <div class="course-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300" data-category="programming" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250/10B981/FFFFFF?text=Mobile+Development" alt="Mobile Dev" class="w-full h-48 object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-blue-500 text-white text-xs font-semibold rounded-full">Intermediate</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mobile App Development</h3>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>89 enrolled</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-star text-yellow-500 mr-1"></i>
+                            <span>4.7</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            Create cross-platform mobile applications using React Native and Flutter.
+                        </p>
+                        <div class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>8 weeks</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-2"></i>
+                                <span>24 hours</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-signal mr-2"></i>
+                                <span>Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold text-ieee-blue">PKR 6,499</span>
+                                <span class="text-sm line-through text-gray-400 ml-2">PKR 10,999</span>
+                            </div>
+                            <button class="px-4 py-2 bg-ieee-blue hover:bg-ieee-blue-dark text-white rounded-lg transition-colors duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Course Card 6: Robotics -->
+                <div class="course-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300" data-category="hardware" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative">
+                        <img src="https://via.placeholder.com/400x250/EF4444/FFFFFF?text=Robotics" alt="Robotics" class="w-full h-48 object-cover">
+                        <span class="absolute top-3 left-3 px-3 py-1 bg-red-500 text-white text-xs font-semibold rounded-full">Advanced</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Robotics & Automation</h3>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-400 mb-3">
+                            <i class="fas fa-users mr-2"></i>
+                            <span>65 enrolled</span>
+                            <span class="mx-2">•</span>
+                            <i class="fas fa-star text-yellow-500 mr-1"></i>
+                            <span>4.8</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                            Design and program autonomous robots with advanced sensors and control systems.
+                        </p>
+                        <div class="flex items-center justify-between text-sm text-gray-600 dark:text-gray-400 mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>12 weeks</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-book mr-2"></i>
+                                <span>36 hours</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-signal mr-2"></i>
+                                <span>Advanced</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-2xl font-bold text-ieee-blue">PKR 8,999</span>
+                                <span class="text-sm line-through text-gray-400 ml-2">PKR 14,999</span>
+                            </div>
+                            <button class="px-4 py-2 bg-ieee-blue hover:bg-ieee-blue-dark text-white rounded-lg transition-colors duration-300">
+                                Learn More
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!-- CTA Section -->
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 md:p-12 text-center text-white" data-aos="fade-up">
+                <h3 class="text-3xl font-bold mb-4">Ready to Start Learning?</h3>
+                <p class="text-xl mb-6 text-blue-100">Join thousands of students advancing their careers with IEEE</p>
+                <button class="px-8 py-4 bg-white text-ieee-blue rounded-lg font-semibold hover:bg-gray-100 transform hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                    View All Courses
+                </button>
+            </div>
+            
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="join" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <!-- Logo and About -->
+                <div class="col-span-1">
+                    <img src="https://brand.ieee.org/wp-content/uploads/2021/09/IEEE-Logo-Digital-RGB-WHITE.png" alt="IEEE Logo" class="h-12 mb-4">
+                    <p class="text-gray-400 text-sm">
+                        IEEE NUCES PWR Student Branch - Advancing Technology for Humanity
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-bold mb-4 text-lg">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#events" class="text-gray-400 hover:text-white transition-colors">Events</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="#spotlight" class="text-gray-400 hover:text-white transition-colors">Member Spotlight</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-white transition-colors">Testimonials</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources -->
+                <div>
+                    <h4 class="font-bold mb-4 text-lg">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://www.ieee.org" target="_blank" class="text-gray-400 hover:text-white transition-colors">IEEE Global</a></li>
+                        <li><a href="https://www.ieee.org/membership/index.html" target="_blank" class="text-gray-400 hover:text-white transition-colors">IEEE Membership</a></li>
+                        <li><a href="https://ieeexplore.ieee.org" target="_blank" class="text-gray-400 hover:text-white transition-colors">IEEE Xplore</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Student Resources</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Career Center</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="font-bold mb-4 text-lg">Contact Us</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone mt-1 mr-3 text-ieee-blue"></i>
+                            <span class="text-gray-400">+92 321 1234567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-ieee-blue"></i>
+                            <span class="text-gray-400">ieee@nu.edu.pk</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-ieee-blue"></i>
+                            <span class="text-gray-400">NUCES FAST, Peshawar Campus</span>
+                        </li>
+                    </ul>
+                    
+                    <!-- Social Media -->
+                    <div class="mt-6">
+                        <h5 class="font-semibold mb-3">Follow Us</h5>
+                        <div class="flex space-x-3">
+                            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-ieee-blue rounded-full flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-ieee-blue rounded-full flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-ieee-blue rounded-full flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-ieee-blue rounded-full flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-ieee-blue rounded-full flex items-center justify-center transition-colors duration-300">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 IEEE NUCES PWR Student Branch. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+    
+</body>
+</html>

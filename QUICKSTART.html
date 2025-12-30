@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide - IEEE NUCES PWR Website</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #00629B;
+            border-bottom: 3px solid #00629B;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #4F46E5;
+            margin-top: 30px;
+        }
+        .feature {
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #00629B;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .button {
+            display: inline-block;
+            background: #00629B;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+        }
+        .button:hover {
+            background: #004A7C;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,98,155,0.3);
+        }
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        .checklist li {
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+        .checklist li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 IEEE NUCES PWR Website - Quick Start Guide</h1>
+        
+        <div class="success">
+            <strong>✅ Success!</strong> Your website has been created and is ready to use!
+        </div>
+
+        <h2>📁 What's Been Created</h2>
+        <ul class="checklist">
+            <li><strong>index.html</strong> - Main website with all sections</li>
+            <li><strong>styles.css</strong> - Custom styles and animations</li>
+            <li><strong>script.js</strong> - Interactive features and functionality</li>
+            <li><strong>README.md</strong> - Complete documentation</li>
+        </ul>
+
+        <h2>🚀 How to View Your Website</h2>
+        
+        <div class="feature">
+            <strong>Option 1: Direct Open (Easiest)</strong>
+            <p>Simply double-click <code>index.html</code> to open it in your default browser.</p>
+        </div>
+
+        <div class="feature">
+            <strong>Option 2: Using VS Code Live Server</strong>
+            <ol>
+                <li>Install "Live Server" extension in VS Code</li>
+                <li>Right-click on <code>index.html</code></li>
+                <li>Select "Open with Live Server"</li>
+            </ol>
+        </div>
+
+        <div class="feature">
+            <strong>Option 3: Python Simple Server</strong>
+            <p>In the terminal, run:</p>
+            <code>python -m http.server 8000</code>
+            <p>Then open: <code>http://localhost:8000</code></p>
+        </div>
+
+        <h2>✨ Key Features Included</h2>
+        <ul>
+            <li>🌓 <strong>Dark Mode</strong> - Toggle in top-right corner</li>
+            <li>📱 <strong>Mobile Responsive</strong> - Works perfectly on all devices</li>
+            <li>✨ <strong>Animated Particles</strong> - Cool background effects in hero section</li>
+            <li>🔄 <strong>3D Flip Cards</strong> - Executive body cards flip on hover</li>
+            <li>🎯 <strong>Course Filtering</strong> - Filter courses by category</li>
+            <li>📊 <strong>Scroll Progress</strong> - Top bar shows reading progress</li>
+            <li>🎨 <strong>AOS Animations</strong> - Smooth scroll animations throughout</li>
+            <li>📍 <strong>Smooth Navigation</strong> - Click menu items to scroll smoothly</li>
+        </ul>
+
+        <h2>🎨 Customization Tips</h2>
+        
+        <div class="feature">
+            <strong>To Change Colors:</strong>
+            <p>Look for <code>ieee-blue</code> and <code>ieee-blue-dark</code> in the files and replace with your preferred colors.</p>
+        </div>
+
+        <div class="feature">
+            <strong>To Update Images:</strong>
+            <p>Replace placeholder URLs (via.placeholder.com) with your actual image URLs. You can use:</p>
+            <ul>
+                <li>Direct image URLs from your server</li>
+                <li>Image hosting services (Imgur, Cloudinary, etc.)</li>
+                <li>Relative paths to local images</li>
+            </ul>
+        </div>
+
+        <div class="feature">
+            <strong>To Add/Edit Events:</strong>
+            <p>Open <code>script.js</code> and modify the <code>eventsData</code> array.</p>
+        </div>
+
+        <div class="feature">
+            <strong>To Add Team Members:</strong>
+            <p>Copy and paste the team member HTML blocks in <code>index.html</code> and update the information.</p>
+        </div>
+
+        <h2>📖 Next Steps</h2>
+        <ol>
+            <li>Open <code>index.html</code> to view your website</li>
+            <li>Test dark mode toggle (moon/sun icon)</li>
+            <li>Try the mobile menu (resize browser)</li>
+            <li>Click through all navigation links</li>
+            <li>Test course filtering buttons</li>
+            <li>Hover over executive body cards</li>
+            <li>Read the <code>README.md</code> for detailed documentation</li>
+        </ol>
+
+        <h2>🔧 Need Help?</h2>
+        <p>Check these resources:</p>
+        <ul>
+            <li><strong>README.md</strong> - Comprehensive documentation</li>
+            <li><strong>Comments in code</strong> - Helpful inline explanations</li>
+            <li><strong>Browser console</strong> - Check for any errors (F12 key)</li>
+        </ul>
+
+        <div style="margin-top: 40px; text-align: center;">
+            <a href="index.html" class="button">🚀 View Your Website</a>
+            <a href="README.md" class="button" style="background: #4F46E5;">📚 Read Documentation</a>
+        </div>
+
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e9ecef; text-align: center; color: #666;">
+            <p><strong>Built with ❤️ for IEEE NUCES PWR Student Branch</strong></p>
+            <p>December 2025</p>
+        </div>
+    </div>
+</body>
+</html>
