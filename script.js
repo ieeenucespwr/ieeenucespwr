@@ -273,7 +273,8 @@ courseFilterButtons.forEach(button => {
         button.classList.add('bg-ieee-blue', 'text-white');
         button.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
         
-        // Filter courses
+        // Filter courses - COMMENTED OUT FOR FUTURE USE
+        /*
         courseCards.forEach(card => {
             const category = card.getAttribute('data-category');
             if (filter === 'all' || category === filter) {
@@ -290,6 +291,7 @@ courseFilterButtons.forEach(button => {
                 }, 300);
             }
         });
+        */
     });
 });
 
