@@ -424,17 +424,59 @@ footer a:hover i {
 @media (max-width: 768px) {
     .flip-card {
         height: auto;
+        margin-bottom: 2rem;
     }
     
     .flip-card-inner {
         position: relative;
         transform: none !important;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .flip-card-front {
+        position: relative;
+        height: 350px;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
     
     .flip-card-back {
         transform: none;
         position: relative;
         margin-top: 1rem;
+        border-radius: 1rem;
+        min-height: 280px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Show both front and back cards on mobile */
+    .flip-card-front,
+    .flip-card-back {
+        backface-visibility: visible !important;
+    }
+    
+    /* Teams visibility on mobile - show only first 2 teams initially */
+    .team-card {
+        display: none;
+    }
+    
+    .team-card:nth-child(1),
+    .team-card:nth-child(2) {
+        display: block;
+    }
+    
+    /* When expanded, show all teams */
+    #teams-grid.expanded .team-card {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    /* On desktop, always show all teams */
+    .team-card {
+        display: block !important;
     }
 }
 

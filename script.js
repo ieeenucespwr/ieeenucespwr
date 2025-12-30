@@ -333,4 +333,30 @@ window.addEventListener('scroll', () => {
     }
 });
 
+// View More Teams functionality (Mobile only)
+const viewMoreTeamsBtn = document.getElementById('view-more-teams-btn');
+const teamsGrid = document.getElementById('teams-grid');
+const viewMoreText = document.getElementById('view-more-text');
+const viewMoreIcon = document.getElementById('view-more-icon');
+
+if (viewMoreTeamsBtn) {
+    viewMoreTeamsBtn.addEventListener('click', () => {
+        teamsGrid.classList.toggle('expanded');
+        
+        // Update button text and icon
+        if (teamsGrid.classList.contains('expanded')) {
+            viewMoreText.textContent = 'View Less Teams';
+            viewMoreIcon.classList.remove('fa-chevron-down');
+            viewMoreIcon.classList.add('fa-chevron-up');
+        } else {
+            viewMoreText.textContent = 'View More Teams';
+            viewMoreIcon.classList.remove('fa-chevron-up');
+            viewMoreIcon.classList.add('fa-chevron-down');
+            
+            // Scroll to teams section when collapsing
+            document.getElementById('teams-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+}
+
 console.log('IEEE NUCES PWR Website Loaded Successfully! 🚀');

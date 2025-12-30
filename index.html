@@ -294,10 +294,10 @@
                 <h3 class="text-3xl font-bold text-center mb-16">Our Teams</h3>
                 
                 <!-- Teams Grid - 2 Columns -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div id="teams-grid" class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 
                 <!-- Graphics Team -->
-                <div class="mb-16" data-aos="fade-up">
+                <div class="team-card mb-16" data-aos="fade-up">
                     <div class="flex items-center justify-center mb-8">
                         <i class="fas fa-palette text-5xl text-pink-500 mr-4"></i>
                         <h4 class="text-2xl font-bold">Graphics Team</h4>
@@ -328,7 +328,7 @@
                 </div>
                 
                 <!-- Web Development Team -->
-                <div class="mb-16" data-aos="fade-up">
+                <div class="team-card mb-16" data-aos="fade-up">
                     <div class="flex items-center justify-center mb-8">
                         <i class="fas fa-code text-5xl text-blue-500 mr-4"></i>
                         <h4 class="text-2xl font-bold">Web Development Team</h4>
@@ -359,7 +359,7 @@
                 </div>
                 
                 <!-- Marketing Team -->
-                <div class="mb-16" data-aos="fade-up">
+                <div class="team-card mb-16" data-aos="fade-up">
                     <div class="flex items-center justify-center mb-8">
                         <i class="fas fa-bullhorn text-5xl text-orange-500 mr-4"></i>
                         <h4 class="text-2xl font-bold">Marketing Team</h4>
@@ -402,7 +402,7 @@
                 </div>
                 
                 <!-- Operations Team -->
-                <div class="mb-16" data-aos="fade-up">
+                <div class="team-card mb-16" data-aos="fade-up">
                     <div class="flex items-center justify-center mb-8">
                         <i class="fas fa-cogs text-5xl text-gray-600 mr-4"></i>
                         <h4 class="text-2xl font-bold">Operations Team</h4>
@@ -444,7 +444,7 @@
                 </div>
                 
                 <!-- Media Team -->
-                <div class="mb-16" data-aos="fade-up">
+                <div class="team-card mb-16" data-aos="fade-up">
                     <div class="flex items-center justify-center mb-8">
                         <i class="fas fa-camera text-5xl text-purple-500 mr-4"></i>
                         <h4 class="text-2xl font-bold">Media Team</h4>
@@ -492,7 +492,7 @@
                 </div>
                 
                 <!-- Content Creation Team -->
-                <div class="mb-16" data-aos="fade-up">
+                <div class="team-card mb-16" data-aos="fade-up">
                     <div class="flex items-center justify-center mb-8">
                         <i class="fas fa-pen text-5xl text-green-500 mr-4"></i>
                         <h4 class="text-2xl font-bold">Content Creation Team</h4>
@@ -522,7 +522,7 @@
                 </div>
                 
                 <!-- Event Coordination Team -->
-                <div class="mb-16" data-aos="fade-up">
+                <div class="team-card mb-16" data-aos="fade-up">
                     <div class="flex items-center justify-center mb-8">
                         <i class="fas fa-calendar text-5xl text-red-500 mr-4"></i>
                         <h4 class="text-2xl font-bold">Event Coordination Team</h4>
@@ -552,7 +552,7 @@
                 </div>
                 
                 <!-- Decor Team -->
-                <div class="mb-16" data-aos="fade-up">
+                <div class="team-card mb-16" data-aos="fade-up">
                     <div class="flex items-center justify-center mb-8">
                         <i class="fas fa-paint-brush text-5xl text-yellow-500 mr-4"></i>
                         <h4 class="text-2xl font-bold">Decor Team</h4>
@@ -582,6 +582,14 @@
                 </div>
                 
                 </div><!-- End Teams Grid -->
+                
+                <!-- View More Teams Button (Mobile Only) -->
+                <div class="text-center mt-8 lg:hidden">
+                    <button id="view-more-teams-btn" class="bg-ieee-blue hover:bg-ieee-blue-dark text-white font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105">
+                        <span id="view-more-text">View More Teams</span>
+                        <i id="view-more-icon" class="fas fa-chevron-down ml-2"></i>
+                    </button>
+                </div>
                 
             </div>
             
@@ -1242,10 +1250,6 @@
                 <div>
                     <h4 class="font-bold mb-4 text-lg">Contact Us</h4>
                     <ul class="space-y-2">
-                        <li class="flex items-start">
-                            <i class="fas fa-phone mt-1 mr-3 text-ieee-blue"></i>
-                            <span class="text-gray-400">+92 321 1234567</span>
-                        </li>
                         <li class="flex items-start">
                             <i class="fas fa-envelope mt-1 mr-3 text-ieee-blue"></i>
                             <span class="text-gray-400">ieee@nu.edu.pk</span>
