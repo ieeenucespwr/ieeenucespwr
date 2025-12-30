@@ -154,68 +154,48 @@ particlesJS('particles-js', {
     retina_detect: true
 });
 
-// Events Data
-const eventsData = [
-    {
-        title: "Tech Talk: AI & Machine Learning",
-        date: "January 15, 2026",
-        description: "Join us for an insightful session on the latest trends in AI and ML with industry experts.",
-        image: "assets/placeholder.jpg"
-    },
-    {
-        title: "Arduino Workshop",
-        date: "January 22, 2026",
-        description: "Hands-on workshop where you'll build IoT projects using Arduino and various sensors.",
-        image: "assets/placeholder.jpg"
-    },
-    {
-        title: "Coding Competition",
-        date: "February 5, 2026",
-        description: "Test your programming skills in our annual coding competition with exciting prizes.",
-        image: "assets/placeholder.jpg"
-    },
-    {
-        title: "Web Development Bootcamp",
-        date: "February 12, 2026",
-        description: "Intensive 3-day bootcamp covering modern web development technologies and frameworks.",
-        image: "assets/placeholder.jpg"
-    },
-    {
-        title: "IEEE Day Celebration",
-        date: "October 1, 2026",
-        description: "Celebrate IEEE Day with networking, presentations, and fun activities.",
-        image: "assets/placeholder.jpg"
-    },
-    {
-        title: "Robotics Showcase",
-        date: "March 20, 2026",
-        description: "Exhibition of innovative robotics projects created by our talented members.",
-        image: "assets/placeholder.jpg"
-    }
-];
+// Events "See More" Functionality
+const seeMoreBtn = document.getElementById('see-more-events-btn');
+const extraEventCards = document.querySelectorAll('.event-card-extra');
+const event2023Section = document.querySelector('.event-section-2023');
+let eventsExpanded = false;
 
-// Populate Events
-const eventsGrid = document.getElementById('events-grid');
-eventsData.forEach((event, index) => {
-    const eventCard = document.createElement('div');
-    eventCard.className = 'bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-2 transition-all duration-300';
-    eventCard.setAttribute('data-aos', 'fade-up');
-    eventCard.setAttribute('data-aos-delay', index * 100);
-    
-    eventCard.innerHTML = `
-        <img src="${event.image}" alt="${event.title}" class="w-full h-48 object-cover">
-        <div class="p-6">
-            <div class="text-ieee-blue font-semibold text-sm mb-2">${event.date}</div>
-            <h3 class="text-xl font-bold mb-3">${event.title}</h3>
-            <p class="text-gray-600 dark:text-gray-400 mb-4">${event.description}</p>
-            <button class="text-ieee-blue hover:text-ieee-blue-dark font-semibold transition-colors">
-                Learn More <i class="fas fa-arrow-right ml-2"></i>
-            </button>
-        </div>
-    `;
-    
-    eventsGrid.appendChild(eventCard);
-});
+if (seeMoreBtn) {
+    seeMoreBtn.addEventListener('click', () => {
+        eventsExpanded = !eventsExpanded;
+        
+        if (eventsExpanded) {
+            // Show hidden events
+            extraEventCards.forEach(card => {
+                card.classList.remove('hidden');
+            });
+            if (event2023Section) {
+                event2023Section.classList.remove('hidden');
+            }
+            
+            // Update button text and icon
+            seeMoreBtn.querySelector('span').textContent = 'Show Less';
+            seeMoreBtn.querySelector('i').classList.add('rotate-180');
+        } else {
+            // Hide extra events
+            extraEventCards.forEach(card => {
+                card.classList.add('hidden');
+            });
+            if (event2023Section) {
+                event2023Section.classList.add('hidden');
+            }
+            
+            // Update button text and icon
+            seeMoreBtn.querySelector('span').textContent = 'See More Events';
+            seeMoreBtn.querySelector('i').classList.remove('rotate-180');
+            
+            // Scroll back to events section
+            document.getElementById('events').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+}
+
+// Events are now hardcoded in HTML with actual event data
 
 // Member Spotlight Data
 const spotlightData = [
