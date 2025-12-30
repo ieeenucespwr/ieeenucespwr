@@ -66,9 +66,11 @@
     opacity: 0.7;
 }
 
-/* Smooth scroll behavior */
-html {
+/* Smooth scroll behavior and prevent horizontal overflow */
+html, body {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 /* Custom scrollbar for webkit browsers */
