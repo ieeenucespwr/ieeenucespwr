@@ -1,0 +1,17 @@
+{
+  "name": "ieee-website-structured",
+  "version": "1.0.0",
+  "description": "A modern, professional, and fully responsive website for the IEEE NUCES PWR Student Branch. Built with cutting-edge web technologies and featuring stunning animations, dark mode support, and an intuitive user experience.",
+  "main": "script.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./input.css -o ./styles.css --minify",
+    "watch:css": "tailwindcss -i ./input.css -o ./styles.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
