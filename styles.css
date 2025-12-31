@@ -422,6 +422,7 @@ footer a:hover i {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+    /* Mobile-friendly card design - show only image with overlay */
     .flip-card {
         height: auto;
         margin-bottom: 2rem;
@@ -430,31 +431,64 @@ footer a:hover i {
     .flip-card-inner {
         position: relative;
         transform: none !important;
-        display: flex;
-        flex-direction: column;
+        display: block;
     }
     
+    /* Show front as image section */
     .flip-card-front {
         position: relative;
-        height: 350px;
+        height: 400px;
         border-radius: 1rem;
         overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
     
+    /* Hide the back card completely on mobile */
     .flip-card-back {
-        transform: none;
-        position: relative;
-        margin-top: 1rem;
-        border-radius: 1rem;
-        min-height: 280px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        display: none !important;
     }
     
-    /* Show both front and back cards on mobile */
-    .flip-card-front,
-    .flip-card-back {
+    /* Show only front card */
+    .flip-card-front {
         backface-visibility: visible !important;
+    }
+    
+    /* Enhance front card overlay for better readability */
+    .flip-card-front .absolute.bottom-0 {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5), transparent);
+        padding: 1.5rem;
+    }
+    
+    /* Add social icons to front card on mobile */
+    .flip-card-front .absolute.bottom-0 {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 140px;
+    }
+    
+    .flip-card-front .absolute.bottom-0 > div:first-child {
+        margin-bottom: auto;
+    }
+    
+    /* Social icons styling for mobile front card */
+    .flip-card-front .flex.space-x-4 {
+        display: flex !important;
+        justify-content: flex-start;
+        margin-top: 1rem;
+    }
+    
+    .flip-card-front .flex.space-x-4 a {
+        background: rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
+        width: 40px !important;
+        height: 40px !important;
+    }
+    
+    .flip-card-front .flex.space-x-4 a:hover {
+        background: rgba(255, 255, 255, 0.3) !important;
+        transform: scale(1.1);
     }
     
     /* Teams visibility on mobile - show only first 2 teams initially */
