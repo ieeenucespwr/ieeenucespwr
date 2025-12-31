@@ -76,48 +76,49 @@ window.addEventListener('scroll', () => {
 });
 
 // Particles.js Configuration
-particlesJS('particles-js', {
-    particles: {
-        number: {
-            value: 80,
-            density: {
+if (typeof particlesJS !== 'undefined') {
+    particlesJS('particles-js', {
+        particles: {
+            number: {
+                value: 80,
+                density: {
+                    enable: true,
+                    value_area: 800
+                }
+            },
+            color: {
+                value: '#ffffff'
+            },
+            shape: {
+                type: 'circle',
+                stroke: {
+                    width: 0,
+                    color: '#000000'
+                }
+            },
+            opacity: {
+                value: 0.5,
+                random: false,
+                anim: {
+                    enable: false
+                }
+            },
+            size: {
+                value: 3,
+                random: true,
+                anim: {
+                    enable: false
+                }
+            },
+            line_linked: {
                 enable: true,
-                value_area: 800
-            }
-        },
-        color: {
-            value: '#ffffff'
-        },
-        shape: {
-            type: 'circle',
-            stroke: {
-                width: 0,
-                color: '#000000'
-            }
-        },
-        opacity: {
-            value: 0.5,
-            random: false,
-            anim: {
-                enable: false
-            }
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: {
-                enable: false
-            }
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#ffffff',
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
+                distance: 150,
+                color: '#ffffff',
+                opacity: 0.4,
+                width: 1
+            },
+            move: {
+                enable: true,
             speed: 2,
             direction: 'none',
             random: false,
@@ -152,7 +153,8 @@ particlesJS('particles-js', {
         }
     },
     retina_detect: true
-});
+    });
+}
 
 // Events "See More" Functionality
 const seeMoreBtn = document.getElementById('see-more-events-btn');
@@ -357,6 +359,31 @@ if (viewMoreTeamsBtn) {
             document.getElementById('teams-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
+}
+
+// Performance Optimizations
+
+// 1. Defer heavy operations until page is fully loaded
+window.addEventListener('load', function() {
+    // Re-initialize AOS for smoother animations
+    if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+    }
+});
+
+// 2. Monitor and log performance metrics
+if ('performance' in window && 'PerformanceObserver' in window) {
+    // Log Largest Contentful Paint
+    try {
+        const lcpObserver = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime);
+        });
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+    } catch (e) {
+        // Observer not supported
+    }
 }
 
 console.log('IEEE NUCES PWR Website Loaded Successfully! 🚀');
