@@ -4,13 +4,42 @@ Modern, responsive website for IEEE NUCES PWR Student Branch with dark mode supp
 
 ## 🚀 Quick Start
 
-```bash
-# Open in browser
-open index.html
+### Prerequisites
+- Node.js (version 14 or higher) - [Download here](https://nodejs.org/)
+- npm (comes with Node.js)
 
-# Or run local server
+### Installation
+1. Clone or download the repository.
+2. Navigate to the project directory.
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Building the CSS
+This website uses Tailwind CSS, which leverages PostCSS for CSS processing. To build the styles:
+
+```bash
+npm run build:css
+```
+
+This compiles `input.css` into `styles.css` with minification.
+
+For development, use the watch mode to automatically rebuild on changes:
+```bash
+npm run watch:css
+```
+
+### Running the Website
+After building the CSS, serve the website locally:
+
+```bash
 python -m http.server 5500
 ```
+
+Then open http://localhost:5500 in your browser.
+
+Alternatively, use any static server or open `index.html` directly in the browser.
 
 ## ⚡ Performance Optimization
 
