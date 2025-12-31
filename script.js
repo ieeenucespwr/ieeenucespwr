@@ -75,84 +75,124 @@ window.addEventListener('scroll', () => {
     scrollProgress.style.width = scrolled + '%';
 });
 
-// Particles.js Configuration
-particlesJS('particles-js', {
-    particles: {
-        number: {
-            value: 80,
-            density: {
-                enable: true,
-                value_area: 800
-            }
-        },
-        color: {
-            value: '#ffffff'
-        },
-        shape: {
-            type: 'circle',
-            stroke: {
-                width: 0,
-                color: '#000000'
-            }
-        },
-        opacity: {
-            value: 0.5,
-            random: false,
-            anim: {
-                enable: false
-            }
-        },
-        size: {
-            value: 3,
-            random: true,
-            anim: {
-                enable: false
-            }
-        },
-        line_linked: {
-            enable: true,
-            distance: 150,
-            color: '#ffffff',
-            opacity: 0.4,
-            width: 1
-        },
-        move: {
-            enable: true,
-            speed: 2,
-            direction: 'none',
-            random: false,
-            straight: false,
-            out_mode: 'out',
-            bounce: false
-        }
-    },
-    interactivity: {
-        detect_on: 'canvas',
-        events: {
-            onhover: {
-                enable: true,
-                mode: 'grab'
-            },
-            onclick: {
-                enable: true,
-                mode: 'push'
-            },
-            resize: true
-        },
-        modes: {
-            grab: {
-                distance: 140,
+// Particles.js Configuration - Wait for library to load
+function initParticles() {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.6,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 4,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.3,
+                        sync: false
+                    }
+                },
                 line_linked: {
-                    opacity: 1
+                    enable: true,
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.5,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 3,
+                    direction: 'none',
+                    random: true,
+                    straight: false,
+                    out_mode: 'bounce',
+                    bounce: true,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
                 }
             },
-            push: {
-                particles_nb: 4
-            }
-        }
-    },
-    retina_detect: true
-});
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 200,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 0.8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 100,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+        console.log('Particles initialized successfully');
+    } else {
+        console.log('Waiting for particles.js to load...');
+        setTimeout(initParticles, 100);
+    }
+}
+
+// Initialize particles when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initParticles);
+} else {
+    initParticles();
+}
 
 // Events "See More" Functionality
 const seeMoreBtn = document.getElementById('see-more-events-btn');
@@ -332,5 +372,56 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('shadow-xl');
     }
 });
+
+// View More Teams functionality (Mobile only)
+const viewMoreTeamsBtn = document.getElementById('view-more-teams-btn');
+const teamsGrid = document.getElementById('teams-grid');
+const viewMoreText = document.getElementById('view-more-text');
+const viewMoreIcon = document.getElementById('view-more-icon');
+
+if (viewMoreTeamsBtn) {
+    viewMoreTeamsBtn.addEventListener('click', () => {
+        teamsGrid.classList.toggle('expanded');
+        
+        // Update button text and icon
+        if (teamsGrid.classList.contains('expanded')) {
+            viewMoreText.textContent = 'View Less Teams';
+            viewMoreIcon.classList.remove('fa-chevron-down');
+            viewMoreIcon.classList.add('fa-chevron-up');
+        } else {
+            viewMoreText.textContent = 'View More Teams';
+            viewMoreIcon.classList.remove('fa-chevron-up');
+            viewMoreIcon.classList.add('fa-chevron-down');
+            
+            // Scroll to teams section when collapsing
+            document.getElementById('teams-grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+}
+
+// Performance Optimizations
+
+// 1. Defer heavy operations until page is fully loaded
+window.addEventListener('load', function() {
+    // Re-initialize AOS for smoother animations
+    if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+    }
+});
+
+// 2. Monitor and log performance metrics
+if ('performance' in window && 'PerformanceObserver' in window) {
+    // Log Largest Contentful Paint
+    try {
+        const lcpObserver = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.renderTime || lastEntry.loadTime);
+        });
+        lcpObserver.observe({ entryTypes: ['largest-contentful-paint'] });
+    } catch (e) {
+        // Observer not supported
+    }
+}
 
 console.log('IEEE NUCES PWR Website Loaded Successfully! 🚀');

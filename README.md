@@ -1,263 +1,179 @@
 # IEEE NUCES PWR Student Branch Website
 
-A modern, professional, and fully responsive website for the IEEE NUCES PWR Student Branch. Built with cutting-edge web technologies and featuring stunning animations, dark mode support, and an intuitive user experience.
+Modern, responsive website for IEEE NUCES PWR Student Branch with dark mode support and smooth animations.
 
-## 🌟 Features
+## 🚀 Quick Start
 
-### Design & UX
-- **Modern & Clean Design**: Contemporary, minimalist aesthetic using Tailwind CSS
-- **Dark Mode Support**: Toggle between light and dark themes with persistent preference
-- **Fully Responsive**: Perfect display across all devices (mobile, tablet, desktop)
-- **Smooth Animations**: Scroll-triggered animations using AOS library
-- **Interactive Particles**: Animated particle.js background in hero section
-- **Glassmorphism Effects**: Modern transparent blur effects in navigation
+### Prerequisites
+- Node.js (version 14 or higher) - [Download here](https://nodejs.org/)
+- npm (comes with Node.js)
 
-### Sections
+### Installation
+1. Clone or download the repository.
+2. Navigate to the project directory.
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-1. **Navigation Bar**
-   - Fixed position with blur effect
-   - Scroll progress indicator
-   - Dark mode toggle
-   - Mobile-responsive hamburger menu
-   - Smooth scroll navigation
+### Building the CSS
+This website uses Tailwind CSS, which leverages PostCSS for CSS processing. To build the styles:
 
-2. **Hero Section**
-   - Full-width animated particle background
-   - Compelling headline and tagline
-   - Call-to-action buttons
-   - Scroll indicator
-
-3. **About Section**
-   - Faculty Head profile with gradient card
-   - Executive Body 2025-26 with 3D flip cards
-   - Eight specialized team categories
-   - General body members grid
-
-4. **Events Section**
-   - Dynamic event cards
-   - Circuit pattern background
-   - Responsive grid layout
-
-5. **Member Spotlight**
-   - Highlighting member achievements
-   - 2-column responsive layout
-
-6. **Testimonials**
-   - Quote-style cards
-   - Member feedback and experiences
-
-7. **Professional Courses**
-   - Feature badges (Expert Instructors, Hands-on Projects, etc.)
-   - Course filtering system (All, Programming, Hardware, Soft Skills, Certification)
-   - 6 featured courses with detailed information
-   - Pricing with discounts
-   - Difficulty levels and ratings
-
-8. **Footer**
-   - Quick links navigation
-   - Resources and external links
-   - Contact information
-   - Social media icons
-   - Copyright notice
-
-### Interactive Features
-- **3D Flip Cards**: Executive body cards flip on hover (desktop) or click (mobile)
-- **Course Filtering**: Filter courses by category with smooth transitions
-- **Smooth Scrolling**: Animated scroll to sections
-- **Mobile Menu**: Slide-in menu with overlay
-- **Hover Effects**: All buttons and cards have engaging hover states
-- **Scroll Progress**: Visual indicator of page scroll position
-
-## 🚀 Technologies Used
-
-- **HTML5**: Semantic markup
-- **CSS3**: Custom animations and transitions
-- **Tailwind CSS**: Utility-first CSS framework
-- **JavaScript (ES6+)**: Modern JavaScript features
-- **Particles.js**: Particle animation library
-- **AOS**: Animate On Scroll library
-- **Font Awesome**: Icon library
-- **Google Fonts**: Poppins font family
-
-## 📁 File Structure
-
-```
-ieee-website-structured/
-├── index.html          # Main HTML file
-├── styles.css          # Custom CSS styles
-├── script.js           # JavaScript functionality
-├── website-needed.md   # Original requirements document
-└── README.md          # This file
+```bash
+npm run build:css
 ```
 
-## 🎨 Color Scheme
+This compiles `input.css` into `styles.css` with minification.
 
-- **Primary**: IEEE Blue (#00629B)
-- **Primary Dark**: #004A7C
-- **Secondary**: Indigo, Purple gradients
-- **Accent**: Various colors for team categories
-- **Neutral**: Grays for text and backgrounds
-- **Success**: Green tones
-- **Warning**: Orange/Yellow tones
+For development, use the watch mode to automatically rebuild on changes:
+```bash
+npm run watch:css
+```
 
-## ⚙️ Setup & Installation
+### Running the Website
+After building the CSS, serve the website locally:
 
-1. **Clone or download** this repository to your local machine
+```bash
+python -m http.server 5500
+```
 
-2. **Open the website**:
-   - Simply open `index.html` in a modern web browser
-   - Or use a local development server:
-     ```bash
-     # Using Python
-     python -m http.server 8000
-     
-     # Using Node.js (http-server)
-     npx http-server
-     ```
+Then open http://localhost:5500 in your browser.
 
-3. **View the website**:
-   - Navigate to `http://localhost:8000` (or the appropriate URL)
+Alternatively, use any static server or open `index.html` directly in the browser.
 
-## 🎯 Usage
+## ⚡ Performance Optimization
 
-### Customizing Content
+### Optimize Images (IMPORTANT)
+The website has lazy loading enabled, but images need compression:
 
-#### Update Team Members
-Edit the HTML in `index.html` to update team member information:
+```bash
+./optimize-images.sh
+```
+
+This reduces image sizes by 70-75% (from ~15MB to ~3-5MB).
+
+**What it does:**
+- Resizes team photos: Lead (320x320px), Members (192x192px)
+- Resizes executive photos (768x768px)
+- Resizes event images (max 1200px width)
+- Compresses all images: Team <80KB, Events <200KB
+- Creates backup in `assets_backup/`
+
+**Expected results:**
+- 70-75% size reduction
+- Faster page load (<1 second)
+- Better PageSpeed score (90+)
+
+### Manual Optimization (Advanced)
+
+#### Convert to WebP (25-35% better compression)
+```bash
+# Install tools
+sudo apt-get install webp
+
+# Convert images
+find assets -name "*.jpg" -exec bash -c 'cwebp -q 80 "$0" -o "${0%.jpg}.webp"' {} \;
+```
+
+#### Resize Specific Images
+```bash
+# Team leads: 320x320
+convert image.jpg -resize 320x320 -quality 85 image.jpg
+
+# Team members: 192x192  
+convert image.jpg -resize 192x192 -quality 85 image.jpg
+
+# Events: max 1200px width
+convert image.jpg -resize 1200x1200\> -quality 80 image.jpg
+```
+
+#### Compress Existing Files
+```bash
+# Install tools
+sudo apt-get install jpegoptim
+
+# Compress
+jpegoptim --size=100k --strip-all image.jpg
+```
+
+#### Target Sizes
+
+| Image Type | Target Size | Dimensions |
+|------------|-------------|------------|
+| Team Lead | <80KB | 320x320px |
+| Team Member | <50KB | 192x192px |
+| Executive | <150KB | 768x768px |
+| Event Photo | <200KB | 1200px max |
+| Logo | <50KB | As needed |
+
+#### Restore Backup
+If needed:
+```bash
+rm -rf assets && mv assets_backup/assets assets
+```
+
+### Verify Performance
+Test at: https://pagespeed.web.dev/
+- Target: 90+ (Mobile), 95+ (Desktop)
+
+Check image loading:
+1. Open DevTools → Network tab
+2. Filter by "Img"
+3. Scroll page - images load progressively ✓
+
+### Performance Features
+- ✅ Lazy loading on all images
+- ✅ Deferred non-critical CSS/JS
+- ✅ Progressive image loading
+- ✅ Optimized external resources
+
+## 📁 Key Files
+
+```
+index.html              # Main page
+styles.css              # Styles
+script.js               # Functionality
+optimize-images.sh      # Image compression script
+```
+
+## 🎨 Sections
+
+- Hero with particles background
+- About (Faculty, Executives, Teams)
+- Events (2023-2024)
+- Member Spotlight
+- Professional Courses
+- Footer with links
+
+## 🛠️ Tech Stack
+
+- HTML5, CSS3, JavaScript
+- Tailwind CSS
+- Particles.js, AOS animations
+- Font Awesome icons
+
+## 📝 Customization
+
+### Add Team Members
+Edit `index.html`:
 ```html
-<div class="flex flex-col items-center">
-    <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-pink-500 mb-3 shadow-lg">
-        <img src="YOUR_IMAGE_URL" alt="Member Name">
-    </div>
-    <p class="font-semibold text-center">Member Name</p>
-    <p class="text-sm text-pink-500">Role</p>
-</div>
+<img src="assets/team_photos/[team]/member.jpg" alt="Name" loading="lazy">
+<p>Member Name</p>
 ```
 
-#### Add Events
-Modify the `eventsData` array in `script.js`:
-```javascript
-const eventsData = [
-    {
-        title: "Your Event Title",
-        date: "Event Date",
-        description: "Event description here",
-        image: "event-image-url"
-    },
-    // Add more events...
-];
-```
-
-#### Add Courses
-Add new course cards in the `#courses-grid` section of `index.html`
-
-#### Change Theme Colors
-Update the Tailwind configuration in `index.html` or customize colors in `styles.css`
+### Add Events
+Update event cards in `index.html` events section.
 
 ### Dark Mode
-- Click the moon/sun icon in the navigation bar
-- Preference is saved to localStorage
+Auto-saved toggle in navbar.
 
-### Mobile Navigation
-- Click the hamburger menu icon
-- Menu slides in from the right
-- Click outside or the X button to close
+## 📊 Performance Targets
 
-## 🌐 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-- Opera (latest)
-
-## 📱 Responsive Breakpoints
-
-- **Mobile**: < 640px
-- **Tablet**: 640px - 1024px
-- **Desktop**: > 1024px
-
-## ♿ Accessibility Features
-
-- Semantic HTML5 elements
-- ARIA labels where appropriate
-- Keyboard navigation support
-- Focus visible states
-- Reduced motion support for users with motion sensitivity
-- High contrast mode support
-- Proper heading hierarchy
-
-## 🎓 IEEE Student Branch Information
-
-**Branch**: IEEE NUCES PWR Student Branch
-**Institution**: NUCES FAST, Peshawar Campus
-**Focus**: Technology, Innovation, and Professional Development
-
-### Contact
-- **Email**: ieee@nu.edu.pk
-- **Phone**: +92 321 1234567
-
-### Social Media
-- Facebook
-- Twitter
-- Instagram
-- LinkedIn
-- YouTube
-
-## 📝 License
-
-This project is created for the IEEE NUCES PWR Student Branch. All rights reserved.
-
-## 🤝 Contributing
-
-This website is maintained by the IEEE NUCES PWR Web Development Team. For contributions or issues:
-
-1. Contact the Web Development Team Lead
-2. Submit suggestions via email
-3. Report bugs to the technical team
-
-## 🙏 Acknowledgments
-
-- IEEE Global Organization
-- NUCES FAST University
-- All IEEE NUCES PWR Student Branch members
-- Faculty Advisor: Dr. Suleman Mir
-- Executive Body 2025-26
-- Web Development Team
-
-## 📊 Performance
-
-The website is optimized for:
-- Fast loading times
-- Minimal HTTP requests
-- Efficient animations
-- Optimized images
-- Clean, maintainable code
-
-## 🔧 Maintenance
-
-### Regular Updates
-- Update event information
-- Add new member achievements
-- Update course offerings
-- Refresh testimonials
-- Update team member information
-
-### Technical Maintenance
-- Keep CDN links updated
-- Test on new browser versions
-- Optimize images
-- Monitor performance
-- Update dependencies
-
-## 📞 Support
-
-For technical support or questions:
-- Contact: Web Development Team
-- Email: ieee@nu.edu.pk
+After running `optimize-images.sh`:
+- Load Time: <1s
+- PageSpeed Score: 90+
+- LCP: <2.5s
 
 ---
 
-**Built with ❤️ by the IEEE NUCES PWR Web Development Team**
-
-*Last Updated: December 2025*
+Built by IEEE NUCES PWR Web Development Team | Last Updated: December 2025
