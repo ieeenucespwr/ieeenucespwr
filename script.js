@@ -144,7 +144,7 @@ function initParticles() {
                 events: {
                     onhover: {
                         enable: true,
-                        mode: 'repulse'
+                        mode: 'grab'
                     },
                     onclick: {
                         enable: true,
@@ -154,7 +154,7 @@ function initParticles() {
                 },
                 modes: {
                     grab: {
-                        distance: 140,
+                        distance: 200,
                         line_linked: {
                             opacity: 1
                         }

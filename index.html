@@ -108,15 +108,15 @@
     
     <!-- Hero Section -->
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Particles Background -->
-        <div id="particles-js" class="absolute inset-0 z-0"></div>
+        <!-- Enhanced Gradient Overlay (behind particles) -->
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-blue-600/25 to-cyan-600/30 z-0"></div>
+        <div class="absolute inset-0 hero-mesh-gradient z-0"></div>
         
-        <!-- Enhanced Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-blue-600/25 to-cyan-600/30"></div>
-        <div class="absolute inset-0 hero-mesh-gradient"></div>
+        <!-- Particles Background (in front of gradients, behind content) -->
+        <div id="particles-js" class="absolute inset-0 z-10"></div>
         
         <!-- Hero Content -->
-        <div class="relative z-10 text-center px-4" data-aos="fade-up">
+        <div class="relative z-20 text-center px-4" data-aos="fade-up">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white drop-shadow-2xl leading-tight hero-title">
                 IEEE NUCES PWR
                 <span class="block text-2xl md:text-3xl lg:text-4xl mt-4 hero-subtitle">Student Branch</span>
