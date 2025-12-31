@@ -47,8 +47,8 @@
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     </noscript>
     
-    <!-- Defer Particles.js -->
-    <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Load Particles.js (not deferred so it's available immediately) -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 </head>
 <body class="font-poppins bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
     
@@ -109,7 +109,7 @@
     <!-- Hero Section -->
     <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
         <!-- Particles Background -->
-        <div id="particles-js" class="absolute inset-0"></div>
+        <div id="particles-js" class="absolute inset-0 z-0"></div>
         
         <!-- Enhanced Gradient Overlay -->
         <div class="absolute inset-0 bg-gradient-to-br from-purple-600/30 via-blue-600/25 to-cyan-600/30"></div>
