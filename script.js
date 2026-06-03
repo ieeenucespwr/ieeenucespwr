@@ -164,6 +164,73 @@ function setupNavigation() {
   );
 }
 
+function setupMotion() {
+  document.body.classList.add("motion-ready");
+
+  const progress = document.createElement("div");
+  progress.className = "scroll-progress";
+  progress.setAttribute("aria-hidden", "true");
+  document.body.prepend(progress);
+
+  const updateProgress = () => {
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progressValue = maxScroll > 0 ? (window.scrollY / maxScroll) * 100 : 0;
+    document.documentElement.style.setProperty("--scroll-progress", progressValue + "%");
+  };
+
+  updateProgress();
+  window.addEventListener("scroll", updateProgress, { passive: true });
+  window.addEventListener("resize", updateProgress);
+
+  const revealTargets = allBySelector([
+    ".mission-grid",
+    ".section-heading",
+    ".faculty-panel",
+    ".leader-card",
+    ".operating-steps article",
+    ".team-card",
+    ".event-feature",
+    ".event-card",
+    ".course-card",
+    ".opensource-grid",
+    ".contribution-board article",
+    ".simple-card",
+    ".join-grid"
+  ].join(","));
+
+  revealTargets.forEach((target, index) => {
+    target.classList.add("reveal-item");
+    target.dataset.revealIndex = String(index % 6);
+  });
+
+  if (!("IntersectionObserver" in window)) {
+    revealTargets.forEach((target) => target.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "0px 0px -12% 0px", threshold: 0.08 }
+  );
+
+  revealTargets.forEach((target) => observer.observe(target));
+}
+
+function setupPressFeedback() {
+  allBySelector(".button, .filter-button").forEach((control) => {
+    control.addEventListener("pointerdown", () => control.classList.add("is-pressed"));
+    ["pointerup", "pointerleave", "blur"].forEach((eventName) => {
+      control.addEventListener(eventName, () => control.classList.remove("is-pressed"));
+    });
+  });
+}
+
 function setupEventFilters() {
   const buttons = allBySelector("[data-event-filter]");
   const cards = allBySelector("[data-event-year]");
@@ -171,11 +238,17 @@ function setupEventFilters() {
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const filter = button.dataset.eventFilter;
+      const grid = bySelector("#events-grid");
 
+      grid?.classList.add("is-filtering");
       buttons.forEach((item) => item.classList.toggle("is-active", item === button));
-      cards.forEach((card) => {
-        card.hidden = filter !== "all" && card.dataset.eventYear !== filter;
-      });
+
+      window.setTimeout(() => {
+        cards.forEach((card) => {
+          card.hidden = filter !== "all" && card.dataset.eventYear !== filter;
+        });
+        grid?.classList.remove("is-filtering");
+      }, 140);
     });
   });
 }
@@ -195,9 +268,12 @@ function setupContactForm() {
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
     status.classList.remove("is-error");
+    form.classList.remove("is-invalid");
     if (!name || !email || !message || !isValidEmail) {
       status.textContent = "Enter your name, a valid email, and a short message.";
       status.classList.add("is-error");
+      form.classList.add("is-invalid");
+      window.setTimeout(() => form.classList.remove("is-invalid"), 280);
       return;
     }
 
@@ -222,6 +298,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderEvents();
   renderCourses();
   setupNavigation();
+  setupMotion();
+  setupPressFeedback();
   setupEventFilters();
   setupContactForm();
   setYear();
