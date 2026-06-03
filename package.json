@@ -1,0 +1,18 @@
+{
+  "name": "ieee-nuces-pwr-website",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Canonical static website for IEEE NUCES PWR Student Branch.",
+  "type": "module",
+  "scripts": {
+    "start": "python3 -m http.server 5500",
+    "test": "node scripts/check-links.mjs"
+  },
+  "keywords": [
+    "ieee",
+    "student-branch",
+    "static-site",
+    "github-pages"
+  ],
+  "license": "MIT"
+}

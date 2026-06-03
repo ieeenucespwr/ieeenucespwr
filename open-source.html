@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Contribute to the open-source IEEE NUCES PWR Student Branch website.">
+    <meta name="theme-color" content="#00629b">
+    <meta property="og:title" content="Open Source | IEEE NUCES PWR">
+    <meta property="og:description" content="Contribute to the open-source IEEE NUCES PWR Student Branch website.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pwr.ieeenuces.org/open-source.html">
+    <meta property="og:image" content="https://pwr.ieeenuces.org/assets/ieee-logo.png">
+    <title>Open Source | IEEE NUCES PWR</title>
+    <link rel="canonical" href="https://pwr.ieeenuces.org/open-source.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png">
+    <link rel="apple-touch-icon" href="assets/favicon_io/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="data/site-data.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <nav class="nav container" aria-label="Primary navigation">
+        <a class="brand" href="index.html" aria-label="IEEE NUCES PWR home">
+          <img src="assets/ieee-logo.png" alt="IEEE logo" width="122" height="44">
+          <span>NUCES PWR</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span class="sr-only">Open menu</span>
+        </button>
+        <div class="nav-menu" id="nav-menu" data-nav-menu>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="leadership.html">Leadership</a>
+          <a href="events.html">Events</a>
+          <a href="courses.html">Courses</a>
+          <a href="open-source.html">Open source</a>
+          <a href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+    <main id="main">
+      <section class="page-hero">
+        <img src="assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img1.jpeg" alt="IEEE NUCES PWR branch activity" width="1400" height="720">
+        <div class="page-hero-shade"></div>
+        <div class="container page-hero-content">
+          <p class="section-kicker">Open source website</p>
+          <h1>One public repo, clear contribution paths.</h1>
+          <p>The website is structured for student maintainers, reviewers, and contributors who need a clean project they can safely improve.</p>
+        </div>
+      </section>
+
+      <section class="section opensource-section">
+        <div class="container opensource-grid">
+          <div>
+            <p class="section-kicker">Contributor lanes</p>
+            <h2>Improve content, design, and engineering in focused pull requests.</h2>
+            <p>Shared page content is data-driven, event pages stay in the archive, and checks catch broken local links before deployment.</p>
+          </div>
+          <div class="contribution-board" aria-label="Contributor lanes">
+            <article>
+              <span>Content</span>
+              <p>Add event reports, update team rosters, and improve branch copy.</p>
+            </article>
+            <article>
+              <span>Design</span>
+              <p>Polish responsive layouts, accessibility, media treatment, and visual consistency.</p>
+            </article>
+            <article>
+              <span>Engineering</span>
+              <p>Improve validation scripts, performance, image optimization, and GitHub Pages workflow.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section mission">
+        <div class="container feature-grid">
+          <article class="simple-card">
+            <h3>Repository checks</h3>
+            <p>Run <code>npm test</code> before opening a pull request to catch broken local links.</p>
+          </article>
+          <article class="simple-card">
+            <h3>Content source</h3>
+            <p>Update <code>data/site-data.js</code> for events, teams, leaders, and courses.</p>
+          </article>
+          <article class="simple-card">
+            <h3>Deployment</h3>
+            <p>GitHub Pages deploys from <code>main</code> using the included workflow.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <img src="assets/ieee-logo-white.png" alt="IEEE logo" width="150" height="54">
+          <p>Advancing technology for humanity at FAST NUCES Peshawar.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <a href="about.html">About</a>
+          <a href="events.html">Events</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </nav>
+        <div class="footer-meta">
+          <p>Copyright <span data-year></span> IEEE NUCES PWR Student Branch.</p>
+          <p>Built as an open-source static website.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

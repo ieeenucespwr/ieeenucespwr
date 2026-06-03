@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git & Docker Essentials - IEEE FAST Peshawar</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        :root {
+            --primary-color: #00629B;
+            --secondary-color: #0A2463;
+            --accent-color: #2496ED;
+            --light-bg: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .breadcrumb {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .breadcrumb-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+        }
+
+        .breadcrumb-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb-nav a:hover {
+            color: var(--secondary-color);
+        }
+
+        .breadcrumb-nav span {
+            color: #666;
+        }
+
+        .event-hero {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--accent-color) 100%);
+            color: white;
+            padding: 60px 0 40px;
+            margin-bottom: 40px;
+        }
+
+        .event-hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-meta-header {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 20px;
+            font-size: 1.05em;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.95;
+        }
+
+        .meta-item strong {
+            font-weight: 600;
+        }
+
+        .event-content {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-content h2 {
+            color: var(--secondary-color);
+            font-size: 1.8em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        .event-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .event-content p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .event-content ul, .event-content ol {
+            margin-left: 25px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .event-content li {
+            margin-bottom: 8px;
+        }
+
+        .info-box {
+            background: var(--light-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .info-box h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 40px 0;
+        }
+
+        .back-button:hover {
+            background: var(--secondary-color);
+        }
+
+        .back-button::before {
+            content: '←';
+            font-size: 1.3em;
+        }
+
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .event-hero h1 {
+                font-size: 1.8em;
+            }
+
+            .event-content {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-nav">
+                <a href="../index.html">Home</a>
+                <span>›</span>
+                <a href="../events.html">Events</a>
+                <span>›</span>
+                <span>Git & Docker Essentials</span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="event-hero">
+        <div class="container">
+            <h1>Git & Docker Essentials</h1>
+            <div class="event-meta-header">
+                <div class="meta-item">
+                    <strong>📅 Date:</strong> November 22, 2023
+                </div>
+                <div class="meta-item">
+                    <strong>⏰ Duration:</strong> 3 Hours (CPD)
+                </div>
+                <div class="meta-item">
+                    <strong>👥 Attendees:</strong> 45+ Students
+                </div>
+                <div class="meta-item">
+                    <strong>🎓 Batches:</strong> 2020-2023
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="event-content">
+                <h2>Event Overview</h2>
+                <p>The Git & Docker Essentials workshop provided comprehensive hands-on training in two critical tools for modern software development. This intensive session equipped students with practical skills in version control and containerization.</p>
+    <p>Participants learned industry-standard workflows for collaborative development using Git and gained experience deploying applications in Docker containers, essential skills for any software developer.</p>
+
+                <h2>Key Topics Covered</h2>
+                <ul>
+        <li><strong>Git Fundamentals:</strong> Repository initialization, commits, and version history</li>
+        <li><strong>Branching Strategies:</strong> Feature branches, merge workflows, and conflict resolution</li>
+        <li><strong>Collaboration:</strong> Remote repositories, pull requests, and code reviews</li>
+        <li><strong>Docker Basics:</strong> Containers vs virtual machines, Docker architecture</li>
+        <li><strong>Container Management:</strong> Building images, running containers, and networking</li>
+        <li><strong>Docker Compose:</strong> Multi-container applications and orchestration</li>
+        <li><strong>Best Practices:</strong> .gitignore files, Dockerfile optimization, security</li>
+    </ul>
+
+                <h2>Session Highlights</h2>
+                <p>The hands-on workshop featured:</p>
+    <ol>
+        <li>Live demonstrations of Git workflows from initialization to deployment</li>
+        <li>Practical exercises resolving merge conflicts and managing branches</li>
+        <li>Building and running Docker containers for sample applications</li>
+        <li>Creating Dockerfiles and docker-compose configurations</li>
+        <li>Group exercises simulating real-world collaborative development</li>
+    </ol>
+    <p>Students gained confidence in using Git for team projects and understanding how containerization simplifies deployment and ensures consistency across development environments.</p>
+
+                <div class="info-box">
+                    <h3>📋 Event Details</h3>
+                    <p><strong>Organized By:</strong> IEEE FAST Peshawar Student Branch (PEB-K-NUCESP-0044)</p>
+                    <p><strong>Faculty Advisor:</strong> Dr. Suleman Mir (PEB Coordinator)</p>
+                    <p><strong>PEB Head:</strong> Dr. Omar Khan</p>
+                </div>
+            </div>
+
+            <a href="../events.html" class="back-button">Back to Events</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 IEEE FAST Peshawar Student Branch | PEB-K-NUCESP-0044</p>
+            <p>Faculty Advisor: Dr. Suleman Mir | PEB Head: Dr. Omar Khan</p>
+        </div>
+    </footer>
+</body>
+</html>
