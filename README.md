@@ -2,6 +2,8 @@
 
 Canonical static website for IEEE NUCES PWR Student Branch at FAST NUCES Peshawar.
 
+Built by Rayyan Shaheer.
+
 This repository consolidates the previous website repos into one maintainable, open-source project:
 
 - `rayyanshaheer/ieee-new-website2`
