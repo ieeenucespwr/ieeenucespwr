@@ -17,6 +17,7 @@ This repository consolidates the previous website repos into one maintainable, o
 - No runtime framework or build dependency required
 - Local link check with Node.js
 - Decap CMS admin for Git-based content editing
+- Dark mode with saved user preference and system fallback
 
 ## Local Development
 
