@@ -7,7 +7,7 @@ const failures = [];
 
 function walk(directory) {
   for (const entry of readdirSync(directory)) {
-    if ([".git", "node_modules"].includes(entry)) continue;
+    if ([".git", "node_modules", ".playwright-mcp"].includes(entry)) continue;
 
     const fullPath = join(directory, entry);
     const stat = statSync(fullPath);

@@ -1,6 +1,4 @@
 let siteData = window.IEEE_SITE_DATA || {};
-const THEME_STORAGE_KEY = "ieee-theme";
-
 const bySelector = (selector, parent = document) => parent.querySelector(selector);
 const allBySelector = (selector, parent = document) => [...parent.querySelectorAll(selector)];
 
@@ -22,10 +20,7 @@ function limitItems(items, target) {
 }
 
 async function loadSiteData() {
-  const dataScript = bySelector('script[src$="script.js"]');
-  const scriptSource = dataScript?.getAttribute("src") || "script.js";
-  const scriptUrl = new URL(scriptSource, document.baseURI);
-  const dataUrl = new URL("data/site-data.json", scriptUrl);
+  const dataUrl = new URL("data/site-data.json", document.baseURI);
 
   try {
     const response = await fetch(dataUrl.href);
@@ -148,73 +143,6 @@ function renderCourses() {
   }).join("");
 }
 
-function themeFromStorage() {
-  try {
-    const value = localStorage.getItem(THEME_STORAGE_KEY);
-    return value === "light" || value === "dark" ? value : null;
-  } catch (error) {
-    return null;
-  }
-}
-
-function saveTheme(theme) {
-  try {
-    localStorage.setItem(THEME_STORAGE_KEY, theme);
-  } catch (error) {
-    // Storage can be blocked in private browsing; the visible theme still changes.
-  }
-}
-
-function applyTheme(theme) {
-  document.documentElement.dataset.theme = theme;
-  document.documentElement.style.colorScheme = theme;
-}
-
-function currentTheme() {
-  return document.documentElement.dataset.theme === "dark" ? "dark" : "light";
-}
-
-function setupThemeToggle(menu) {
-  if (!menu) return;
-
-  const control = document.createElement("button");
-  control.className = "theme-toggle";
-  control.type = "button";
-  control.innerHTML = '<span class="theme-toggle-icon" aria-hidden="true"></span><span class="theme-toggle-label"></span>';
-
-  const label = bySelector(".theme-toggle-label", control);
-  const sync = () => {
-    const theme = currentTheme();
-    const next = theme === "dark" ? "light" : "dark";
-    label.textContent = next === "dark" ? "Dark" : "Light";
-    control.setAttribute("aria-label", "Switch to " + next + " theme");
-    control.setAttribute("aria-pressed", String(theme === "dark"));
-  };
-
-  control.addEventListener("click", () => {
-    const next = currentTheme() === "dark" ? "light" : "dark";
-    applyTheme(next);
-    saveTheme(next);
-    sync();
-  });
-
-  const media = window.matchMedia("(prefers-color-scheme: dark)");
-  const handleSystemThemeChange = (event) => {
-    if (themeFromStorage()) return;
-    applyTheme(event.matches ? "dark" : "light");
-    sync();
-  };
-
-  if (media.addEventListener) {
-    media.addEventListener("change", handleSystemThemeChange);
-  } else {
-    media.addListener(handleSystemThemeChange);
-  }
-
-  sync();
-  menu.append(control);
-}
-
 function setupNavigation() {
   const header = bySelector("[data-header]");
   const toggle = bySelector("[data-nav-toggle]");
@@ -222,7 +150,7 @@ function setupNavigation() {
   const links = allBySelector(".nav-menu a");
   const current = location.pathname.split("/").pop() || "index.html";
 
-  setupThemeToggle(menu);
+  window.IEEETheme?.mountToggle(menu);
 
   function closeMenu() {
     menu?.classList.remove("is-open");
@@ -310,7 +238,7 @@ function setupMotion() {
 }
 
 function setupPressFeedback() {
-  allBySelector(".button, .filter-button, .theme-toggle").forEach((control) => {
+  allBySelector(".button, .filter-button").forEach((control) => {
     control.addEventListener("pointerdown", () => control.classList.add("is-pressed"));
     ["pointerup", "pointerleave", "blur"].forEach((eventName) => {
       control.addEventListener(eventName, () => control.classList.remove("is-pressed"));
@@ -379,6 +307,7 @@ function setYear() {
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  renderSiteShell();
   await loadSiteData();
   renderFaculty();
   renderLeaders();

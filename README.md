@@ -46,7 +46,8 @@ npm test
 ├── open-source.html
 ├── contact.html
 ├── styles.css
-├── script.js
+├── assets/js/
+├── assets/css/
 ├── admin/
 ├── data/site-data.json
 ├── events-details/
@@ -57,7 +58,7 @@ npm test
 
 ## Updating Content
 
-Shared page content lives in `data/site-data.json` and can be edited through the Decap CMS admin at `/admin/` after GitHub OAuth is configured.
+Shared page content lives in `data/site-data.json` and can be edited through the Decap CMS admin at `/admin/` after GitHub OAuth is configured. Shared navigation and footer markup is generated from `assets/js/site-shell.js`, and event detail styling lives in `assets/css/event-detail.css`.
 
 Common updates:
 

@@ -18,35 +18,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Source+Sans+3:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <script src="theme.js"></script>
+    <script src="assets/js/theme.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <script src="assets/js/site-shell.js" defer></script>
+    <script src="assets/js/site.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header" data-header>
-      <nav class="nav container" aria-label="Primary navigation">
-        <a class="brand" href="index.html" aria-label="IEEE NUCES PWR home">
-          <img src="assets/ieee-logo.png" alt="IEEE logo" width="122" height="44">
-          <span>NUCES PWR</span>
-        </a>
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span class="sr-only">Open menu</span>
-        </button>
-        <div class="nav-menu" id="nav-menu" data-nav-menu>
-          <a href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="leadership.html">Leadership</a>
-          <a href="events.html">Events</a>
-          <a href="courses.html">Courses</a>
-          <a href="open-source.html">Open source</a>
-          <a href="contact.html">Contact</a>
-        </div>
-      </nav>
-    </header>
+    <div data-site-header></div>
     <main id="main" class="legal-page">
       <article class="container">
         <p class="section-kicker">Website policy</p>
@@ -63,24 +42,6 @@
         </div>
       </article>
     </main>
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div>
-          <img src="assets/ieee-logo-white.png" alt="IEEE logo" width="150" height="54">
-          <p>Advancing technology for humanity at FAST NUCES Peshawar.</p>
-        </div>
-        <nav aria-label="Footer navigation">
-          <a href="about.html">About</a>
-          <a href="events.html">Events</a>
-          <a href="contact.html">Contact</a>
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
-        </nav>
-        <div class="footer-meta">
-          <p>Copyright <span data-year></span> IEEE NUCES PWR Student Branch.</p>
-          <p>Built by Rayyan Shaheer as an open-source static website.</p>
-        </div>
-      </div>
-    </footer>
+    <div data-site-footer></div>
   </body>
 </html>
