@@ -1,0 +1,96 @@
+backend:
+  name: github
+  repo: rayyanshaheer/ieee-new-website
+  branch: main
+  open_authoring: true
+  # GitHub Pages needs an OAuth proxy unless this site is served through Netlify auth.
+  # base_url: https://your-decap-oauth-proxy.example.com
+  # auth_endpoint: auth
+
+publish_mode: editorial_workflow
+site_url: https://pwr.ieeenuces.org
+display_url: https://pwr.ieeenuces.org
+logo:
+  src: /assets/ieee-logo.png
+  show_in_header: true
+media_folder: assets/uploads
+public_folder: assets/uploads
+show_preview_links: true
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: branch_content
+    label: Branch Content
+    files:
+      - label: Shared Website Content
+        name: site_data
+        file: data/site-data.json
+        format: json
+        editor:
+          preview: false
+        fields:
+          - label: Faculty Advisor
+            name: faculty
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Detail, name: detail, widget: text }
+              - { label: Image, name: image, widget: image }
+              - label: Links
+                name: links
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
+          - label: Executive Leaders
+            name: leaders
+            widget: list
+            summary: "{{fields.name}} - {{fields.role}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Department, name: department, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Summary, name: summary, widget: text }
+              - label: Links
+                name: links
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
+          - label: Operating Teams
+            name: teams
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Lead Image, name: image, widget: image }
+              - { label: Focus, name: focus, widget: string }
+          - label: Events
+            name: events
+            widget: list
+            summary: "{{fields.title}} - {{fields.date}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Date Label, name: date, widget: string, hint: "Example: November 2024" }
+              - { label: Year, name: year, widget: string, pattern: ["^\\d{4}$", "Use a four-digit year."] }
+              - { label: Type, name: type, widget: string }
+              - { label: Detail Page URL, name: href, widget: string, hint: "Example: events-details/event-name.html" }
+              - { label: Image, name: image, widget: image }
+              - { label: Summary, name: summary, widget: text }
+          - label: Learning Tracks
+            name: courses
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Summary, name: summary, widget: text }

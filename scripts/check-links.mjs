@@ -1,6 +1,5 @@
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { dirname, extname, join, resolve } from "node:path";
-import vm from "node:vm";
 
 const root = process.cwd();
 const htmlFiles = [];
@@ -43,7 +42,7 @@ function verifyLocalTarget(sourceFile, rawTarget) {
   }
 
   const [pathPart, hashPart] = target.split("#");
-  const targetPath = resolve(directory, pathPart || ".");
+  const targetPath = pathPart.startsWith("/") ? resolve(root, pathPart.slice(1)) : resolve(directory, pathPart || ".");
 
   if (!existsSync(targetPath)) {
     failures.push(`${sourceFile}: missing file ${target}`);
@@ -84,12 +83,10 @@ function checkHtmlFiles() {
 }
 
 function checkSiteData() {
-  const dataFile = join(root, "data/site-data.js");
-  const context = { window: {} };
-  vm.createContext(context);
-  vm.runInContext(readFileSync(dataFile, "utf8"), context, { filename: dataFile });
+  const dataFile = join(root, "data/site-data.json");
+  const siteData = JSON.parse(readFileSync(dataFile, "utf8"));
 
-  const targets = collectSiteDataTargets(context.window.IEEE_SITE_DATA);
+  const targets = collectSiteDataTargets(siteData);
   for (const target of targets) verifyLocalTarget(join(root, "index.html"), target);
 }
 

@@ -1,4 +1,4 @@
-const siteData = window.IEEE_SITE_DATA || {};
+let siteData = window.IEEE_SITE_DATA || {};
 
 const bySelector = (selector, parent = document) => parent.querySelector(selector);
 const allBySelector = (selector, parent = document) => [...parent.querySelectorAll(selector)];
@@ -18,6 +18,23 @@ function linkList(links = []) {
 function limitItems(items, target) {
   const count = Number(target?.dataset.previewCount || 0);
   return count > 0 ? items.slice(0, count) : items;
+}
+
+async function loadSiteData() {
+  const dataScript = bySelector('script[src$="script.js"]');
+  const scriptSource = dataScript?.getAttribute("src") || "script.js";
+  const scriptUrl = new URL(scriptSource, document.baseURI);
+  const dataUrl = new URL("data/site-data.json", scriptUrl);
+
+  try {
+    const response = await fetch(dataUrl.href);
+    if (!response.ok) throw new Error("Content data request failed with " + response.status);
+    siteData = await response.json();
+  } catch (error) {
+    if (!Object.keys(siteData).length) {
+      console.error("Unable to load CMS content data.", error);
+    }
+  }
 }
 
 function renderFaculty() {
@@ -291,7 +308,8 @@ function setYear() {
   });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadSiteData();
   renderFaculty();
   renderLeaders();
   renderTeams();

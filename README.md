@@ -14,6 +14,7 @@ This repository consolidates the previous website repos into one maintainable, o
 - GitHub Pages compatible
 - No runtime framework or build dependency required
 - Local link check with Node.js
+- Decap CMS admin for Git-based content editing
 
 ## Local Development
 
@@ -43,7 +44,8 @@ npm test
 ├── contact.html
 ├── styles.css
 ├── script.js
-├── data/site-data.js
+├── admin/
+├── data/site-data.json
 ├── events-details/
 ├── assets/
 ├── scripts/check-links.mjs
@@ -52,14 +54,16 @@ npm test
 
 ## Updating Content
 
-Shared page content lives in `data/site-data.js`.
+Shared page content lives in `data/site-data.json` and can be edited through the Decap CMS admin at `/admin/` after GitHub OAuth is configured.
 
 Common updates:
 
 - Add an event to `events` and place detail pages in `events-details/`
 - Add photos under `assets/events/`, `assets/team_photos/`, or `assets/courses/`
-- Update leadership, teams, and learning tracks in the data file
+- Update leadership, teams, and learning tracks in the CMS or the JSON data file
 - Keep image filenames readable and avoid replacing existing images unless intentional
+
+See `docs/cms.md` for CMS authentication and open-authoring setup.
 
 After changing links or pages, run:
 

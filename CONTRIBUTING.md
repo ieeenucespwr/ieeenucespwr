@@ -24,6 +24,10 @@ Run checks before opening a pull request:
 npm test
 ```
 
+## CMS Content Edits
+
+The shared website content is stored in `data/site-data.json`. Maintainers can edit it directly or use `/admin/` after CMS authentication is configured. External contributors using the CMS should submit changes through the editorial workflow so maintainers can review the generated pull request.
+
 ## Content Guidelines
 
 - Keep event summaries factual and specific.
