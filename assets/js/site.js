@@ -337,7 +337,7 @@ function renderAbout() {
   return [
     pageHero("About the branch", "A campus home for people who want to build, teach, and ship.", "IEEE NUCES PWR supports technical learning, collaboration, leadership, and public documentation for the FAST NUCES Peshawar student community.", "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.jpeg", "IEEE NUCES PWR branch activity"),
     "<section class=\"section mission\"><div class=\"container mission-grid\"><div><p class=\"section-kicker\">Mission</p><h2>Turn student curiosity into visible technical work.</h2></div><div class=\"mission-copy\"><p>The branch creates space for students to learn by organizing workshops, joining competitions, preparing sessions, and documenting outcomes that future teams can build on.</p><p>Its work is practical: speaker coordination, event execution, media coverage, web publishing, member support, and technical mentoring.</p></div></div></section>",
-    "<section class=\"section operating-section\"><div class=\"container operating-grid\"><div class=\"operating-intro\"><p class=\"section-kicker\">How work moves</p><h2>A practical operating model for student contributors.</h2><p>Each team owns a visible part of the branch. That keeps responsibilities clear and makes it easier for new members to find useful work quickly.</p></div><div class=\"operating-steps\" aria-label=\"Branch operating model\"><article><span>01</span><h3>Plan the session</h3><p>Pick a clear learning outcome, speaker, venue, and promotion window.</p></article><article><span>02</span><h3>Run the event</h3><p>Coordinate registrations, media, certificates, logistics, and attendee support.</p></article><article><span>03</span><h3>Publish the record</h3><p>Add photos, outcomes, and reports so future teams can reuse the work.</p></article></div></div><div class=\"container team-showcase\" aria-labelledby=\"team-showcase-title\"><div class=\"team-showcase-head\"><div><p class=\"section-kicker\">Working teams</p><h2 id=\"team-showcase-title\">Working teams, one branch operating rhythm.</h2><p>Each lane owns a clear branch responsibility, from logistics and media to web publishing, registrations, content, and event safety.</p></div><div class=\"team-count\" aria-hidden=\"true\"><strong data-team-count>--</strong><span>active lanes</span></div></div><div class=\"team-face-wall\" id=\"team-rail\" aria-label=\"Working teams\"></div></div></section>"
+    "<section class=\"section operating-section\"><div class=\"container operating-grid\"><div class=\"operating-intro\"><p class=\"section-kicker\">How work moves</p><h2>A practical operating model for student contributors.</h2><p>Each team owns a visible part of the branch. That keeps responsibilities clear and makes it easier for new members to find useful work quickly.</p></div><div class=\"operating-steps\" aria-label=\"Branch operating model\"><article><span>01</span><h3>Plan the session</h3><p>Pick a clear learning outcome, speaker, venue, and promotion window.</p></article><article><span>02</span><h3>Run the event</h3><p>Coordinate registrations, media, certificates, logistics, and attendee support.</p></article><article><span>03</span><h3>Publish the record</h3><p>Add photos, outcomes, and reports so future teams can reuse the work.</p></article></div></div><div class=\"container team-showcase\" aria-labelledby=\"team-showcase-title\"><div class=\"team-showcase-head\"><div><p class=\"section-kicker\">Working teams</p><h2 id=\"team-showcase-title\">Working teams, one branch operating rhythm.</h2><p>Each working team stays connected to the branch center while owning a visible lane across logistics, media, web publishing, registrations, content, and event safety.</p></div><div class=\"team-count\" aria-hidden=\"true\"><strong data-team-count>--</strong><span>active lanes</span></div></div><div class=\"team-face-wall\" id=\"team-rail\" aria-label=\"Working teams\"></div></div></section>"
   ].join("");
 }
 
@@ -485,25 +485,39 @@ function renderTeams() {
   const target = bySelector("#team-rail");
   if (!target || !siteData.teams) return;
 
+  const teams = siteData.teams;
   const countTarget = bySelector("[data-team-count]");
-  if (countTarget) countTarget.textContent = String(siteData.teams.length).padStart(2, "0");
+  if (countTarget) countTarget.textContent = String(teams.length).padStart(2, "0");
 
-  target.innerHTML = siteData.teams.map((team, index) => {
+  if (!teams.length) {
+    target.innerHTML = "";
+    return;
+  }
+
+  const total = String(teams.length).padStart(2, "0");
+  const first = teams[0];
+  const items = teams.map((team, index) => {
     const number = String(index + 1).padStart(2, "0");
     const label = team.name + ": " + team.focus;
     return [
-      "<article class=\"team-card\" tabindex=\"0\" data-team-index=\"" + number + "\" aria-label=\"" + escapeAttribute(label) + "\">",
-      "<div class=\"team-card-frame\"><img src=\"" + escapeAttribute(assetUrl(team.image)) + "\" alt=\"" + escapeAttribute(team.name + " team lead") + "\" loading=\"lazy\" width=\"640\" height=\"840\"></div>",
-      "<span class=\"team-card-index\">" + number + "</span>",
-      "<span class=\"team-card-rail-label\">" + escapeHtml(team.name) + "</span>",
-      "<div class=\"team-card-body\">",
-      "<p class=\"team-card-kicker\">working team</p>",
-      "<h3>" + escapeHtml(team.name) + "</h3>",
-      "<p>" + escapeHtml(team.focus) + "</p>",
-      "</div>",
-      "</article>"
+      '<button class="team-orbit-item' + (index === 0 ? ' is-active' : '') + '" type="button" data-team-index="' + number + '" data-team-name="' + escapeAttribute(team.name) + '" data-team-focus="' + escapeAttribute(team.focus) + '" aria-pressed="' + String(index === 0) + '" aria-label="' + escapeAttribute(label) + '">',
+      '<span class="team-orbit-photo"><img src="' + escapeAttribute(assetUrl(team.image)) + '" alt="' + escapeAttribute(team.name + ' team lead') + '" loading="lazy" width="360" height="360"></span>',
+      '<span class="team-orbit-label"><span>' + number + '</span>' + escapeHtml(team.name) + '</span>',
+      '</button>'
     ].join("");
   }).join("");
+
+  target.innerHTML = [
+    '<div class="team-orbit-stage" data-team-orbit>',
+    '<div class="team-orbit-center" aria-live="polite">',
+    '<p class="team-card-kicker">working team</p>',
+    '<h3 data-team-active-name>' + escapeHtml(first.name) + '</h3>',
+    '<p data-team-active-focus>' + escapeHtml(first.focus) + '</p>',
+    '<span data-team-active-index>01 / ' + total + '</span>',
+    '</div>',
+    items,
+    '</div>'
+  ].join("");
 }
 function renderEvents() {
   const feature = bySelector("#event-feature");
@@ -828,7 +842,7 @@ function setupProgressListeners() {
 }
 
 function setupSpotlightCards() {
-  const cards = allBySelector(".leader-card, .event-card, .course-card, .team-card, .simple-card, .contribution-board article, .operating-steps article, .faculty-panel, .event-feature");
+  const cards = allBySelector(".leader-card, .event-card, .course-card, .team-orbit-item, .team-card, .simple-card, .contribution-board article, .operating-steps article, .faculty-panel, .event-feature");
   cards.forEach((card) => {
     card.addEventListener("pointermove", (event) => {
       const rect = card.getBoundingClientRect();
@@ -839,24 +853,36 @@ function setupSpotlightCards() {
 }
 
 function setupTeamFaces() {
-  allBySelector(".team-card[data-team-index]").forEach((card) => {
-    const resetTilt = () => {
-      card.style.removeProperty("--tilt-x");
-      card.style.removeProperty("--tilt-y");
-      card.style.removeProperty("--lift");
+  allBySelector("[data-team-orbit]").forEach((stage) => {
+    const items = allBySelector(".team-orbit-item", stage);
+    const total = items.length;
+    if (!total) return;
+
+    const activeName = bySelector("[data-team-active-name]", stage);
+    const activeFocus = bySelector("[data-team-active-focus]", stage);
+    const activeIndex = bySelector("[data-team-active-index]", stage);
+    const totalText = String(total).padStart(2, "0");
+
+    const setActive = (selected) => {
+      items.forEach((item) => {
+        const isActive = item === selected;
+        item.classList.toggle("is-active", isActive);
+        item.setAttribute("aria-pressed", String(isActive));
+      });
+
+      if (activeName) activeName.textContent = selected.dataset.teamName || "";
+      if (activeFocus) activeFocus.textContent = selected.dataset.teamFocus || "";
+      if (activeIndex) activeIndex.textContent = (selected.dataset.teamIndex || "01") + " / " + totalText;
     };
 
-    card.addEventListener("pointermove", (event) => {
-      const rect = card.getBoundingClientRect();
-      const x = (event.clientX - rect.left) / rect.width - 0.5;
-      const y = (event.clientY - rect.top) / rect.height - 0.5;
-      card.style.setProperty("--tilt-x", (-y * 7).toFixed(2) + "deg");
-      card.style.setProperty("--tilt-y", (x * 9).toFixed(2) + "deg");
-      card.style.setProperty("--lift", "-10px");
+    items.forEach((item, index) => {
+      const angle = -90 + (360 / total) * index;
+      item.style.setProperty("--team-angle", angle.toFixed(3) + "deg");
+      item.style.setProperty("--team-order", String(index));
+      item.addEventListener("click", () => setActive(item));
+      item.addEventListener("focus", () => setActive(item));
+      item.addEventListener("pointerenter", () => setActive(item));
     });
-
-    card.addEventListener("pointerleave", resetTilt);
-    card.addEventListener("blur", resetTilt);
   });
 }
 
