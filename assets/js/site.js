@@ -148,6 +148,11 @@ const staticRoutes = {
     description: "Meet the faculty advisor and executive body of IEEE NUCES PWR Student Branch.",
     render: renderLeadership
   },
+  "/members": {
+    title: "Members | IEEE NUCES PWR",
+    description: "View the visible IEEE NUCES PWR society member directory, executive body, faculty advisor, and working team lanes.",
+    render: renderMembersPage
+  },
   "/events": {
     title: "Events | IEEE NUCES PWR",
     description: "Browse IEEE NUCES PWR Student Branch events, workshops, competitions, and reports.",
@@ -346,6 +351,14 @@ function renderLeadership() {
     pageHero("Leadership", "Faculty guidance and student ownership.", "The executive body sets direction while working teams handle operations, media, events, development, and member engagement.", "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img1.jpeg", "IEEE NUCES PWR branch activity"),
     "<section class=\"section leadership-section\"><div class=\"container section-heading\"><p class=\"section-kicker\">Faculty advisor</p><h2>Branch guidance starts with academic mentorship.</h2></div><div class=\"container faculty-panel\" id=\"faculty-panel\"></div></section>",
     "<section class=\"section mission\"><div class=\"container section-heading\"><p class=\"section-kicker\">Executive body 2025-26</p><h2>Student leaders responsible for branch direction.</h2></div><div class=\"container leadership-grid\" id=\"leadership-grid\" aria-live=\"polite\"></div></section>"
+  ].join("");
+}
+
+function renderMembersPage() {
+  return [
+    pageHero("Society members", "Every verified branch member should have a visible place.", "The directory brings faculty guidance, executive ownership, working teams, and additional society members into one public roster for IEEE NUCES PWR.", "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img1.jpeg", "IEEE NUCES PWR society members"),
+    "<section class=\"section members-section\"><div class=\"container member-roster-panel\"><div><p class=\"section-kicker\">Member directory</p><h2>Named members and team lanes in one roster.</h2><p>The page shows every named member already present in the repository and keeps working team lanes visible while the full society roster is completed with verified entries.</p></div><div class=\"member-roster-stats\" aria-label=\"Roster totals\"><span><strong data-member-count>--</strong> named members</span><span><strong data-lane-count>--</strong> team lanes</span></div></div><div class=\"container member-directory\" id=\"member-directory\" aria-live=\"polite\"></div></section>",
+    "<section class=\"section member-lanes-section\"><div class=\"container section-heading\"><p class=\"section-kicker\">Working lanes</p><h2>Each society lane has a visible owner area.</h2><p>Team lanes remain public even when individual member names are still being verified for the roster.</p></div><div class=\"container member-lane-grid\" id=\"member-team-lanes\"></div></section>"
   ].join("");
 }
 
@@ -550,6 +563,78 @@ function renderEvents() {
   }).join("");
 }
 
+function collectSocietyMembers() {
+  const records = [];
+  const seen = new Set();
+  const add = (member, defaults = {}) => {
+    if (!member?.name) return;
+    const record = { ...defaults, ...member };
+    const key = (record.name + "|" + (record.role || "")).toLowerCase();
+    if (seen.has(key)) return;
+    seen.add(key);
+    records.push(record);
+  };
+
+  if (siteData.faculty) {
+    add(siteData.faculty, {
+      group: "Faculty Advisor",
+      department: "FAST NUCES Peshawar",
+      summary: siteData.faculty.detail
+    });
+  }
+
+  (siteData.leaders || []).forEach((leader) => add(leader, { group: "Executive Body" }));
+  (siteData.members || []).forEach((member) => add(member, { group: "Society Member" }));
+
+  return records;
+}
+
+function renderMembers() {
+  const directory = bySelector("#member-directory");
+  const lanes = bySelector("#member-team-lanes");
+  const members = collectSocietyMembers();
+
+  const memberCount = bySelector("[data-member-count]");
+  const laneCount = bySelector("[data-lane-count]");
+  if (memberCount) memberCount.textContent = String(members.length).padStart(2, "0");
+  if (laneCount) laneCount.textContent = String((siteData.teams || []).length).padStart(2, "0");
+
+  if (directory) {
+    directory.innerHTML = members.map((member) => {
+      const image = member.image || "assets/placeholder.jpg";
+      const summary = member.summary || member.detail || member.department || "IEEE NUCES PWR society member.";
+      return [
+        "<article class=\"member-card\">",
+        "<div class=\"member-photo\"><img src=\"" + escapeAttribute(assetUrl(image)) + "\" alt=\"" + escapeAttribute(member.name) + "\" loading=\"lazy\" width=\"520\" height=\"620\"></div>",
+        "<div class=\"member-card-body\">",
+        "<p class=\"member-group\">" + escapeHtml(member.group || "Society Member") + "</p>",
+        "<h3>" + escapeHtml(member.name) + "</h3>",
+        "<p class=\"member-role\">" + escapeHtml(member.role || member.department || "Member") + "</p>",
+        "<p>" + escapeHtml(summary) + "</p>",
+        linkList(member.links),
+        "</div>",
+        "</article>"
+      ].join("");
+    }).join("");
+  }
+
+  if (lanes) {
+    lanes.innerHTML = (siteData.teams || []).map((team, index) => {
+      const number = String(index + 1).padStart(2, "0");
+      return [
+        "<article class=\"member-lane-card\">",
+        "<img src=\"" + escapeAttribute(assetUrl(team.image)) + "\" alt=\"" + escapeAttribute(team.name + " team lead") + "\" loading=\"lazy\" width=\"260\" height=\"260\">",
+        "<div>",
+        "<span>" + number + "</span>",
+        "<h3>" + escapeHtml(team.name) + "</h3>",
+        "<p>" + escapeHtml(team.focus) + "</p>",
+        "</div>",
+        "</article>"
+      ].join("");
+    }).join("");
+  }
+}
+
 function renderCourses() {
   const target = bySelector("#course-list");
   if (!target || !siteData.courses) return;
@@ -695,6 +780,7 @@ function hydrateRoute() {
   renderFaculty();
   renderLeaders();
   renderTeams();
+  renderMembers();
   renderEvents();
   renderCourses();
   setupMotion();
@@ -792,6 +878,9 @@ function setupMotion() {
     ".section-heading",
     ".faculty-panel",
     ".leader-card",
+    ".member-card",
+    ".member-lane-card",
+    ".member-roster-panel",
     ".operating-steps article",
     ".team-card",
     ".event-feature",
@@ -842,7 +931,7 @@ function setupProgressListeners() {
 }
 
 function setupSpotlightCards() {
-  const cards = allBySelector(".leader-card, .event-card, .course-card, .team-orbit-item, .team-card, .simple-card, .contribution-board article, .operating-steps article, .faculty-panel, .event-feature");
+  const cards = allBySelector(".leader-card, .member-card, .member-lane-card, .event-card, .course-card, .team-orbit-item, .team-card, .simple-card, .contribution-board article, .operating-steps article, .faculty-panel, .event-feature");
   cards.forEach((card) => {
     card.addEventListener("pointermove", (event) => {
       const rect = card.getBoundingClientRect();

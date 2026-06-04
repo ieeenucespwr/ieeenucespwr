@@ -66,6 +66,27 @@ collections:
                 fields:
                   - { label: Label, name: label, widget: string }
                   - { label: URL, name: url, widget: string }
+          - label: Additional Society Members
+            name: members
+            widget: list
+            required: false
+            summary: "{{fields.name}} - {{fields.role}}"
+            hint: "Use this for verified society members who are not already listed as faculty advisor or executive leaders."
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string, required: false }
+              - { label: Group, name: group, widget: string, required: false, hint: "Example: Society Member, Volunteer, Ambassador" }
+              - { label: Department, name: department, widget: string, required: false }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: Summary, name: summary, widget: text, required: false }
+              - label: Links
+                name: links
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
           - label: Operating Teams
             name: teams
             widget: list

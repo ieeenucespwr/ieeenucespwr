@@ -2,6 +2,7 @@ const primaryNavigation = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/leadership", label: "Leadership" },
+  { href: "/members", label: "Members" },
   { href: "/events", label: "Events" },
   { href: "/courses", label: "Courses" },
   { href: "/open-source", label: "Open source" },
@@ -10,6 +11,7 @@ const primaryNavigation = [
 
 const footerNavigation = [
   { href: "/about", label: "About" },
+  { href: "/members", label: "Members" },
   { href: "/events", label: "Events" },
   { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },

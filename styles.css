@@ -2908,6 +2908,222 @@ body.motion-ready .branch-strip span:nth-child(5) { animation-delay: 1.8s; }
   }
 }
 
+
+.members-section {
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--blue) 5%, transparent), transparent 38%),
+    var(--paper);
+}
+
+.member-roster-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.4fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: end;
+  padding-top: clamp(8px, 2vw, 18px);
+  padding-bottom: clamp(24px, 4vw, 42px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.member-roster-panel h2 {
+  max-width: 760px;
+  margin: 0;
+  font-size: clamp(2.2rem, 5vw, 4.7rem);
+  line-height: 0.96;
+  text-wrap: balance;
+}
+
+.member-roster-panel p:not(.section-kicker) {
+  max-width: 700px;
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+
+.member-roster-stats {
+  display: grid;
+  gap: 12px;
+}
+
+.member-roster-stats span {
+  display: grid;
+  gap: 4px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.member-roster-stats strong {
+  color: var(--copper);
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  line-height: 0.86;
+  font-variant-numeric: tabular-nums;
+}
+
+.member-directory {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+  margin-top: clamp(28px, 5vw, 58px);
+}
+
+.member-card {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface) 92%, transparent), var(--surface)),
+    radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 18%), color-mix(in srgb, var(--blue) 12%, transparent), transparent 44%);
+  box-shadow: 0 18px 44px rgba(4, 21, 35, 0.08);
+  isolation: isolate;
+}
+
+.member-photo {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--image-placeholder);
+}
+
+.member-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 36%),
+    linear-gradient(0deg, rgba(4, 21, 35, 0.24), transparent 38%);
+  mix-blend-mode: soft-light;
+}
+
+.member-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: saturate(0.94) contrast(1.04);
+  transform: scale(1.02);
+  transition: transform 520ms var(--ease-out-expo), filter 320ms var(--ease-out-quart);
+}
+
+.member-card:hover .member-photo img,
+.member-card:focus-within .member-photo img {
+  filter: saturate(1.04) contrast(1.07);
+  transform: scale(1.07);
+}
+
+.member-card-body {
+  display: grid;
+  gap: 9px;
+  padding: 18px;
+}
+
+.member-group,
+.member-role {
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+  font-weight: 800;
+}
+
+.member-group {
+  color: var(--copper);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.member-card h3 {
+  margin: 0;
+  color: var(--blue-dark);
+  font-size: clamp(1.2rem, 1.8vw, 1.52rem);
+  line-height: 1.04;
+}
+
+.member-role {
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.member-card-body p:not(.member-group):not(.member-role) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.member-card .link-row {
+  margin-top: 5px;
+}
+
+.member-lanes-section {
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--blue) 8%, transparent), transparent 48%),
+    var(--surface);
+}
+
+.member-lane-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 20px);
+}
+
+.member-lane-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  min-height: 136px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--surface) 92%, transparent), color-mix(in srgb, var(--blue) 6%, var(--surface))),
+    radial-gradient(circle at var(--spot-x, 18%) var(--spot-y, 50%), color-mix(in srgb, var(--copper) 12%, transparent), transparent 44%);
+  overflow: hidden;
+}
+
+.member-lane-card img {
+  width: 92px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center 30%;
+  border: 1px solid color-mix(in srgb, var(--blue) 28%, transparent);
+  border-radius: 999px;
+  background: #061722;
+  filter: saturate(0.92) contrast(1.04);
+}
+
+.member-lane-card span {
+  color: var(--copper);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.74rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+
+.member-lane-card h3 {
+  margin: 4px 0 0;
+  color: var(--blue-dark);
+  font-size: 1.2rem;
+  line-height: 1.05;
+}
+
+.member-lane-card p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
 @media (max-width: 940px) {
   .hero-media,
   .page-hero img {
@@ -3112,6 +3328,36 @@ body.motion-ready .branch-strip span:nth-child(5) { animation-delay: 1.8s; }
     opacity: 1;
     transform: none;
     white-space: normal;
+  }
+}
+
+
+@media (max-width: 940px) {
+  .member-roster-panel,
+  .member-directory,
+  .member-lane-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .member-roster-panel > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 680px) {
+  .member-roster-panel,
+  .member-directory,
+  .member-lane-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .member-lane-card {
+    grid-template-columns: 76px minmax(0, 1fr);
+    min-height: 118px;
+  }
+
+  .member-lane-card img {
+    width: 76px;
   }
 }
 

@@ -4,7 +4,7 @@ import { dirname, extname, join, resolve } from "node:path";
 const root = process.cwd();
 const htmlFiles = [];
 const failures = [];
-const routePaths = new Set(["/", "/about", "/leadership", "/events", "/courses", "/open-source", "/contact", "/privacy", "/terms"]);
+const routePaths = new Set(["/", "/about", "/leadership", "/members", "/events", "/courses", "/open-source", "/contact", "/privacy", "/terms"]);
 
 function walk(directory) {
   for (const entry of readdirSync(directory)) {
@@ -35,6 +35,7 @@ function normalizeRoute(target) {
     "/index.html": "/",
     "/about.html": "/about",
     "/leadership.html": "/leadership",
+    "/members.html": "/members",
     "/events.html": "/events",
     "/courses.html": "/courses",
     "/open-source.html": "/open-source",

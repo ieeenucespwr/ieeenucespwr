@@ -8,6 +8,7 @@ const data = JSON.parse(readFileSync(join(root, "data/site-data.json"), "utf8"))
 const staticRoutes = [
   "/about",
   "/leadership",
+  "/members",
   "/events",
   "/courses",
   "/open-source",
