@@ -117,7 +117,7 @@
       "date": "November 2024",
       "year": "2024",
       "type": "Professional development",
-      "href": "events-details/linkedin-branding-nov2024.html",
+      "href": "/events/linkedin-branding-nov2024",
       "image": "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img1.jpeg",
       "summary": "A practical session on profile building, visibility, and professional storytelling."
     },
@@ -126,7 +126,7 @@
       "date": "October 2024",
       "year": "2024",
       "type": "Competition",
-      "href": "events-details/ieee-xtreme-oct2024.html",
+      "href": "/events/ieee-xtreme-oct2024",
       "image": "assets/events/2024/Social_media_Poster_p1_img1.jpeg",
       "summary": "Branch participation and preparation for the global IEEE programming competition."
     },
@@ -135,7 +135,7 @@
       "date": "September 2024",
       "year": "2024",
       "type": "Community session",
-      "href": "events-details/gender-equality-sep2024.html",
+      "href": "/events/gender-equality-sep2024",
       "image": "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.jpeg",
       "summary": "A campus conversation on inclusion, opportunity, and respectful technical spaces."
     },
@@ -144,7 +144,7 @@
       "date": "August 2024",
       "year": "2024",
       "type": "Career workshop",
-      "href": "events-details/mastering-linkedin-aug2024.html",
+      "href": "/events/mastering-linkedin-aug2024",
       "image": "assets/placeholder.jpg",
       "summary": "Hands-on guidance for students preparing their professional online presence."
     },
@@ -153,7 +153,7 @@
       "date": "May 2024",
       "year": "2024",
       "type": "Design workshop",
-      "href": "events-details/uiux-may2024.html",
+      "href": "/events/uiux-may2024",
       "image": "assets/placeholder.jpg",
       "summary": "Design fundamentals, user flows, and interface critique for student builders."
     },
@@ -162,7 +162,7 @@
       "date": "March 2024",
       "year": "2024",
       "type": "Collaboration",
-      "href": "events-details/ieee-collaboration-mar2024.html",
+      "href": "/events/ieee-collaboration-mar2024",
       "image": "assets/placeholder.jpg",
       "summary": "A session focused on branch collaboration and cross-team coordination."
     },
@@ -171,7 +171,7 @@
       "date": "January 2024",
       "year": "2024",
       "type": "Technical workshop",
-      "href": "events-details/devops-jan2024.html",
+      "href": "/events/devops-jan2024",
       "image": "assets/placeholder.jpg",
       "summary": "A technical introduction to development workflows, deployment, and operations."
     },
@@ -180,7 +180,7 @@
       "date": "October 2023",
       "year": "2023",
       "type": "Conference",
-      "href": "events-details/icet-oct2023.html",
+      "href": "/events/icet-oct2023",
       "image": "assets/placeholder.jpg",
       "summary": "Branch coverage and participation from the International Conference on Emerging Technologies."
     },
@@ -189,7 +189,7 @@
       "date": "October 2023",
       "year": "2023",
       "type": "Branch gathering",
-      "href": "events-details/ieee-day-oct2023.html",
+      "href": "/events/ieee-day-oct2023",
       "image": "assets/placeholder.jpg",
       "summary": "Celebrating IEEE's mission and the student branch community."
     },
@@ -198,7 +198,7 @@
       "date": "November 2023",
       "year": "2023",
       "type": "Technical workshop",
-      "href": "events-details/git-docker-nov2023.html",
+      "href": "/events/git-docker-nov2023",
       "image": "assets/placeholder.jpg",
       "summary": "Version control and container basics for student developers."
     },
@@ -207,7 +207,7 @@
       "date": "July 2023",
       "year": "2023",
       "type": "Learning series",
-      "href": "events-details/summer-series-jul2023.html",
+      "href": "/events/summer-series-jul2023",
       "image": "assets/placeholder.jpg",
       "summary": "A multi-topic learning series for students exploring practical technologies."
     }

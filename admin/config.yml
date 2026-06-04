@@ -83,7 +83,7 @@ collections:
               - { label: Date Label, name: date, widget: string, hint: "Example: November 2024" }
               - { label: Year, name: year, widget: string, pattern: ["^\\d{4}$", "Use a four-digit year."] }
               - { label: Type, name: type, widget: string }
-              - { label: Detail Page URL, name: href, widget: string, hint: "Example: events-details/event-name.html" }
+              - { label: App Route, name: href, widget: string, hint: "Example: /events/event-name" }
               - { label: Image, name: image, widget: image }
               - { label: Summary, name: summary, widget: text }
           - label: Learning Tracks

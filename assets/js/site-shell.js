@@ -1,23 +1,23 @@
 const primaryNavigation = [
-  { href: "index.html", label: "Home" },
-  { href: "about.html", label: "About" },
-  { href: "leadership.html", label: "Leadership" },
-  { href: "events.html", label: "Events" },
-  { href: "courses.html", label: "Courses" },
-  { href: "open-source.html", label: "Open source" },
-  { href: "contact.html", label: "Contact" }
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/leadership", label: "Leadership" },
+  { href: "/events", label: "Events" },
+  { href: "/courses", label: "Courses" },
+  { href: "/open-source", label: "Open source" },
+  { href: "/contact", label: "Contact" }
 ];
 
 const footerNavigation = [
-  { href: "about.html", label: "About" },
-  { href: "events.html", label: "Events" },
-  { href: "contact.html", label: "Contact" },
-  { href: "privacy.html", label: "Privacy" },
-  { href: "terms.html", label: "Terms" }
+  { href: "/about", label: "About" },
+  { href: "/events", label: "Events" },
+  { href: "/contact", label: "Contact" },
+  { href: "/privacy", label: "Privacy" },
+  { href: "/terms", label: "Terms" }
 ];
 
 function assetPath(relativePath) {
-  return window.SITE_ASSET_PREFIX ? window.SITE_ASSET_PREFIX + relativePath : relativePath;
+  return relativePath.startsWith("/") ? relativePath : "/" + relativePath;
 }
 
 function renderPrimaryNavigation() {
@@ -32,7 +32,7 @@ function renderSiteHeader() {
   return [
     '<header class="site-header" data-header>',
     '  <nav class="nav container" aria-label="Primary navigation">',
-    '    <a class="brand" href="index.html" aria-label="IEEE NUCES PWR home">',
+    '    <a class="brand" href="/" aria-label="IEEE NUCES PWR home">',
     '      <img src="' + assetPath('assets/ieee-logo.png') + '" alt="IEEE logo" width="122" height="44">',
     '      <span>NUCES PWR</span>',
     '    </a>',

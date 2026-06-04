@@ -1,6 +1,6 @@
 # IEEE NUCES PWR Student Branch Website
 
-Canonical static website for IEEE NUCES PWR Student Branch at FAST NUCES Peshawar.
+Canonical website application for IEEE NUCES PWR Student Branch at FAST NUCES Peshawar.
 
 Built by Rayyan Shaheer.
 
@@ -13,9 +13,10 @@ This repository consolidates the previous website repos into one maintainable, o
 ## Tech Stack
 
 - Static HTML, CSS, and JavaScript
+- App-style client-side routing with GitHub Pages fallback
 - GitHub Pages compatible
 - No runtime framework or build dependency required
-- Local link check with Node.js
+- Local route and link check with Node.js
 - Decap CMS admin for Git-based content editing
 - Dark mode with saved user preference and system fallback
 
@@ -26,7 +27,7 @@ npm install
 npm start
 ```
 
-Open `http://localhost:5500`.
+Open `http://localhost:5500`. The local Node server serves static assets and falls back to the app shell for clean routes like `/about` and `/events/gender-equality-sep2024`. GitHub Pages handles production fallback through `404.html`.
 
 Run checks:
 
@@ -38,38 +39,33 @@ npm test
 
 ```text
 .
-├── index.html
-├── about.html
-├── leadership.html
-├── events.html
-├── courses.html
-├── open-source.html
-├── contact.html
-├── styles.css
-├── assets/js/
-├── assets/css/
-├── admin/
-├── data/site-data.json
-├── events-details/
-├── assets/
-├── scripts/check-links.mjs
-└── .github/workflows/pages.yml
+|-- index.html              # App shell
+|-- 404.html                # GitHub Pages route fallback
+|-- styles.css              # Shared visual system and routed views
+|-- assets/js/site-shell.js # Header/footer shell
+|-- assets/js/site.js       # Router, views, renderers, interactions
+|-- admin/                  # Decap CMS admin
+|-- data/site-data.json     # CMS-editable shared content
+|-- assets/                 # Images, icons, event media
+|-- scripts/check-links.mjs # Static route/link validation
+|-- sitemap.xml
+|-- CNAME
 ```
 
 ## Updating Content
 
-Shared page content lives in `data/site-data.json` and can be edited through the Decap CMS admin at `/admin/` after GitHub OAuth is configured. Shared navigation and footer markup is generated from `assets/js/site-shell.js`, and event detail styling lives in `assets/css/event-detail.css`.
+Shared website content lives in `data/site-data.json` and can be edited through the Decap CMS admin at `/admin/` after GitHub OAuth is configured. Public pages are routed views rendered from `assets/js/site.js`, so contributors should not add standalone HTML files for normal website pages.
 
 Common updates:
 
-- Add an event to `events` and place detail pages in `events-details/`
+- Add an event to `events` with a route like `/events/event-name`
 - Add photos under `assets/events/`, `assets/team_photos/`, or `assets/courses/`
 - Update leadership, teams, and learning tracks in the CMS or the JSON data file
 - Keep image filenames readable and avoid replacing existing images unless intentional
 
 See `docs/cms.md` for CMS authentication and open-authoring setup.
 
-After changing links or pages, run:
+After changing links or routes, run:
 
 ```bash
 npm test
@@ -77,12 +73,12 @@ npm test
 
 ## Deployment
 
-The repository includes a GitHub Pages workflow at `.github/workflows/pages.yml`.
+GitHub Pages publishes from `main` at the repository root.
 
 Recommended settings:
 
 1. Keep `CNAME` as `pwr.ieeenuces.org`.
-2. In GitHub repository settings, configure Pages source as GitHub Actions.
+2. In GitHub repository settings, configure Pages source as `main` and path `/`.
 3. Push to `main`.
 
 ## Open Source Notes
