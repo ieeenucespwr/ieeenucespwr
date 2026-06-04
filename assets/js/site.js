@@ -337,7 +337,7 @@ function renderAbout() {
   return [
     pageHero("About the branch", "A campus home for people who want to build, teach, and ship.", "IEEE NUCES PWR supports technical learning, collaboration, leadership, and public documentation for the FAST NUCES Peshawar student community.", "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.jpeg", "IEEE NUCES PWR branch activity"),
     "<section class=\"section mission\"><div class=\"container mission-grid\"><div><p class=\"section-kicker\">Mission</p><h2>Turn student curiosity into visible technical work.</h2></div><div class=\"mission-copy\"><p>The branch creates space for students to learn by organizing workshops, joining competitions, preparing sessions, and documenting outcomes that future teams can build on.</p><p>Its work is practical: speaker coordination, event execution, media coverage, web publishing, member support, and technical mentoring.</p></div></div></section>",
-    "<section class=\"section operating-section\"><div class=\"container operating-grid\"><div class=\"operating-intro\"><p class=\"section-kicker\">How work moves</p><h2>A practical operating model for student contributors.</h2><p>Each team owns a visible part of the branch. That keeps responsibilities clear and makes it easier for new members to find useful work quickly.</p></div><div class=\"operating-steps\" aria-label=\"Branch operating model\"><article><span>01</span><h3>Plan the session</h3><p>Pick a clear learning outcome, speaker, venue, and promotion window.</p></article><article><span>02</span><h3>Run the event</h3><p>Coordinate registrations, media, certificates, logistics, and attendee support.</p></article><article><span>03</span><h3>Publish the record</h3><p>Add photos, outcomes, and reports so future teams can reuse the work.</p></article></div></div><div class=\"container team-grid\" id=\"team-rail\" aria-label=\"Working teams\"></div></section>"
+    "<section class=\"section operating-section\"><div class=\"container operating-grid\"><div class=\"operating-intro\"><p class=\"section-kicker\">How work moves</p><h2>A practical operating model for student contributors.</h2><p>Each team owns a visible part of the branch. That keeps responsibilities clear and makes it easier for new members to find useful work quickly.</p></div><div class=\"operating-steps\" aria-label=\"Branch operating model\"><article><span>01</span><h3>Plan the session</h3><p>Pick a clear learning outcome, speaker, venue, and promotion window.</p></article><article><span>02</span><h3>Run the event</h3><p>Coordinate registrations, media, certificates, logistics, and attendee support.</p></article><article><span>03</span><h3>Publish the record</h3><p>Add photos, outcomes, and reports so future teams can reuse the work.</p></article></div></div><div class=\"container team-showcase\" aria-labelledby=\"team-showcase-title\"><div class=\"team-showcase-head\"><div><p class=\"section-kicker\">Working teams</p><h2 id=\"team-showcase-title\">Working teams, one branch operating rhythm.</h2><p>Each lane owns a clear branch responsibility, from logistics and media to web publishing, registrations, content, and event safety.</p></div><div class=\"team-count\" aria-hidden=\"true\"><strong data-team-count>--</strong><span>active lanes</span></div></div><div class=\"team-face-wall\" id=\"team-rail\" aria-label=\"Working teams\"></div></div></section>"
   ].join("");
 }
 
@@ -485,11 +485,19 @@ function renderTeams() {
   const target = bySelector("#team-rail");
   if (!target || !siteData.teams) return;
 
-  target.innerHTML = siteData.teams.map((team) => {
+  const countTarget = bySelector("[data-team-count]");
+  if (countTarget) countTarget.textContent = String(siteData.teams.length).padStart(2, "0");
+
+  target.innerHTML = siteData.teams.map((team, index) => {
+    const number = String(index + 1).padStart(2, "0");
+    const label = team.name + ": " + team.focus;
     return [
-      "<article class=\"team-card\">",
-      "<img src=\"" + escapeAttribute(assetUrl(team.image)) + "\" alt=\"" + escapeAttribute(team.name + " team lead") + "\" loading=\"lazy\" width=\"420\" height=\"260\">",
-      "<div>",
+      "<article class=\"team-card\" tabindex=\"0\" data-team-index=\"" + number + "\" aria-label=\"" + escapeAttribute(label) + "\">",
+      "<div class=\"team-card-frame\"><img src=\"" + escapeAttribute(assetUrl(team.image)) + "\" alt=\"" + escapeAttribute(team.name + " team lead") + "\" loading=\"lazy\" width=\"640\" height=\"840\"></div>",
+      "<span class=\"team-card-index\">" + number + "</span>",
+      "<span class=\"team-card-rail-label\">" + escapeHtml(team.name) + "</span>",
+      "<div class=\"team-card-body\">",
+      "<p class=\"team-card-kicker\">working team</p>",
       "<h3>" + escapeHtml(team.name) + "</h3>",
       "<p>" + escapeHtml(team.focus) + "</p>",
       "</div>",
@@ -497,7 +505,6 @@ function renderTeams() {
     ].join("");
   }).join("");
 }
-
 function renderEvents() {
   const feature = bySelector("#event-feature");
   const grid = bySelector("#events-grid");
@@ -682,6 +689,7 @@ function hydrateRoute() {
   setupContactForm();
   setupLightbox();
   setupSpotlightCards();
+  setupTeamFaces();
   setYear();
 }
 
@@ -844,6 +852,28 @@ function setupSpotlightCards() {
       card.style.setProperty("--spot-x", Math.round(event.clientX - rect.left) + "px");
       card.style.setProperty("--spot-y", Math.round(event.clientY - rect.top) + "px");
     });
+  });
+}
+
+function setupTeamFaces() {
+  allBySelector(".team-card[data-team-index]").forEach((card) => {
+    const resetTilt = () => {
+      card.style.removeProperty("--tilt-x");
+      card.style.removeProperty("--tilt-y");
+      card.style.removeProperty("--lift");
+    };
+
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      const x = (event.clientX - rect.left) / rect.width - 0.5;
+      const y = (event.clientY - rect.top) / rect.height - 0.5;
+      card.style.setProperty("--tilt-x", (-y * 7).toFixed(2) + "deg");
+      card.style.setProperty("--tilt-y", (x * 9).toFixed(2) + "deg");
+      card.style.setProperty("--lift", "-10px");
+    });
+
+    card.addEventListener("pointerleave", resetTilt);
+    card.addEventListener("blur", resetTilt);
   });
 }
 
