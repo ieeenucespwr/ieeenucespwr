@@ -435,7 +435,6 @@ body {
 }
 
 html[data-theme="dark"] .event-feature,
-html[data-theme="dark"] .opensource-section,
 html[data-theme="dark"] .cta-band,
 html[data-theme="dark"] .page-hero,
 html[data-theme="dark"] .hero {
@@ -662,7 +661,6 @@ h3 {
 
 .mission-grid,
 .operating-grid,
-.opensource-grid,
 .join-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -759,8 +757,7 @@ h3 {
 .event-row,
 .course-card,
 .team-card,
-.operating-steps article,
-.contribution-board article {
+.operating-steps article {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
@@ -1046,61 +1043,36 @@ h3 {
 
 .course-card {
   display: grid;
-  grid-template-columns: 132px 1fr;
+  grid-template-columns: minmax(132px, 150px) minmax(0, 1fr);
+  align-items: stretch;
   min-height: 132px;
   overflow: hidden;
 }
 
+.course-list .course-card.reveal-item,
+.course-list .course-card.reveal-item[data-reveal-index],
+.course-list .course-card.reveal-item.is-visible {
+  opacity: 1;
+  transform: none;
+  clip-path: none;
+}
+
 .course-card img {
+  display: block;
   width: 100%;
   height: 100%;
+  min-height: 132px;
   object-fit: cover;
 }
 
 .course-card div {
+  min-width: 0;
   padding: 18px;
 }
 
 .course-card p {
   margin: 8px 0 0;
   color: var(--muted);
-}
-
-.opensource-section {
-  color: var(--white);
-  background: #101820;
-}
-
-.opensource-section .section-kicker {
-  color: #9ed9ff;
-}
-
-.opensource-section p {
-  color: rgba(255, 255, 255, 0.76);
-}
-
-.contribution-board {
-  display: grid;
-  gap: 12px;
-}
-
-.contribution-board article {
-  padding: 22px;
-  color: var(--ink);
-  background: var(--surface-elevated);
-}
-
-.contribution-board span {
-  display: block;
-  color: var(--blue-dark);
-  font-family: "Outfit", sans-serif;
-  font-weight: 800;
-  font-size: 1.18rem;
-}
-
-.contribution-board p {
-  color: var(--muted);
-  margin: 8px 0 0;
 }
 
 .join-section {
@@ -1285,7 +1257,6 @@ h3 {
 
   .mission-grid,
   .operating-grid,
-  .opensource-grid,
   .join-grid,
   .courses-layout,
   .event-feature {
@@ -1854,7 +1825,6 @@ body.motion-ready .hero-ledger {
 .course-card,
 .team-card,
 .simple-card,
-.contribution-board article,
 .operating-steps article {
   transition:
     background-color 180ms var(--ease-out-quart),
@@ -1883,7 +1853,6 @@ body.motion-ready .hero-ledger {
 .course-card:hover,
 .team-card:hover,
 .simple-card:hover,
-.contribution-board article:hover,
 .operating-steps article:hover {
   transform: translate3d(0, -3px, 0);
   box-shadow: 0 12px 28px rgba(16, 24, 32, 0.1);
@@ -2440,7 +2409,6 @@ body::before {
 
 .mission-grid,
 .operating-grid,
-.opensource-grid,
 .join-grid,
 .section-heading,
 .faculty-panel,
@@ -2501,7 +2469,6 @@ body::before {
 .course-card,
 .team-card,
 .operating-steps article,
-.contribution-board article,
 .simple-card,
 .faculty-panel,
 .event-feature {
@@ -2519,7 +2486,6 @@ body::before {
 .course-card::before,
 .team-card::before,
 .operating-steps article::before,
-.contribution-board article::before,
 .simple-card::before,
 .faculty-panel::before,
 .event-feature::before {
@@ -2537,7 +2503,6 @@ body::before {
 .course-card:hover,
 .team-card:hover,
 .operating-steps article:hover,
-.contribution-board article:hover,
 .simple-card:hover,
 .faculty-panel:hover {
   border-color: var(--trace-strong);
@@ -2548,7 +2513,6 @@ body::before {
 .course-card:hover::before,
 .team-card:hover::before,
 .operating-steps article:hover::before,
-.contribution-board article:hover::before,
 .simple-card:hover::before,
 .faculty-panel:hover::before,
 .event-feature:hover::before {
@@ -2694,11 +2658,10 @@ body::before {
 }
 
 .course-card {
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 150px minmax(0, 1fr);
   border-left: 4px solid var(--blue);
 }
 
-.opensource-section,
 .cta-band,
 .site-footer {
   background:
@@ -2753,6 +2716,7 @@ body.motion-ready .branch-strip span:nth-child(5) { animation-delay: 1.8s; }
 .reveal-item[data-reveal-index="5"] { transform: translate3d(0, 20px, 0) scale(0.985); }
 
 .reveal-item.is-visible {
+  transform: translate3d(0, 0, 0);
   clip-path: inset(0);
 }
 
@@ -3379,6 +3343,11 @@ body.motion-ready .branch-strip span:nth-child(5) { animation-delay: 1.8s; }
 
   .reveal-item[data-reveal-index="4"] {
     clip-path: inset(0 0 28% 0);
+  }
+
+  .reveal-item.is-visible {
+    transform: translate3d(0, 0, 0);
+    clip-path: inset(0);
   }
 }
 

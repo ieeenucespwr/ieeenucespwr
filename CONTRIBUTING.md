@@ -1,8 +1,8 @@
 # Contributing
 
-The website source code is public for transparency and contribution. Direct write access, CMS access, reviews, and production deployments are limited to authorized IEEE NUCES PWR society maintainers.
+The website source code is public for viewing and reuse. Edits, commits, CMS access, reviews, and production deployments are limited to authorized IEEE NUCES PWR Web Development or Technical Team members. Access is granted by the launch team.
 
-## Good First Contributions
+## Website Team Work
 
 - Fix typos or outdated branch information
 - Add event summaries and photos
@@ -18,7 +18,7 @@ npm install
 npm start
 ```
 
-Run checks before requesting, submitting, or publishing a change:
+Run checks before requesting, applying, or publishing a change:
 
 ```bash
 npm test
@@ -26,7 +26,7 @@ npm test
 
 ## CMS Content Edits
 
-The shared website content is stored in `data/site-data.json`. Public contributors can propose content corrections through review. Authorized maintainers can edit it directly or use `/admin/` after CMS authentication is configured.
+The shared website content is stored in `data/site-data.json`. Authorized Web Development or Technical Team members can edit it directly or use `/admin/` after CMS authentication is configured. Anyone outside those teams should first join the society and be approved through the branch process before requesting edit access.
 
 ## Content Guidelines
 

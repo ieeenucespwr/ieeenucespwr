@@ -14,7 +14,6 @@ const legacyRoutes = {
   "/leadership.html": "/leadership",
   "/events.html": "/events",
   "/courses.html": "/courses",
-  "/open-source.html": "/open-source",
   "/contact.html": "/contact",
   "/privacy.html": "/privacy",
   "/terms.html": "/terms"
@@ -48,14 +47,7 @@ const eventReports = {
       ["Focus area", "Content, media, and professional development"],
       ["Published by", "IEEE NUCES PWR Student Branch"]
     ],
-    gallery: [
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img1.webp",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img2.webp",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img3.webp",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img1.webp",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img2.webp",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img4.webp"
-    ]
+    gallery: ["assets/events/generated/linkedin-branding-nov2024.webp"]
   },
   "gender-equality-sep2024": {
     subtitle: "Empowering voices, ensuring equality.",
@@ -92,20 +84,7 @@ const eventReports = {
       ["Faculty advisor", "Dr. Suleman Mir"],
       ["CPD points", "1 hour of continuous professional development credit"]
     ],
-    gallery: [
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image1.webp",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image2.webp",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image3.webp",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.webp",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image5.webp",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image6.webp",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image7.webp",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image8.webp",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image9.webp",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image10.webp",
-      "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img1.webp",
-      "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img2.webp"
-    ]
+    gallery: ["assets/events/generated/gender-equality-sep2024.webp"]
   },
   "ieee-xtreme-oct2024": {
     subtitle: "Branch preparation and participation for IEEE Xtreme 18.0.",
@@ -129,7 +108,7 @@ const eventReports = {
       }
     ],
     info: [["Organized by", "IEEE NUCES PWR Student Branch"], ["Archive status", "Ready for branch updates"]],
-    gallery: ["assets/events/2024/Social_media_Poster_p1_img1.webp", "assets/events/2024/Social_media_Poster_p1_img2.webp"]
+    gallery: ["assets/events/generated/ieee-xtreme-oct2024.webp"]
   }
 };
 
@@ -164,14 +143,9 @@ const staticRoutes = {
     description: "Explore IEEE NUCES PWR learning tracks for web development, machine learning, robotics, embedded systems, mobile development, and leadership.",
     render: renderCoursesPage
   },
-  "/open-source": {
-    title: "Open Source | IEEE NUCES PWR",
-    description: "Contribute to the open-source IEEE NUCES PWR Student Branch website built by Rayyan Shaheer through reviewed branch maintainer workflows.",
-    render: renderOpenSource
-  },
   "/contact": {
     title: "Contact | IEEE NUCES PWR",
-    description: "Contact IEEE NUCES PWR Student Branch for membership, collaborations, events, website contributions, and corrections.",
+    description: "Contact IEEE NUCES PWR Student Branch for membership, collaborations, events, website corrections, and authorized web team access.",
     render: renderContact
   },
   "/privacy": {
@@ -388,9 +362,6 @@ function renderHome() {
     "<section class=\"section courses-section\">",
     "<div class=\"container courses-layout\"><div class=\"section-heading\"><p class=\"section-kicker\">Learning tracks</p><h2>Short, practical paths for technical growth.</h2><p>These tracks give members a clear place to start, teach, or mentor.</p><a class=\"text-link\" href=\"/courses\">Browse all tracks</a></div><div class=\"course-list\" id=\"course-list\" data-preview-count=\"3\"></div></div>",
     "</section>",
-    "<section class=\"section cta-band\">",
-    "<div class=\"container cta-grid\"><div><p class=\"section-kicker\">Open source</p><h2>One public website repo with reviewed contribution paths.</h2></div><div><p>The website, CMS data, routed pages, event records, and deployment settings live together. Public contributors can propose improvements, while maintainers review and publish approved changes.</p><a class=\"button button-primary\" href=\"/open-source\">See source workflow</a></div></div>",
-    "</section>"
   ].join("");
 }
 
@@ -432,18 +403,10 @@ function renderCoursesPage() {
   ].join("");
 }
 
-function renderOpenSource() {
-  return [
-    pageHero("Open source website", "Public source, reviewed contributions.", "Built by Rayyan Shaheer and structured so contributors can propose improvements while IEEE NUCES PWR maintainers review, approve, and deploy production changes.", "assets/generated/hero-open-source.webp", "Generated open-source workflow visual for IEEE NUCES PWR"),
-    "<section class=\"section opensource-section\"><div class=\"container opensource-grid\"><div><p class=\"section-kicker\">Contributor lanes</p><h2>Improve content, design, and engineering through focused reviews.</h2><p>The source is public for transparency and contribution. Direct write access, CMS access, reviews, and deployments stay with authorized IEEE NUCES PWR maintainers.</p></div><div class=\"contribution-board\" aria-label=\"Contributor lanes\"><article><span>Content</span><p>Propose event reports, team roster updates, copy improvements, and branch record corrections.</p></article><article><span>Design</span><p>Improve responsive layouts, accessibility, media treatment, dark mode, and visual consistency.</p></article><article><span>Engineering</span><p>Improve validation scripts, performance, CMS workflow, image optimization, and GitHub Pages routing.</p></article></div></div></section>",
-    "<section class=\"section mission\"><div class=\"container feature-grid\"><article class=\"simple-card\"><h3>Repository checks</h3><p>Run <code>npm test</code> before submitting or publishing changes to catch broken local links and invalid app routes.</p></article><article class=\"simple-card\"><h3>CMS content</h3><p>Maintainers update <code>data/site-data.json</code> or use Decap CMS for events, teams, leaders, members, and learning tracks.</p></article><article class=\"simple-card\"><h3>Deployment</h3><p>GitHub Pages publishes approved changes from <code>main</code> at <code>pwr.ieeenuces.org</code>.</p></article></div></section>"
-  ].join("");
-}
-
 function renderContact() {
   return [
-    pageHero("Join the branch", "Bring a skill, a question, or a project idea.", "Reach out for membership, collaborations, event proposals, website contributions, or corrections.", "assets/generated/hero-contact.webp", "Generated membership contact visual for IEEE NUCES PWR"),
-    "<section class=\"section join-section\"><div class=\"container join-grid\"><div><p class=\"section-kicker\">Contact</p><h2>Use one clear channel and we will direct the request.</h2><p>Send membership questions, event ideas, collaboration requests, website contribution notes, and corrections to the branch inbox.</p><div class=\"contact-lines\"><a href=\"mailto:info@ieeenucespwr.org\">info@ieeenucespwr.org</a><a href=\"https://www.ieee.org/membership/\" target=\"_blank\" rel=\"noreferrer\">IEEE membership</a><a href=\"https://ieeexplore.ieee.org/\" target=\"_blank\" rel=\"noreferrer\">IEEE Xplore</a></div></div><form class=\"contact-form\" data-contact-form novalidate><label>Name<input name=\"name\" type=\"text\" autocomplete=\"name\" required></label><label>Email<input name=\"email\" type=\"email\" autocomplete=\"email\" required></label><label>Message<textarea name=\"message\" rows=\"5\" required></textarea></label><p class=\"form-status\" data-form-status role=\"status\"></p><button class=\"button button-primary\" type=\"submit\">Draft email</button></form></div></section>"
+    pageHero("Join the branch", "Bring a skill, a question, or a project idea.", "Reach out for membership, collaborations, event proposals, website corrections, or authorized web team access.", "assets/generated/hero-contact.webp", "Generated membership contact visual for IEEE NUCES PWR"),
+    "<section class=\"section join-section\"><div class=\"container join-grid\"><div><p class=\"section-kicker\">Contact</p><h2>Use one clear channel and we will direct the request.</h2><p>Send membership questions, event ideas, collaboration requests, website correction notes, and authorized web team access questions to the branch inbox.</p><div class=\"contact-lines\"><a href=\"mailto:info@ieeenucespwr.org\">info@ieeenucespwr.org</a><a href=\"https://www.ieee.org/membership/\" target=\"_blank\" rel=\"noreferrer\">IEEE membership</a><a href=\"https://ieeexplore.ieee.org/\" target=\"_blank\" rel=\"noreferrer\">IEEE Xplore</a></div></div><form class=\"contact-form\" data-contact-form novalidate><label>Name<input name=\"name\" type=\"text\" autocomplete=\"name\" required></label><label>Email<input name=\"email\" type=\"email\" autocomplete=\"email\" required></label><label>Message<textarea name=\"message\" rows=\"5\" required></textarea></label><p class=\"form-status\" data-form-status role=\"status\"></p><button class=\"button button-primary\" type=\"submit\">Draft email</button></form></div></section>"
   ].join("");
 }
 
@@ -452,7 +415,7 @@ function renderPrivacy() {
 }
 
 function renderTerms() {
-  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Terms</h1><p>This website is maintained for public IEEE NUCES PWR branch information. Content should be accurate, respectful, and relevant to IEEE NUCES PWR activities.</p><h2>Use of content</h2><p>IEEE names, logos, and marks remain subject to IEEE brand and trademark rules. Event photos, summaries, and branch material should be used respectfully and with proper context.</p><h2>Website maintenance</h2><p>Website source code may be publicly visible, but edits, CMS access, reviews, and deployments are managed only by authorized IEEE NUCES PWR society members.</p><h2>Corrections</h2><p>For corrections to event records, names, photos, or links, contact info@ieeenucespwr.org.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
+  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Terms</h1><p>This website is maintained for public IEEE NUCES PWR branch information. Content should be accurate, respectful, and relevant to IEEE NUCES PWR activities.</p><h2>Use of content</h2><p>IEEE names, logos, and marks remain subject to IEEE brand and trademark rules. Event photos, summaries, and branch material should be used respectfully and with proper context.</p><h2>Website maintenance</h2><p>The website source code may be public for viewing and reuse, but edits, commits, CMS access, reviews, and deployments are limited to authorized IEEE NUCES PWR Web Development or Technical Team members. Access is granted by the launch team.</p><h2>Corrections</h2><p>For corrections to event records, names, photos, or links, contact info@ieeenucespwr.org.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
 }
 
 function renderNotFound(path) {
@@ -992,8 +955,6 @@ function setupMotion() {
     ".operating-steps article",
     ".event-feature",
     ".course-card",
-    ".opensource-grid",
-    ".contribution-board article",
     ".simple-card",
     ".join-grid",
     ".event-content",
@@ -1037,7 +998,7 @@ function setupProgressListeners() {
 }
 
 function setupSpotlightCards() {
-  const cards = allBySelector(".leader-card, .event-row, .course-card, .team-orbit-item, .simple-card, .contribution-board article, .operating-steps article, .faculty-panel, .event-feature");
+  const cards = allBySelector(".leader-card, .event-row, .course-card, .team-orbit-item, .simple-card, .operating-steps article, .faculty-panel, .event-feature");
   cards.forEach((card) => {
     card.addEventListener("pointermove", (event) => {
       const rect = card.getBoundingClientRect();

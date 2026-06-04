@@ -11,7 +11,6 @@ const staticRoutes = [
   "/members",
   "/events",
   "/courses",
-  "/open-source",
   "/contact",
   "/privacy",
   "/terms"

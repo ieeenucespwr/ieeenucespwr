@@ -5,7 +5,6 @@ const primaryNavigation = [
   { href: "/members", label: "Members" },
   { href: "/events", label: "Events" },
   { href: "/courses", label: "Courses" },
-  { href: "/open-source", label: "Open Source" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -13,10 +12,10 @@ const footerNavigation = [
   { href: "/about", label: "About" },
   { href: "/members", label: "Members" },
   { href: "/events", label: "Events" },
-  { href: "/open-source", label: "Open Source" },
   { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },
-  { href: "/terms", label: "Terms" }
+  { href: "/terms", label: "Terms" },
+  { href: "https://github.com/rayyanshaheer/ieee-new-website", label: "Source code", external: true }
 ];
 
 function assetPath(relativePath) {
@@ -27,8 +26,12 @@ function renderPrimaryNavigation() {
   return primaryNavigation.map((item) => '<a href="' + item.href + '">' + item.label + '</a>').join('');
 }
 
+function navigationAttributes(item) {
+  return item.external ? ' target="_blank" rel="noreferrer"' : '';
+}
+
 function renderFooterNavigation() {
-  return footerNavigation.map((item) => '<a href="' + item.href + '">' + item.label + '</a>').join('');
+  return footerNavigation.map((item) => '<a href="' + item.href + '"' + navigationAttributes(item) + '>' + item.label + '</a>').join('');
 }
 
 function renderSiteHeader() {

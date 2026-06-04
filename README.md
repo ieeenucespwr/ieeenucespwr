@@ -2,7 +2,7 @@
 
 Official website for IEEE NUCES PWR Student Branch at FAST NUCES Peshawar.
 
-Built by Rayyan Shaheer. The source code is public, and direct write access, CMS access, reviews, and production deployments are managed by authorized IEEE NUCES PWR society maintainers.
+Built by Rayyan Shaheer. The source code is public for viewing and reuse, while edits, commits, CMS access, reviews, and production deployments are limited to authorized IEEE NUCES PWR Web Development or Technical Team members. Access is granted by the launch team.
 
 ## Tech Stack
 
@@ -68,6 +68,6 @@ This repo is the canonical website repo for the branch. Keep future website work
 
 ## Contributing
 
-Public contributors can propose improvements through the repository workflow. Direct write access, CMS access, reviews, and production deployments are limited to authorized IEEE NUCES PWR society maintainers. Read `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md` before requesting or applying website changes.
+The public repository can be viewed or reused, but commit access is restricted to authorized IEEE NUCES PWR Web Development or Technical Team members. Anyone seeking edit access should first join the society and be approved through the branch process. Read `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md` before requesting or applying website changes.
 
 Built by Rayyan Shaheer. IEEE names, logos, and marks remain subject to IEEE brand and trademark rules.
