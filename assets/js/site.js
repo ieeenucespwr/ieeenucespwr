@@ -274,6 +274,7 @@ function pageHero(kicker, title, copy, image, alt) {
     "<section class=\"page-hero\">",
     "<img src=\"" + escapeAttribute(assetUrl(image)) + "\" alt=\"" + escapeAttribute(alt) + "\" width=\"1400\" height=\"720\">",
     "<div class=\"page-hero-shade\"></div>",
+    "<div class=\"signal-field page-signal\" aria-hidden=\"true\"><span></span><span></span><span></span></div>",
     "<div class=\"container page-hero-content\">",
     "<p class=\"section-kicker\">" + escapeHtml(kicker) + "</p>",
     "<h1>" + escapeHtml(title) + "</h1>",
@@ -288,9 +289,11 @@ function renderHome() {
     "<section class=\"hero\" aria-labelledby=\"hero-title\">",
     "<img class=\"hero-media\" src=\"/assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.jpeg\" alt=\"IEEE NUCES PWR students attending a campus session\">",
     "<div class=\"hero-shade\"></div>",
+    "<div class=\"signal-field\" aria-hidden=\"true\"><span></span><span></span><span></span><span></span></div>",
+    "<div class=\"hero-orbit\" aria-hidden=\"true\"><span>PEB-K-NUCESP-0044</span><span>student branch</span><span>open source</span></div>",
     "<div class=\"container hero-content\">",
     "<p class=\"section-kicker\">FAST NUCES Peshawar student branch</p>",
-    "<h1 id=\"hero-title\">IEEE NUCES PWR Student Branch</h1>",
+    "<h1 id=\"hero-title\"><span>IEEE</span> NUCES PWR Student Branch</h1>",
     "<p class=\"hero-copy\">A student-led engineering community that turns technical curiosity into workshops, competitions, research conversations, and service for the campus.</p>",
     "<div class=\"hero-actions\" aria-label=\"Primary actions\">",
     "<a class=\"button button-primary\" href=\"/events\">Explore events</a>",
@@ -298,17 +301,18 @@ function renderHome() {
     "</div>",
     "</div>",
     "<div class=\"container hero-ledger\" aria-label=\"Branch snapshot\">",
-    "<div><strong>11</strong><span>documented events</span></div>",
-    "<div><strong>9</strong><span>operating teams</span></div>",
-    "<div><strong>2025-26</strong><span>current executive body</span></div>",
-    "<div><strong>IEEE</strong><span>global student network</span></div>",
+    "<div><small>records</small><strong>11</strong><span>documented events</span></div>",
+    "<div><small>teams</small><strong>9</strong><span>operating groups</span></div>",
+    "<div><small>term</small><strong>2025-26</strong><span>executive body</span></div>",
+    "<div><small>network</small><strong>IEEE</strong><span>global student branch</span></div>",
     "</div>",
     "</section>",
     "<section class=\"section mission\">",
     "<div class=\"container mission-grid\">",
-    "<div><p class=\"section-kicker\">Routed branch website</p><h2>One public app for the branch, built for students to maintain.</h2></div>",
+    "<div class=\"signal-card\"><span>01</span><p class=\"section-kicker\">Branch signal</p><h2>One public app for a student branch that documents its work.</h2></div>",
     "<div class=\"mission-copy\"><p>IEEE NUCES PWR brings together students from computing and engineering programs at FAST NUCES Peshawar. The branch runs technical sessions, member-led teams, competition preparation, and collaboration opportunities with the wider IEEE community.</p><p>The website now runs from a single application shell with route-based views, shared data, and reusable rendering logic. Contributors update content without copying entire HTML pages.</p><a class=\"text-link\" href=\"/about\">Read about the branch</a></div>",
     "</div>",
+    "<div class=\"container branch-strip\" aria-label=\"IEEE operating rhythm\"><span>Plan</span><span>Run</span><span>Document</span><span>Publish</span><span>Review</span></div>",
     "</section>",
     "<section class=\"section leadership-section\">",
     "<div class=\"container section-heading section-heading-row\"><div><p class=\"section-kicker\">Leadership</p><h2>Faculty guidance and student ownership.</h2></div><a class=\"button button-primary\" href=\"/leadership\">Meet the team</a></div>",
@@ -646,6 +650,7 @@ function renderRoute(path, options = {}) {
 
   const route = resolveRoute(path);
   currentRoutePath = route.path;
+  root.classList.remove("route-is-ready");
   root.innerHTML = route.html;
   document.body.dataset.route = route.eventSlug ? "event-detail" : route.path.replace(/^\//, "") || "home";
   if (route.eventSlug) document.body.dataset.eventAccent = route.eventSlug;
@@ -654,6 +659,7 @@ function renderRoute(path, options = {}) {
   updateDocumentMeta(route);
   updateActiveNavigation(route.path);
   hydrateRoute();
+  requestAnimationFrame(() => root.classList.add("route-is-ready"));
 
   const browserPath = window.location.pathname.replace(/\/$/, "") || "/";
   if (options.replace && browserPath !== route.canonicalPath && !route.noindex) {
@@ -675,13 +681,17 @@ function hydrateRoute() {
   setupEventFilters();
   setupContactForm();
   setupLightbox();
+  setupSpotlightCards();
   setYear();
 }
 
 function navigateTo(path) {
   const normalized = normalizePath(path);
   if (!canHandleRoute(normalized)) return false;
-  if (normalized !== currentRoutePath) history.pushState({ path: normalized }, "", normalized);
+  if (normalized !== currentRoutePath) {
+    setupRouteTransition();
+    history.pushState({ path: normalized }, "", normalized);
+  }
   renderRoute(normalized, { focus: true });
   closeMenu();
   return true;
@@ -808,6 +818,33 @@ function setupProgressListeners() {
   updateProgress();
   window.addEventListener("scroll", updateProgress, { passive: true });
   window.addEventListener("resize", updateProgress);
+}
+
+function setupRouteTransition() {
+  let transition = bySelector(".route-transition");
+  if (!transition) {
+    transition = document.createElement("div");
+    transition.className = "route-transition";
+    transition.setAttribute("aria-hidden", "true");
+    transition.innerHTML = "<span></span><span></span><span></span>";
+    document.body.append(transition);
+  }
+  transition.classList.remove("is-active");
+  requestAnimationFrame(() => {
+    transition.classList.add("is-active");
+    window.setTimeout(() => transition.classList.remove("is-active"), 520);
+  });
+}
+
+function setupSpotlightCards() {
+  const cards = allBySelector(".leader-card, .event-card, .course-card, .team-card, .simple-card, .contribution-board article, .operating-steps article, .faculty-panel, .event-feature");
+  cards.forEach((card) => {
+    card.addEventListener("pointermove", (event) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty("--spot-x", Math.round(event.clientX - rect.left) + "px");
+      card.style.setProperty("--spot-y", Math.round(event.clientY - rect.top) + "px");
+    });
+  });
 }
 
 function setupPressFeedback() {
