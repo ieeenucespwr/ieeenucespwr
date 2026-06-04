@@ -68,47 +68,175 @@
     {
       "name": "Operations",
       "image": "assets/team_photos/operations/operations_lead.jpg",
-      "focus": "Logistics, checklists, venue readiness"
+      "focus": "Logistics, checklists, venue readiness",
+      "members": [
+        {
+          "name": "Rao Asad",
+          "role": "Operations Lead",
+          "image": "assets/team_photos/operations/operations_lead.jpg"
+        },
+        {
+          "name": "Hanzla",
+          "role": "Operations Member",
+          "image": "assets/team_photos/operations/operations_member1.jpg"
+        },
+        {
+          "name": "Raqeeb Raees",
+          "role": "Operations Member",
+          "image": "assets/team_photos/operations/operations_member2.jpg"
+        },
+        {
+          "name": "Nauman Khan",
+          "role": "Operations Member",
+          "image": "assets/team_photos/operations/operations_member3.jpg"
+        }
+      ]
     },
     {
       "name": "Marketing",
       "image": "assets/team_photos/marketing/marketing_lead.jpg",
-      "focus": "Campaign planning and outreach"
+      "focus": "Campaign planning and outreach",
+      "members": [
+        {
+          "name": "Rao Sami Ullah",
+          "role": "Marketing Lead",
+          "image": "assets/team_photos/marketing/marketing_lead.jpg"
+        },
+        {
+          "name": "Khusbakht Khan",
+          "role": "Marketing Member",
+          "image": "assets/team_photos/marketing/marketing_member1.jpg"
+        },
+        {
+          "name": "Mubeen Zeb",
+          "role": "Marketing Member",
+          "image": "assets/team_photos/marketing/marketing_member2.jpg"
+        },
+        {
+          "name": "Arham Ali",
+          "role": "Marketing Member",
+          "image": "assets/team_photos/marketing/marketing_member3.jpg"
+        }
+      ]
     },
     {
       "name": "Media",
       "image": "assets/team_photos/media/media_lead.jpg",
-      "focus": "Photography, reels, post-event records"
+      "focus": "Photography, reels, post-event records",
+      "members": [
+        {
+          "name": "Afaq",
+          "role": "Media Lead",
+          "image": "assets/team_photos/media/media_lead.jpg"
+        },
+        {
+          "name": "Sami Ullah",
+          "role": "Media Member",
+          "image": "assets/team_photos/media/media_member1.jpg"
+        },
+        {
+          "name": "Hashim",
+          "role": "Media Member",
+          "image": "assets/team_photos/media/media_member2.jpg"
+        },
+        {
+          "name": "Memoona",
+          "role": "Media Member",
+          "image": "assets/team_photos/media/media_member3.jpg"
+        },
+        {
+          "name": "Mahnoor",
+          "role": "Media Member",
+          "image": "assets/team_photos/media/media_member4.jpg"
+        }
+      ]
     },
     {
       "name": "Graphics",
       "image": "assets/team_photos/graphics/graphics_lead.jpg",
-      "focus": "Posters and visual assets"
+      "focus": "Posters and visual assets",
+      "members": [
+        {
+          "name": "Khadija Babar",
+          "role": "Graphics Lead",
+          "image": "assets/team_photos/graphics/graphics_lead.jpg"
+        },
+        {
+          "name": "Hifza Akhunzada",
+          "role": "Graphics Designer",
+          "image": "assets/team_photos/graphics/graphics_member1.jpg"
+        }
+      ]
     },
     {
       "name": "Web Development",
       "image": "assets/team_photos/web_development/web_development_lead.jpg",
-      "focus": "Website, tooling, publishing workflow"
+      "focus": "Website, tooling, publishing workflow",
+      "members": [
+        {
+          "name": "Rayyan Shaheer",
+          "role": "Web Development Lead",
+          "image": "assets/team_photos/web_development/web_development_lead.jpg",
+          "summary": "Built by Rayyan Shaheer and maintained as the branch web platform."
+        },
+        {
+          "name": "Abdul Raheem",
+          "role": "Web Developer",
+          "image": "assets/team_photos/web_development/web_development_member1.jpg"
+        }
+      ]
     },
     {
       "name": "Event Coordination",
       "image": "assets/team_photos/event_coordination/event_coordination_lead.jpg",
-      "focus": "Registrations, speakers, schedules"
+      "focus": "Registrations, speakers, schedules",
+      "members": [
+        {
+          "name": "Aleesha Hayat",
+          "role": "Event Coordination Lead",
+          "image": "assets/team_photos/event_coordination/event_coordination_lead.jpg"
+        },
+        {
+          "name": "Laiba Afridi",
+          "role": "Event Coordinator",
+          "image": "assets/team_photos/event_coordination/event_coordination_member1.jpg"
+        }
+      ]
     },
     {
       "name": "Content Creation",
       "image": "assets/team_photos/content_creation/content_creation_lead.jpg",
-      "focus": "Captions, reports, branch copy"
+      "focus": "Captions, reports, branch copy",
+      "members": [
+        {
+          "name": "Ammad Hamdani",
+          "role": "Content Creator",
+          "image": "assets/team_photos/content_creation/content_creation_member1.jpg"
+        }
+      ]
     },
     {
       "name": "Decor",
       "image": "assets/team_photos/decor/decor_lead.jpg",
-      "focus": "Stage, signage, on-ground experience"
+      "focus": "Stage, signage, on-ground experience",
+      "members": [
+        {
+          "name": "Ayesha Bangash",
+          "role": "Decor Lead",
+          "image": "assets/team_photos/decor/decor_lead.jpg"
+        },
+        {
+          "name": "Muhammad Ismail",
+          "role": "Decor Member",
+          "image": "assets/team_photos/decor/decor_member1.jpg"
+        }
+      ]
     },
     {
       "name": "Safety & Security",
       "image": "assets/team_photos/safety_security/safety_security_lead.jpg",
-      "focus": "Crowd support and event safety"
+      "focus": "Crowd support and event safety",
+      "members": []
     }
   ],
   "events": [
@@ -244,5 +372,13 @@
       "summary": "Communication, ownership, mentoring, and event execution for student teams."
     }
   ],
-  "members": []
+  "members": [
+    {
+      "name": "Sheikh Saif Ali",
+      "role": "General Body Member",
+      "group": "General Body",
+      "image": "assets/general_body/member1.jpg",
+      "summary": "Listed in the previous IEEE NUCES PWR website general body roster."
+    }
+  ]
 }

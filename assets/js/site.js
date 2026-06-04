@@ -357,8 +357,8 @@ function renderLeadership() {
 function renderMembersPage() {
   return [
     pageHero("Society members", "Every verified branch member should have a visible place.", "The directory brings faculty guidance, executive ownership, working teams, and additional society members into one public roster for IEEE NUCES PWR.", "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img1.jpeg", "IEEE NUCES PWR society members"),
-    "<section class=\"section members-section\"><div class=\"container member-roster-panel\"><div><p class=\"section-kicker\">Member directory</p><h2>Named members and team lanes in one roster.</h2><p>The page shows every named member already present in the repository and keeps working team lanes visible while the full society roster is completed with verified entries.</p></div><div class=\"member-roster-stats\" aria-label=\"Roster totals\"><span><strong data-member-count>--</strong> named members</span><span><strong data-lane-count>--</strong> team lanes</span></div></div><div class=\"container member-directory\" id=\"member-directory\" aria-live=\"polite\"></div></section>",
-    "<section class=\"section member-lanes-section\"><div class=\"container section-heading\"><p class=\"section-kicker\">Working lanes</p><h2>Each society lane has a visible owner area.</h2><p>Team lanes remain public even when individual member names are still being verified for the roster.</p></div><div class=\"container member-lane-grid\" id=\"member-team-lanes\"></div></section>"
+    "<section class=\"section members-section\"><div class=\"container member-roster-panel\"><div><p class=\"section-kicker\">Member directory</p><h2>Complete named roster from the previous site.</h2><p>Every real named member found in the previous IEEE NUCES PWR websites is now visible here, with placeholder names excluded and the roster grouped by operating team below.</p></div><div class=\"member-roster-stats\" aria-label=\"Roster totals\"><span><strong data-member-count>--</strong> named members</span><span><strong data-lane-count>--</strong> groups</span></div></div><div class=\"container member-directory\" id=\"member-directory\" aria-live=\"polite\"></div></section>",
+    "<section class=\"section member-lanes-section\"><div class=\"container section-heading\"><p class=\"section-kicker\">Team groups</p><h2>Members grouped by the team they work with.</h2><p>Each team card shows its lead and members from the previous website source, with additional general body members kept in their own public group.</p></div><div class=\"container member-lane-grid\" id=\"member-team-lanes\"></div></section>"
   ].join("");
 }
 
@@ -584,20 +584,100 @@ function collectSocietyMembers() {
   }
 
   (siteData.leaders || []).forEach((leader) => add(leader, { group: "Executive Body" }));
+  (siteData.teams || []).forEach((team) => {
+    (team.members || []).forEach((member) => add(member, {
+      group: team.name,
+      role: member.role || team.name + " Member",
+      summary: member.summary || team.focus
+    }));
+  });
   (siteData.members || []).forEach((member) => add(member, { group: "Society Member" }));
 
   return records;
+}
+
+function memberTeamGroups() {
+  const groups = (siteData.teams || []).map((team, index) => {
+    return {
+      type: "team",
+      number: String(index + 1).padStart(2, "0"),
+      name: team.name,
+      focus: team.focus,
+      image: team.image,
+      members: team.members || []
+    };
+  });
+
+  const additional = new Map();
+  (siteData.members || []).forEach((member) => {
+    if (!member?.name) return;
+    const groupName = member.group || "Society Member";
+    if (!additional.has(groupName)) additional.set(groupName, []);
+    additional.get(groupName).push(member);
+  });
+
+  additional.forEach((members, name) => {
+    groups.push({
+      type: "additional",
+      number: String(groups.length + 1).padStart(2, "0"),
+      name,
+      focus: "Additional verified society members",
+      image: members[0]?.image || "assets/placeholder.jpg",
+      members
+    });
+  });
+
+  return groups;
+}
+
+function renderGroupedMember(member, groupName) {
+  const image = member.image || "assets/placeholder.jpg";
+  const role = member.role || groupName + " Member";
+  return [
+    "<article class=\"member-team-person\">",
+    "<img src=\"" + escapeAttribute(assetUrl(image)) + "\" alt=\"" + escapeAttribute(member.name) + "\" loading=\"lazy\" width=\"180\" height=\"180\">",
+    "<div>",
+    "<h4>" + escapeHtml(member.name) + "</h4>",
+    "<p>" + escapeHtml(role) + "</p>",
+    "</div>",
+    "</article>"
+  ].join("");
+}
+
+function renderMemberGroup(group) {
+  const namedMembers = (group.members || []).filter((member) => member?.name && member.name.toLowerCase() !== "to be announced");
+  const lead = namedMembers.find((member) => /lead/i.test(member.role || "")) || namedMembers[0];
+  const image = lead?.image || group.image || "assets/placeholder.jpg";
+  const countLabel = namedMembers.length === 1 ? "1 member" : namedMembers.length + " members";
+
+  return [
+    "<article class=\"member-team-card" + (group.type === "additional" ? " member-team-card-secondary" : "") + "\">",
+    "<div class=\"member-team-head\">",
+    "<img src=\"" + escapeAttribute(assetUrl(image)) + "\" alt=\"" + escapeAttribute(group.name + " roster") + "\" loading=\"lazy\" width=\"240\" height=\"240\">",
+    "<div>",
+    "<span>" + escapeHtml(group.number) + "</span>",
+    "<h3>" + escapeHtml(group.name) + "</h3>",
+    "<p>" + escapeHtml(group.focus || "IEEE NUCES PWR society group") + "</p>",
+    "<strong>" + escapeHtml(countLabel) + "</strong>",
+    "</div>",
+    "</div>",
+    namedMembers.length
+      ? "<div class=\"member-team-people\">" + namedMembers.map((member) => renderGroupedMember(member, group.name)).join("") + "</div>"
+      : "<p class=\"member-team-empty\">No named members were published for this team in the previous website source.</p>",
+    "</article>"
+  ].join("");
 }
 
 function renderMembers() {
   const directory = bySelector("#member-directory");
   const lanes = bySelector("#member-team-lanes");
   const members = collectSocietyMembers();
+  const groups = memberTeamGroups();
 
   const memberCount = bySelector("[data-member-count]");
   const laneCount = bySelector("[data-lane-count]");
   if (memberCount) memberCount.textContent = String(members.length).padStart(2, "0");
-  if (laneCount) laneCount.textContent = String((siteData.teams || []).length).padStart(2, "0");
+  if (laneCount) laneCount.textContent = String(groups.length).padStart(2, "0");
 
   if (directory) {
     directory.innerHTML = members.map((member) => {
@@ -619,19 +699,7 @@ function renderMembers() {
   }
 
   if (lanes) {
-    lanes.innerHTML = (siteData.teams || []).map((team, index) => {
-      const number = String(index + 1).padStart(2, "0");
-      return [
-        "<article class=\"member-lane-card\">",
-        "<img src=\"" + escapeAttribute(assetUrl(team.image)) + "\" alt=\"" + escapeAttribute(team.name + " team lead") + "\" loading=\"lazy\" width=\"260\" height=\"260\">",
-        "<div>",
-        "<span>" + number + "</span>",
-        "<h3>" + escapeHtml(team.name) + "</h3>",
-        "<p>" + escapeHtml(team.focus) + "</p>",
-        "</div>",
-        "</article>"
-      ].join("");
-    }).join("");
+    lanes.innerHTML = groups.map(renderMemberGroup).join("");
   }
 }
 
