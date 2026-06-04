@@ -52,6 +52,17 @@ npm test
 |-- CNAME
 ```
 
+## Route Shells
+
+Folders such as `about/`, `events/`, `contact/`, and `events/gender-equality-sep2024/` are generated app shells, not separate page implementations. They exist because GitHub Pages has no rewrite rule support; a directory `index.html` lets clean routes return HTTP 200 while `assets/js/site.js` still owns the actual routed content.
+
+Do not edit those route shell files by hand. Update `index.html`, route code, or CMS data, then run:
+
+```bash
+npm run sync-routes
+npm test
+```
+
 ## Updating Content
 
 Shared website content lives in `data/site-data.json` and can be edited through the Decap CMS admin at `/admin/` after GitHub OAuth is configured. Public pages are routed views rendered from `assets/js/site.js`, so contributors should not add standalone HTML files for normal website pages.
