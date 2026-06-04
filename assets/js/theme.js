@@ -38,7 +38,8 @@
     const theme = currentTheme();
     const next = theme === "dark" ? "light" : "dark";
 
-    if (label) label.textContent = next === "dark" ? "Dark" : "Light";
+    control.dataset.themeState = theme;
+    if (label) label.textContent = next === "dark" ? "Night" : "Day";
     control.setAttribute("aria-label", "Switch to " + next + " theme");
     control.setAttribute("aria-pressed", String(theme === "dark"));
   }
@@ -51,7 +52,19 @@
     const control = document.createElement("button");
     control.className = "theme-toggle";
     control.type = "button";
-    control.innerHTML = '<span class="theme-toggle-icon" aria-hidden="true"></span><span class="theme-toggle-label"></span>';
+    control.innerHTML = [
+      '<span class="theme-toggle-scene" aria-hidden="true">',
+      '  <span class="theme-toggle-sky">',
+      '    <span class="theme-cloud theme-cloud-one"></span>',
+      '    <span class="theme-cloud theme-cloud-two"></span>',
+      '    <span class="theme-star theme-star-one"></span>',
+      '    <span class="theme-star theme-star-two"></span>',
+      '    <span class="theme-star theme-star-three"></span>',
+      '  </span>',
+      '  <span class="theme-toggle-orb"><span></span></span>',
+      '</span>',
+      '<span class="theme-toggle-label"></span>'
+    ].join('');
     control.addEventListener("click", () => {
       const next = currentTheme() === "dark" ? "light" : "dark";
       applyTheme(next);
