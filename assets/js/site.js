@@ -292,7 +292,7 @@ function pageHero(kicker, title, copy, image, alt) {
 function renderHome() {
   return [
     "<section class=\"hero\" aria-labelledby=\"hero-title\">",
-    "<img class=\"hero-media\" src=\"/assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.jpeg\" alt=\"IEEE NUCES PWR students attending a campus session\">",
+    "<img class=\"hero-media\" src=\"/assets/generated/hero-home.webp\" alt=\"Generated engineering lab visual for IEEE NUCES PWR Student Branch\">",
     "<div class=\"hero-shade\"></div>",
     "<div class=\"signal-field\" aria-hidden=\"true\"><span></span><span></span><span></span><span></span></div>",
     "<div class=\"hero-orbit\" aria-hidden=\"true\"><span>PEB-K-NUCESP-0044</span><span>student branch</span><span>open source</span></div>",
@@ -340,7 +340,7 @@ function renderHome() {
 
 function renderAbout() {
   return [
-    pageHero("About the branch", "A campus home for people who want to build, teach, and ship.", "IEEE NUCES PWR supports technical learning, collaboration, leadership, and public documentation for the FAST NUCES Peshawar student community.", "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.jpeg", "IEEE NUCES PWR branch activity"),
+    pageHero("About the branch", "A campus home for people who want to build, teach, and ship.", "IEEE NUCES PWR supports technical learning, collaboration, leadership, and public documentation for the FAST NUCES Peshawar student community.", "assets/generated/hero-about.webp", "Generated campus workshop visual for IEEE NUCES PWR"),
     "<section class=\"section mission\"><div class=\"container mission-grid\"><div><p class=\"section-kicker\">Mission</p><h2>Turn student curiosity into visible technical work.</h2></div><div class=\"mission-copy\"><p>The branch creates space for students to learn by organizing workshops, joining competitions, preparing sessions, and documenting outcomes that future teams can build on.</p><p>Its work is practical: speaker coordination, event execution, media coverage, web publishing, member support, and technical mentoring.</p></div></div></section>",
     "<section class=\"section operating-section\"><div class=\"container operating-grid\"><div class=\"operating-intro\"><p class=\"section-kicker\">How work moves</p><h2>A practical operating model for student contributors.</h2><p>Each team owns a visible part of the branch. That keeps responsibilities clear and makes it easier for new members to find useful work quickly.</p></div><div class=\"operating-steps\" aria-label=\"Branch operating model\"><article><span>01</span><h3>Plan the session</h3><p>Pick a clear learning outcome, speaker, venue, and promotion window.</p></article><article><span>02</span><h3>Run the event</h3><p>Coordinate registrations, media, certificates, logistics, and attendee support.</p></article><article><span>03</span><h3>Publish the record</h3><p>Add photos, outcomes, and reports so future teams can reuse the work.</p></article></div></div><div class=\"container team-showcase\" aria-labelledby=\"team-showcase-title\"><div class=\"team-showcase-head\"><div><p class=\"section-kicker\">Working teams</p><h2 id=\"team-showcase-title\">Working teams, one branch operating rhythm.</h2><p>Each working team stays connected to the branch center while owning a visible lane across logistics, media, web publishing, registrations, content, and event safety.</p></div><div class=\"team-count\" aria-hidden=\"true\"><strong data-team-count>--</strong><span>active lanes</span></div></div><div class=\"team-face-wall\" id=\"team-rail\" aria-label=\"Working teams\"></div></div></section>"
   ].join("");
@@ -348,7 +348,7 @@ function renderAbout() {
 
 function renderLeadership() {
   return [
-    pageHero("Leadership", "Faculty guidance and student ownership.", "The executive body sets direction while working teams handle operations, media, events, development, and member engagement.", "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img1.jpeg", "IEEE NUCES PWR branch activity"),
+    pageHero("Leadership", "Faculty guidance and student ownership.", "The executive body sets direction while working teams handle operations, media, events, development, and member engagement.", "assets/generated/hero-leadership.webp", "Generated leadership planning visual for IEEE NUCES PWR"),
     "<section class=\"section leadership-section\"><div class=\"container section-heading\"><p class=\"section-kicker\">Faculty advisor</p><h2>Branch guidance starts with academic mentorship.</h2></div><div class=\"container faculty-panel\" id=\"faculty-panel\"></div></section>",
     "<section class=\"section mission\"><div class=\"container section-heading\"><p class=\"section-kicker\">Executive body 2025-26</p><h2>Student leaders responsible for branch direction.</h2></div><div class=\"container leadership-grid\" id=\"leadership-grid\" aria-live=\"polite\"></div></section>"
   ].join("");
@@ -356,7 +356,7 @@ function renderLeadership() {
 
 function renderMembersPage() {
   return [
-    pageHero("Society members", "Every verified branch member should have a visible place.", "The directory brings faculty guidance, executive ownership, working teams, and additional society members into one public roster for IEEE NUCES PWR.", "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img1.jpeg", "IEEE NUCES PWR society members"),
+    pageHero("Society members", "Every verified branch member should have a visible place.", "The directory brings faculty guidance, executive ownership, working teams, and additional society members into one public roster for IEEE NUCES PWR.", "assets/generated/hero-members.webp", "Generated society members visual for IEEE NUCES PWR"),
     "<section class=\"section members-section\"><div class=\"container member-roster-panel\"><div><p class=\"section-kicker\">Member directory</p><h2>Complete named roster from the previous site.</h2><p>Every real named member found in the previous IEEE NUCES PWR websites is now visible here, with placeholder names excluded and the roster grouped by operating team below.</p></div><div class=\"member-roster-stats\" aria-label=\"Roster totals\"><span><strong data-member-count>--</strong> named members</span><span><strong data-lane-count>--</strong> groups</span></div></div><div class=\"container member-directory\" id=\"member-directory\" aria-live=\"polite\"></div></section>",
     "<section class=\"section member-lanes-section\"><div class=\"container section-heading\"><p class=\"section-kicker\">Team groups</p><h2>Members grouped by the team they work with.</h2><p>Each team card shows its lead and members from the previous website source, with additional general body members kept in their own public group.</p></div><div class=\"container member-lane-grid\" id=\"member-team-lanes\"></div></section>"
   ].join("");
@@ -364,21 +364,21 @@ function renderMembersPage() {
 
 function renderEventsPage() {
   return [
-    pageHero("Events archive", "Workshops, competitions, and branch sessions.", "Browse documented IEEE NUCES PWR activities and event reports from 2023 onward.", "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img2.jpeg", "IEEE NUCES PWR branch activity"),
+    pageHero("Events archive", "Workshops, competitions, and branch sessions.", "Browse documented IEEE NUCES PWR activities and event reports from 2023 onward.", "assets/generated/hero-events.webp", "Generated event archive visual for IEEE NUCES PWR"),
     "<section class=\"section events-section\"><div class=\"container section-heading section-heading-row\"><div><p class=\"section-kicker\">Archive</p><h2>Event records contributors can keep current.</h2></div><div class=\"filter-group\" aria-label=\"Filter events\"><button type=\"button\" class=\"filter-button is-active\" data-event-filter=\"all\">All</button><button type=\"button\" class=\"filter-button\" data-event-filter=\"2024\">2024</button><button type=\"button\" class=\"filter-button\" data-event-filter=\"2023\">2023</button></div></div><div class=\"container event-feature\" id=\"event-feature\"></div><div class=\"container events-grid\" id=\"events-grid\" aria-live=\"polite\"></div></section>"
   ].join("");
 }
 
 function renderCoursesPage() {
   return [
-    pageHero("Learning tracks", "Short, practical paths for technical growth.", "These tracks help students start, teach, mentor, and build practical technical confidence.", "assets/courses/web-dev.jpg", "IEEE NUCES PWR learning track"),
+    pageHero("Learning tracks", "Short, practical paths for technical growth.", "These tracks help students start, teach, mentor, and build practical technical confidence.", "assets/generated/hero-courses.webp", "Generated technical learning visual for IEEE NUCES PWR"),
     "<section class=\"section courses-section\"><div class=\"container courses-layout\"><div class=\"section-heading\"><p class=\"section-kicker\">Tracks</p><h2>Use these tracks to plan workshops and mentoring circles.</h2><p>Contributors can expand this page by adding syllabi, session material, prerequisites, and project outcomes.</p></div><div class=\"course-list\" id=\"course-list\"></div></div></section>"
   ].join("");
 }
 
 function renderOpenSource() {
   return [
-    pageHero("Open source website", "One public repo, clear contribution paths.", "The website is structured for student maintainers, reviewers, and contributors who need a clean project they can safely improve.", "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img1.jpeg", "IEEE NUCES PWR branch activity"),
+    pageHero("Open source website", "One public repo, clear contribution paths.", "The website is structured for student maintainers, reviewers, and contributors who need a clean project they can safely improve.", "assets/generated/hero-open-source.webp", "Generated open-source workflow visual for IEEE NUCES PWR"),
     "<section class=\"section opensource-section\"><div class=\"container opensource-grid\"><div><p class=\"section-kicker\">Contributor lanes</p><h2>Improve content, design, and engineering in focused pull requests.</h2><p>Shared page content is data-driven, event reports use app routes, and checks catch broken local links before deployment.</p></div><div class=\"contribution-board\" aria-label=\"Contributor lanes\"><article><span>Content</span><p>Add event reports, update team rosters, and improve branch copy.</p></article><article><span>Design</span><p>Polish responsive layouts, accessibility, media treatment, and visual consistency.</p></article><article><span>Engineering</span><p>Improve validation scripts, performance, image optimization, and GitHub Pages routing.</p></article></div></div></section>",
     "<section class=\"section mission\"><div class=\"container feature-grid\"><article class=\"simple-card\"><h3>Repository checks</h3><p>Run <code>npm test</code> before opening a pull request to catch broken local links and invalid app routes.</p></article><article class=\"simple-card\"><h3>Content source</h3><p>Update <code>data/site-data.json</code> for events, teams, leaders, and courses.</p></article><article class=\"simple-card\"><h3>Deployment</h3><p>GitHub Pages publishes from <code>main</code> at <code>pwr.ieeenuces.org</code>.</p></article></div></section>"
   ].join("");
@@ -386,7 +386,7 @@ function renderOpenSource() {
 
 function renderContact() {
   return [
-    pageHero("Join the branch", "Bring a skill, a question, or a project idea.", "Reach out for membership, collaborations, event proposals, or website contributions.", "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.jpeg", "IEEE NUCES PWR branch activity"),
+    pageHero("Join the branch", "Bring a skill, a question, or a project idea.", "Reach out for membership, collaborations, event proposals, or website contributions.", "assets/generated/hero-contact.webp", "Generated membership contact visual for IEEE NUCES PWR"),
     "<section class=\"section join-section\"><div class=\"container join-grid\"><div><p class=\"section-kicker\">Contact</p><h2>Use one clear channel and we will route the request.</h2><p>Send membership questions, event ideas, collaboration requests, and website contribution notes to the branch inbox.</p><div class=\"contact-lines\"><a href=\"mailto:info@ieeenucespwr.org\">info@ieeenucespwr.org</a><a href=\"https://www.ieee.org/membership/\" target=\"_blank\" rel=\"noreferrer\">IEEE membership</a><a href=\"https://ieeexplore.ieee.org/\" target=\"_blank\" rel=\"noreferrer\">IEEE Xplore</a></div></div><form class=\"contact-form\" data-contact-form novalidate><label>Name<input name=\"name\" type=\"text\" autocomplete=\"name\" required></label><label>Email<input name=\"email\" type=\"email\" autocomplete=\"email\" required></label><label>Message<textarea name=\"message\" rows=\"5\" required></textarea></label><p class=\"form-status\" data-form-status role=\"status\"></p><button class=\"button button-primary\" type=\"submit\">Draft email</button></form></div></section>"
   ].join("");
 }
