@@ -697,7 +697,6 @@ function navigateTo(path) {
   const normalized = normalizePath(path);
   if (!canHandleRoute(normalized)) return false;
   if (normalized !== currentRoutePath) {
-    setupRouteTransition();
     history.pushState({ path: normalized }, "", normalized);
   }
   renderRoute(normalized, { focus: true });
@@ -826,22 +825,6 @@ function setupProgressListeners() {
   updateProgress();
   window.addEventListener("scroll", updateProgress, { passive: true });
   window.addEventListener("resize", updateProgress);
-}
-
-function setupRouteTransition() {
-  let transition = bySelector(".route-transition");
-  if (!transition) {
-    transition = document.createElement("div");
-    transition.className = "route-transition";
-    transition.setAttribute("aria-hidden", "true");
-    transition.innerHTML = "<span></span><span></span><span></span>";
-    document.body.append(transition);
-  }
-  transition.classList.remove("is-active");
-  requestAnimationFrame(() => {
-    transition.classList.add("is-active");
-    window.setTimeout(() => transition.classList.remove("is-active"), 520);
-  });
 }
 
 function setupSpotlightCards() {

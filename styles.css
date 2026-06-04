@@ -2372,36 +2372,6 @@ body::before {
   animation: route-content-settle 520ms var(--ease-out-quint) both;
 }
 
-.route-transition {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  opacity: 0;
-}
-
-.route-transition span {
-  transform: scaleY(0);
-  transform-origin: top;
-  background: #061722;
-}
-
-.route-transition span:nth-child(2) { background: var(--blue-dark); }
-.route-transition span:nth-child(3) { background: var(--copper); }
-
-.route-transition.is-active {
-  opacity: 1;
-}
-
-.route-transition.is-active span {
-  animation: route-shutter 520ms var(--ease-out-expo) both;
-}
-
-.route-transition.is-active span:nth-child(2) { animation-delay: 42ms; }
-.route-transition.is-active span:nth-child(3) { animation-delay: 84ms; }
-
 body.motion-ready .hero-orbit span {
   opacity: 0;
   animation: orbit-tag 820ms var(--ease-out-expo) forwards;
@@ -2434,13 +2404,6 @@ body.motion-ready .branch-strip span:nth-child(5) { animation-delay: 1.8s; }
   12% { opacity: 1; }
   72% { opacity: 1; }
   100% { transform: translateX(180%); opacity: 0; }
-}
-
-@keyframes route-shutter {
-  0% { transform: scaleY(0); transform-origin: top; }
-  42% { transform: scaleY(1); transform-origin: top; }
-  58% { transform: scaleY(1); transform-origin: bottom; }
-  100% { transform: scaleY(0); transform-origin: bottom; }
 }
 
 @keyframes route-content-settle {
@@ -2839,8 +2802,7 @@ body.motion-ready .branch-strip span:nth-child(5) { animation-delay: 1.8s; }
 
 @media (prefers-reduced-motion: reduce) {
   .signal-field,
-  .hero-orbit,
-  .route-transition {
+  .hero-orbit {
     display: none;
   }
 
