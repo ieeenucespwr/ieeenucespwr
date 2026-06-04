@@ -27,7 +27,7 @@ npm install
 npm start
 ```
 
-Open `http://localhost:5500`. The local Node server serves static assets and falls back to the app shell for clean routes like `/about` and `/events/gender-equality-sep2024`. GitHub Pages handles production fallback through `404.html`.
+Open `http://localhost:5500`. The local Node server serves static assets and falls back to the app shell for clean routes like `/about` and `/events/gender-equality-sep2024`. Production clean routes are backed by generated app shell files. `404.html` remains the fallback for unknown routes.
 
 Run checks:
 
@@ -65,9 +65,10 @@ Common updates:
 
 See `docs/cms.md` for CMS authentication and open-authoring setup.
 
-After changing links or routes, run:
+After changing event routes, sync route shells and run checks:
 
 ```bash
+npm run sync-routes
 npm test
 ```
 

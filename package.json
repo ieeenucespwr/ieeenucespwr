@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "start": "node scripts/dev-server.mjs",
-    "test": "node scripts/check-links.mjs"
+    "test": "node scripts/check-links.mjs",
+    "sync-routes": "node scripts/sync-route-shells.mjs"
   },
   "keywords": [
     "ieee",
