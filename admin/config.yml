@@ -11,7 +11,7 @@ publish_mode: editorial_workflow
 site_url: https://pwr.ieeenuces.org
 display_url: https://pwr.ieeenuces.org
 logo:
-  src: /assets/ieee-logo.png
+  src: /assets/ieee-nuces-peshawar-campus-logo.webp
   show_in_header: true
 media_folder: assets/uploads
 public_folder: assets/uploads

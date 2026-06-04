@@ -2,8 +2,8 @@
   "faculty": {
     "name": "Dr. Suleman Mir",
     "role": "Faculty Advisor",
-    "detail": "Assistant Professor and Head of Department. Research interests include waveform design, path planning, reinforcement learning, and communication systems.",
-    "image": "assets/executives/faculty-head.jpg",
+    "detail": "Assistant Professor. Research interests include waveform design, path planning, reinforcement learning, and communication systems.",
+    "image": "assets/executives/faculty-head.webp",
     "links": [
       {
         "label": "LinkedIn",
@@ -20,7 +20,7 @@
       "name": "Abdullah Asim",
       "role": "Chairperson",
       "department": "Software Engineering",
-      "image": "assets/executives/chair.jpg",
+      "image": "assets/executives/chair.webp",
       "summary": "Leads branch direction, partnerships, and technical community building.",
       "links": [
         {
@@ -37,7 +37,7 @@
       "name": "Usman Sohail",
       "role": "Vice Chairperson",
       "department": "Computer Science",
-      "image": "assets/executives/vice-chair.jpg",
+      "image": "assets/executives/vice-chair.webp",
       "summary": "Supports strategy, operations, workshops, and member engagement.",
       "links": [
         {
@@ -54,7 +54,7 @@
       "name": "Dilawer Khan",
       "role": "General Secretary",
       "department": "Computer Science",
-      "image": "assets/executives/secretary.jpg",
+      "image": "assets/executives/secretary.webp",
       "summary": "Manages administration, documentation, coordination, and communication.",
       "links": [
         {
@@ -67,174 +67,174 @@
   "teams": [
     {
       "name": "Operations",
-      "image": "assets/team_photos/operations/operations_lead.jpg",
+      "image": "assets/team_photos/operations/operations_lead.webp",
       "focus": "Logistics, checklists, venue readiness",
       "members": [
         {
           "name": "Rao Asad",
           "role": "Operations Lead",
-          "image": "assets/team_photos/operations/operations_lead.jpg"
+          "image": "assets/team_photos/operations/operations_lead.webp"
         },
         {
           "name": "Hanzla",
           "role": "Operations Member",
-          "image": "assets/team_photos/operations/operations_member1.jpg"
+          "image": "assets/team_photos/operations/operations_member1.webp"
         },
         {
           "name": "Raqeeb Raees",
           "role": "Operations Member",
-          "image": "assets/team_photos/operations/operations_member2.jpg"
+          "image": "assets/team_photos/operations/operations_member2.webp"
         },
         {
           "name": "Nauman Khan",
           "role": "Operations Member",
-          "image": "assets/team_photos/operations/operations_member3.jpg"
+          "image": "assets/team_photos/operations/operations_member3.webp"
         }
       ]
     },
     {
       "name": "Marketing",
-      "image": "assets/team_photos/marketing/marketing_lead.jpg",
+      "image": "assets/team_photos/marketing/marketing_lead.webp",
       "focus": "Campaign planning and outreach",
       "members": [
         {
           "name": "Rao Sami Ullah",
           "role": "Marketing Lead",
-          "image": "assets/team_photos/marketing/marketing_lead.jpg"
+          "image": "assets/team_photos/marketing/marketing_lead.webp"
         },
         {
           "name": "Khusbakht Khan",
           "role": "Marketing Member",
-          "image": "assets/team_photos/marketing/marketing_member1.jpg"
+          "image": "assets/team_photos/marketing/marketing_member1.webp"
         },
         {
           "name": "Mubeen Zeb",
           "role": "Marketing Member",
-          "image": "assets/team_photos/marketing/marketing_member2.jpg"
+          "image": "assets/team_photos/marketing/marketing_member2.webp"
         },
         {
           "name": "Arham Ali",
           "role": "Marketing Member",
-          "image": "assets/team_photos/marketing/marketing_member3.jpg"
+          "image": "assets/team_photos/marketing/marketing_member3.webp"
         }
       ]
     },
     {
       "name": "Media",
-      "image": "assets/team_photos/media/media_lead.jpg",
+      "image": "assets/team_photos/media/media_lead.webp",
       "focus": "Photography, reels, post-event records",
       "members": [
         {
           "name": "Afaq",
           "role": "Media Lead",
-          "image": "assets/team_photos/media/media_lead.jpg"
+          "image": "assets/team_photos/media/media_lead.webp"
         },
         {
           "name": "Sami Ullah",
           "role": "Media Member",
-          "image": "assets/team_photos/media/media_member1.jpg"
+          "image": "assets/team_photos/media/media_member1.webp"
         },
         {
           "name": "Hashim",
           "role": "Media Member",
-          "image": "assets/team_photos/media/media_member2.jpg"
+          "image": "assets/team_photos/media/media_member2.webp"
         },
         {
           "name": "Memoona",
           "role": "Media Member",
-          "image": "assets/team_photos/media/media_member3.jpg"
+          "image": "assets/team_photos/media/media_member3.webp"
         },
         {
           "name": "Mahnoor",
           "role": "Media Member",
-          "image": "assets/team_photos/media/media_member4.jpg"
+          "image": "assets/team_photos/media/media_member4.webp"
         }
       ]
     },
     {
       "name": "Graphics",
-      "image": "assets/team_photos/graphics/graphics_lead.jpg",
+      "image": "assets/team_photos/graphics/graphics_lead.webp",
       "focus": "Posters and visual assets",
       "members": [
         {
           "name": "Khadija Babar",
           "role": "Graphics Lead",
-          "image": "assets/team_photos/graphics/graphics_lead.jpg"
+          "image": "assets/team_photos/graphics/graphics_lead.webp"
         },
         {
           "name": "Hifza Akhunzada",
           "role": "Graphics Designer",
-          "image": "assets/team_photos/graphics/graphics_member1.jpg"
+          "image": "assets/team_photos/graphics/graphics_member1.webp"
         }
       ]
     },
     {
       "name": "Web Development",
-      "image": "assets/team_photos/web_development/web_development_lead.jpg",
+      "image": "assets/team_photos/web_development/web_development_lead.webp",
       "focus": "Website, tooling, publishing workflow",
       "members": [
         {
           "name": "Rayyan Shaheer",
           "role": "Web Development Lead",
-          "image": "assets/team_photos/web_development/web_development_lead.jpg",
+          "image": "assets/team_photos/web_development/web_development_lead.webp",
           "summary": "Built by Rayyan Shaheer and maintained as the branch web platform."
         },
         {
           "name": "Abdul Raheem",
           "role": "Web Developer",
-          "image": "assets/team_photos/web_development/web_development_member1.jpg"
+          "image": "assets/team_photos/web_development/web_development_member1.webp"
         }
       ]
     },
     {
       "name": "Event Coordination",
-      "image": "assets/team_photos/event_coordination/event_coordination_lead.jpg",
+      "image": "assets/team_photos/event_coordination/event_coordination_lead.webp",
       "focus": "Registrations, speakers, schedules",
       "members": [
         {
           "name": "Aleesha Hayat",
           "role": "Event Coordination Lead",
-          "image": "assets/team_photos/event_coordination/event_coordination_lead.jpg"
+          "image": "assets/team_photos/event_coordination/event_coordination_lead.webp"
         },
         {
           "name": "Laiba Afridi",
           "role": "Event Coordinator",
-          "image": "assets/team_photos/event_coordination/event_coordination_member1.jpg"
+          "image": "assets/team_photos/event_coordination/event_coordination_member1.webp"
         }
       ]
     },
     {
       "name": "Content Creation",
-      "image": "assets/team_photos/content_creation/content_creation_lead.jpg",
+      "image": "assets/team_photos/content_creation/content_creation_lead.webp",
       "focus": "Captions, reports, branch copy",
       "members": [
         {
           "name": "Ammad Hamdani",
           "role": "Content Creator",
-          "image": "assets/team_photos/content_creation/content_creation_member1.jpg"
+          "image": "assets/team_photos/content_creation/content_creation_member1.webp"
         }
       ]
     },
     {
       "name": "Decor",
-      "image": "assets/team_photos/decor/decor_lead.jpg",
+      "image": "assets/team_photos/decor/decor_lead.webp",
       "focus": "Stage, signage, on-ground experience",
       "members": [
         {
           "name": "Ayesha Bangash",
           "role": "Decor Lead",
-          "image": "assets/team_photos/decor/decor_lead.jpg"
+          "image": "assets/team_photos/decor/decor_lead.webp"
         },
         {
           "name": "Muhammad Ismail",
           "role": "Decor Member",
-          "image": "assets/team_photos/decor/decor_member1.jpg"
+          "image": "assets/team_photos/decor/decor_member1.webp"
         }
       ]
     },
     {
       "name": "Safety & Security",
-      "image": "assets/team_photos/safety_security/safety_security_lead.jpg",
+      "image": "assets/team_photos/safety_security/safety_security_lead.webp",
       "focus": "Crowd support and event safety",
       "members": []
     }
@@ -246,7 +246,7 @@
       "year": "2024",
       "type": "Professional development",
       "href": "/events/linkedin-branding-nov2024",
-      "image": "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img1.jpeg",
+      "image": "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img1.webp",
       "summary": "A practical session on profile building, visibility, and professional storytelling."
     },
     {
@@ -255,7 +255,7 @@
       "year": "2024",
       "type": "Competition",
       "href": "/events/ieee-xtreme-oct2024",
-      "image": "assets/events/2024/Social_media_Poster_p1_img1.jpeg",
+      "image": "assets/generated/hero-events.webp",
       "summary": "Branch participation and preparation for the global IEEE programming competition."
     },
     {
@@ -264,7 +264,7 @@
       "year": "2024",
       "type": "Community session",
       "href": "/events/gender-equality-sep2024",
-      "image": "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.jpeg",
+      "image": "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.webp",
       "summary": "A campus conversation on inclusion, opportunity, and respectful technical spaces."
     },
     {
@@ -273,7 +273,7 @@
       "year": "2024",
       "type": "Career workshop",
       "href": "/events/mastering-linkedin-aug2024",
-      "image": "assets/placeholder.jpg",
+      "image": "assets/events/generated/mastering-linkedin-aug2024.webp",
       "summary": "Hands-on guidance for students preparing their professional online presence."
     },
     {
@@ -282,7 +282,7 @@
       "year": "2024",
       "type": "Design workshop",
       "href": "/events/uiux-may2024",
-      "image": "assets/placeholder.jpg",
+      "image": "assets/events/generated/uiux-may2024.webp",
       "summary": "Design fundamentals, user flows, and interface critique for student builders."
     },
     {
@@ -291,7 +291,7 @@
       "year": "2024",
       "type": "Collaboration",
       "href": "/events/ieee-collaboration-mar2024",
-      "image": "assets/placeholder.jpg",
+      "image": "assets/events/generated/ieee-collaboration-mar2024.webp",
       "summary": "A session focused on branch collaboration and cross-team coordination."
     },
     {
@@ -300,7 +300,7 @@
       "year": "2024",
       "type": "Technical workshop",
       "href": "/events/devops-jan2024",
-      "image": "assets/placeholder.jpg",
+      "image": "assets/events/generated/devops-jan2024.webp",
       "summary": "A technical introduction to development workflows, deployment, and operations."
     },
     {
@@ -309,7 +309,7 @@
       "year": "2023",
       "type": "Conference",
       "href": "/events/icet-oct2023",
-      "image": "assets/placeholder.jpg",
+      "image": "assets/events/generated/icet-oct2023.webp",
       "summary": "Branch coverage and participation from the International Conference on Emerging Technologies."
     },
     {
@@ -318,7 +318,7 @@
       "year": "2023",
       "type": "Branch gathering",
       "href": "/events/ieee-day-oct2023",
-      "image": "assets/placeholder.jpg",
+      "image": "assets/events/generated/ieee-day-oct2023.webp",
       "summary": "Celebrating IEEE's mission and the student branch community."
     },
     {
@@ -327,7 +327,7 @@
       "year": "2023",
       "type": "Technical workshop",
       "href": "/events/git-docker-nov2023",
-      "image": "assets/placeholder.jpg",
+      "image": "assets/events/generated/git-docker-nov2023.webp",
       "summary": "Version control and container basics for student developers."
     },
     {
@@ -336,39 +336,39 @@
       "year": "2023",
       "type": "Learning series",
       "href": "/events/summer-series-jul2023",
-      "image": "assets/placeholder.jpg",
+      "image": "assets/events/generated/summer-series-jul2023.webp",
       "summary": "A multi-topic learning series for students exploring practical technologies."
     }
   ],
   "courses": [
     {
       "title": "Web development",
-      "image": "assets/courses/web-dev.jpg",
+      "image": "assets/courses/web-dev.webp",
       "summary": "HTML, CSS, JavaScript, deployment, and collaborative Git workflows."
     },
     {
       "title": "Machine learning",
-      "image": "assets/courses/machine-learning.jpg",
+      "image": "assets/courses/machine-learning.webp",
       "summary": "Model basics, notebooks, datasets, evaluation, and responsible experimentation."
     },
     {
       "title": "Robotics",
-      "image": "assets/courses/robotics.jpg",
+      "image": "assets/courses/robotics.webp",
       "summary": "Mechanical thinking, controls, sensors, and team-based prototyping."
     },
     {
       "title": "Arduino and embedded systems",
-      "image": "assets/courses/arduino.jpg",
+      "image": "assets/courses/arduino.webp",
       "summary": "Microcontrollers, electronics fundamentals, and physical computing."
     },
     {
       "title": "Mobile development",
-      "image": "assets/courses/mobile-dev.jpg",
+      "image": "assets/courses/mobile-dev.webp",
       "summary": "App structure, interface patterns, and device-ready project planning."
     },
     {
       "title": "Leadership",
-      "image": "assets/courses/leadership.jpg",
+      "image": "assets/courses/leadership.webp",
       "summary": "Communication, ownership, mentoring, and event execution for student teams."
     }
   ],
@@ -377,7 +377,7 @@
       "name": "Sheikh Saif Ali",
       "role": "General Body Member",
       "group": "General Body",
-      "image": "assets/general_body/member1.jpg",
+      "image": "assets/general_body/member1.webp",
       "summary": "Listed in the previous IEEE NUCES PWR website general body roster."
     }
   ]

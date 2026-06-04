@@ -1,35 +1,28 @@
 # IEEE NUCES PWR Student Branch Website
 
-Canonical website application for IEEE NUCES PWR Student Branch at FAST NUCES Peshawar.
+Official website for IEEE NUCES PWR Student Branch at FAST NUCES Peshawar.
 
-Built by Rayyan Shaheer.
-
-This repository consolidates the previous website repos into one maintainable, open-source project:
-
-- `rayyanshaheer/ieee-new-website2`
-- `rayyanshaheer/ieee-new-website`
-- `rayyanshaheer/website-ieeenucespwr`
+Built by Rayyan Shaheer. The source code is public, and direct write access, CMS access, reviews, and production deployments are managed by authorized IEEE NUCES PWR society maintainers.
 
 ## Tech Stack
 
 - Static HTML, CSS, and JavaScript
-- App-style client-side routing with GitHub Pages fallback
-- GitHub Pages compatible
-- No runtime framework or build dependency required
-- Local route and link check with Node.js
-- Decap CMS admin for Git-based content editing
-- Dark mode with saved user preference and system fallback
+- GitHub Pages hosting
+- Decap CMS for content editing
+- Node.js scripts for local preview and link checks
 
 ## Local Development
+
+Install dependencies and start the local server:
 
 ```bash
 npm install
 npm start
 ```
 
-Open `http://localhost:5500`. The local Node server serves static assets and falls back to the app shell for clean routes like `/about` and `/events/gender-equality-sep2024`. Production clean routes are backed by generated app shell files. `404.html` remains the fallback for unknown routes.
+Open `http://localhost:5500`.
 
-Run checks:
+Run checks before publishing changes:
 
 ```bash
 npm test
@@ -38,45 +31,29 @@ npm test
 ## Project Structure
 
 ```text
-.
-|-- index.html              # App shell
-|-- 404.html                # GitHub Pages route fallback
-|-- styles.css              # Shared visual system and routed views
-|-- assets/js/site-shell.js # Header/footer shell
-|-- assets/js/site.js       # Router, views, renderers, interactions
-|-- admin/                  # Decap CMS admin
-|-- data/site-data.json     # CMS-editable shared content
-|-- assets/                 # Images, icons, event media
-|-- scripts/check-links.mjs # Static route/link validation
-|-- sitemap.xml
-|-- CNAME
-```
-
-## Route Shells
-
-Folders such as `about/`, `events/`, `contact/`, and `events/gender-equality-sep2024/` are generated app shells, not separate page implementations. They exist because GitHub Pages has no rewrite rule support; a directory `index.html` lets clean routes return HTTP 200 while `assets/js/site.js` still owns the actual routed content.
-
-Do not edit those route shell files by hand. Update `index.html`, route code, or CMS data, then run:
-
-```bash
-npm run sync-routes
-npm test
+index.html              Main app shell
+404.html                Fallback page
+styles.css              Site styles
+assets/js/site-shell.js Header and footer
+assets/js/site.js       Page rendering and interactions
+admin/                  CMS admin
+assets/                 Images, icons, and event media
+data/site-data.json     Shared branch content
+scripts/                Local maintenance scripts
 ```
 
 ## Updating Content
 
-Shared website content lives in `data/site-data.json` and can be edited through the Decap CMS admin at `/admin/` after GitHub OAuth is configured. Public pages are routed views rendered from `assets/js/site.js`, so contributors should not add standalone HTML files for normal website pages.
+Most branch content lives in `data/site-data.json` and can also be edited from `/admin/` after CMS access is configured.
 
 Common updates:
 
-- Add an event to `events` with a route like `/events/event-name`
-- Add photos under `assets/events/`, `assets/team_photos/`, or `assets/courses/`
-- Update leadership, teams, and learning tracks in the CMS or the JSON data file
-- Keep image filenames readable and avoid replacing existing images unless intentional
+- Add or update events, teams, leaders, members, and learning tracks.
+- Add event photos under `assets/events/`.
+- Add team and member photos under the matching `assets/` folders.
+- Keep image filenames readable and compress large files before committing.
 
-See `docs/cms.md` for CMS authentication and open-authoring setup.
-
-After changing event routes, sync route shells and run checks:
+After changing routes or event entries, run:
 
 ```bash
 npm run sync-routes
@@ -85,16 +62,12 @@ npm test
 
 ## Deployment
 
-GitHub Pages publishes from `main` at the repository root.
+GitHub Pages publishes the site from the `main` branch. Keep `CNAME` set to `pwr.ieeenuces.org`.
 
-Recommended settings:
+This repo is the canonical website repo for the branch. Keep future website work here instead of splitting updates across duplicate repositories.
 
-1. Keep `CNAME` as `pwr.ieeenuces.org`.
-2. In GitHub repository settings, configure Pages source as `main` and path `/`.
-3. Push to `main`.
+## Contributing
 
-## Open Source Notes
+Public contributors can propose improvements through the repository workflow. Direct write access, CMS access, reviews, and production deployments are limited to authorized IEEE NUCES PWR society maintainers. Read `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md` before requesting or applying website changes.
 
-The source code is MIT licensed. IEEE names, logos, and marks are governed by IEEE brand and trademark rules and are not relicensed by this repository.
-
-See `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md` before contributing.
+Built by Rayyan Shaheer. IEEE names, logos, and marks remain subject to IEEE brand and trademark rules.

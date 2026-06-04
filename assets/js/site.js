@@ -6,6 +6,7 @@ let currentImageIndex = 0;
 const siteOrigin = "https://pwr.ieeenuces.org";
 const bySelector = (selector, parent = document) => parent.querySelector(selector);
 const allBySelector = (selector, parent = document) => [...parent.querySelectorAll(selector)];
+const coverImageLabel = "cover image";
 
 const legacyRoutes = {
   "/index.html": "/",
@@ -44,16 +45,16 @@ const eventReports = {
     ],
     info: [
       ["Organized by", "IEEE NUCES PWR Student Branch"],
-      ["Contributor lane", "Content, media, and professional development"],
-      ["Website record", "Maintained through the routed event archive"]
+      ["Focus area", "Content, media, and professional development"],
+      ["Published by", "IEEE NUCES PWR Student Branch"]
     ],
     gallery: [
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img1.jpeg",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img2.jpeg",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img3.jpeg",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img1.jpeg",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img2.jpeg",
-      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img4.jpeg"
+      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img1.webp",
+      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img2.webp",
+      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p1_img3.webp",
+      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img1.webp",
+      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img2.webp",
+      "assets/events/2024/linkedin-brand/Pictures__Session_on_Building_Your_Personal_Brand__p2_img4.webp"
     ]
   },
   "gender-equality-sep2024": {
@@ -92,18 +93,18 @@ const eventReports = {
       ["CPD points", "1 hour of continuous professional development credit"]
     ],
     gallery: [
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image1.jpeg",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image2.png",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image3.jpeg",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.jpeg",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image5.jpeg",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image6.jpeg",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image7.jpeg",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image8.jpeg",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image9.png",
-      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image10.jpeg",
-      "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img1.jpeg",
-      "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img2.png"
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image1.webp",
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image2.webp",
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image3.webp",
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image4.webp",
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image5.webp",
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image6.webp",
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image7.webp",
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image8.webp",
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image9.webp",
+      "assets/events/2024/gender-equality/Sept2024_GenderEquality_image10.webp",
+      "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img1.webp",
+      "assets/events/2024/gender-equality/Picture_empowering_session_on_Gender_Equality_p1_img2.webp"
     ]
   },
   "ieee-xtreme-oct2024": {
@@ -115,20 +116,20 @@ const eventReports = {
         title: "Event overview",
         paragraphs: [
           "IEEE Xtreme participation gave students a structured way to practice algorithmic thinking, teamwork, and time-boxed problem solving.",
-          "The branch record keeps the competition visible for future teams that want to prepare earlier and document outcomes clearly."
+          "The report keeps the competition visible for future teams that want to prepare earlier and document outcomes clearly."
         ]
       },
       {
-        title: "Contributor notes",
+        title: "Preparation notes",
         list: [
-          "Add team names, practice resources, and result summaries when they are ready.",
-          "Attach official photos or posters under the event assets folder.",
-          "Use this route as the canonical event report instead of adding another HTML page."
+          "Document team names, practice resources, and result summaries when they are ready.",
+          "Share official photos, posters, and participation highlights for future teams.",
+          "Keep preparation lessons visible so new participants can start earlier."
         ]
       }
     ],
-    info: [["Organized by", "IEEE NUCES PWR Student Branch"], ["Archive status", "Ready for contributor updates"]],
-    gallery: ["assets/events/2024/Social_media_Poster_p1_img1.jpeg", "assets/events/2024/Social_media_Poster_p1_img2.png"]
+    info: [["Organized by", "IEEE NUCES PWR Student Branch"], ["Archive status", "Ready for branch updates"]],
+    gallery: ["assets/events/2024/Social_media_Poster_p1_img1.webp", "assets/events/2024/Social_media_Poster_p1_img2.webp"]
   }
 };
 
@@ -165,12 +166,12 @@ const staticRoutes = {
   },
   "/open-source": {
     title: "Open Source | IEEE NUCES PWR",
-    description: "Contribute to the open-source IEEE NUCES PWR Student Branch website built by Rayyan Shaheer.",
+    description: "Contribute to the open-source IEEE NUCES PWR Student Branch website built by Rayyan Shaheer through reviewed branch maintainer workflows.",
     render: renderOpenSource
   },
   "/contact": {
     title: "Contact | IEEE NUCES PWR",
-    description: "Contact IEEE NUCES PWR Student Branch for membership, collaborations, events, and website contributions.",
+    description: "Contact IEEE NUCES PWR Student Branch for membership, collaborations, events, website contributions, and corrections.",
     render: renderContact
   },
   "/privacy": {
@@ -254,6 +255,67 @@ function findEventBySlug(slug) {
   return (siteData.events || []).find((event) => eventSlug(event) === slug);
 }
 
+function isGeneratedImagePath(path) {
+  const normalized = String(path || "")
+    .replace(window.location.origin, "")
+    .replace(/^\/+/, "");
+  return normalized.startsWith("assets/generated/") || normalized.startsWith("assets/events/generated/");
+}
+
+function imageCoverFrame(image) {
+  const parent = image.parentElement;
+  if (!parent) return null;
+
+  if (image.classList.contains("hero-media")) return null;
+  if (parent.classList.contains("page-hero")) return null;
+  if (parent.matches(".event-feature-media, .event-row-media")) return null;
+
+  if (
+    parent.matches(".gallery-item, .lightbox-content") ||
+    parent.children.length === 1
+  ) {
+    return parent;
+  }
+
+  const wrapper = document.createElement("span");
+  wrapper.className = "cover-image-inline-frame";
+  parent.insertBefore(wrapper, image);
+  wrapper.append(image);
+  return wrapper;
+}
+
+function setCoverImageLabel(frame, isVisible) {
+  if (!frame) return;
+
+  frame.classList.toggle("cover-image-frame", isVisible);
+
+  let label = bySelector(":scope > .cover-image-label", frame);
+  if (!isVisible) {
+    label?.remove();
+    return;
+  }
+
+  if (!label) {
+    label = document.createElement("span");
+    label.className = "cover-image-label";
+    label.setAttribute("aria-hidden", "true");
+    frame.append(label);
+  }
+
+  label.textContent = coverImageLabel;
+}
+
+function decorateGeneratedImages() {
+  allBySelector("img").forEach((image) => {
+    if (image.dataset.coverImageDecorated === "true") return;
+    if (!isGeneratedImagePath(image.getAttribute("src"))) return;
+
+    const frame = imageCoverFrame(image);
+    setCoverImageLabel(frame, true);
+    image.dataset.coverImageDecorated = "true";
+  });
+}
+
 function canHandleRoute(path) {
   const normalized = normalizePath(path);
   if (staticRoutes[normalized]) return true;
@@ -295,14 +357,13 @@ function renderHome() {
     "<img class=\"hero-media\" src=\"/assets/generated/hero-home.webp\" alt=\"Generated engineering lab visual for IEEE NUCES PWR Student Branch\">",
     "<div class=\"hero-shade\"></div>",
     "<div class=\"signal-field\" aria-hidden=\"true\"><span></span><span></span><span></span><span></span></div>",
-    "<div class=\"hero-orbit\" aria-hidden=\"true\"><span>PEB-K-NUCESP-0044</span><span>student branch</span><span>open source</span></div>",
     "<div class=\"container hero-content\">",
     "<p class=\"section-kicker\">FAST NUCES Peshawar student branch</p>",
     "<h1 id=\"hero-title\"><span>IEEE</span> NUCES PWR Student Branch</h1>",
     "<p class=\"hero-copy\">A student-led engineering community that turns technical curiosity into workshops, competitions, research conversations, and service for the campus.</p>",
     "<div class=\"hero-actions\" aria-label=\"Primary actions\">",
     "<a class=\"button button-primary\" href=\"/events\">Explore events</a>",
-    "<a class=\"button button-secondary\" href=\"/open-source\">Contribute to the website</a>",
+    "<a class=\"button button-secondary\" href=\"/contact\">Join the branch</a>",
     "</div>",
     "</div>",
     "<div class=\"container hero-ledger\" aria-label=\"Branch snapshot\">",
@@ -314,15 +375,10 @@ function renderHome() {
     "</section>",
     "<section class=\"section mission\">",
     "<div class=\"container mission-grid\">",
-    "<div class=\"signal-card\"><span>01</span><p class=\"section-kicker\">Branch signal</p><h2>One public app for a student branch that documents its work.</h2></div>",
-    "<div class=\"mission-copy\"><p>IEEE NUCES PWR brings together students from computing and engineering programs at FAST NUCES Peshawar. The branch runs technical sessions, member-led teams, competition preparation, and collaboration opportunities with the wider IEEE community.</p><p>The website now runs from a single application shell with route-based views, shared data, and reusable rendering logic. Contributors update content without copying entire HTML pages.</p><a class=\"text-link\" href=\"/about\">Read about the branch</a></div>",
+    "<div class=\"signal-card\"><span>01</span><p class=\"section-kicker\">Branch signal</p><h2>A student branch that documents its work and keeps members connected.</h2></div>",
+    "<div class=\"mission-copy\"><p>IEEE NUCES PWR brings together students from computing and engineering programs at FAST NUCES Peshawar. The branch runs technical sessions, member-led teams, competition preparation, and collaboration opportunities with the wider IEEE community.</p><p>Members use this space to keep event reports, leadership updates, learning tracks, and branch activity visible for students, faculty, alumni, and collaborators.</p><a class=\"text-link\" href=\"/about\">Read about the branch</a></div>",
     "</div>",
     "<div class=\"container branch-strip\" aria-label=\"IEEE operating rhythm\"><span>Plan</span><span>Run</span><span>Document</span><span>Publish</span><span>Review</span></div>",
-    "</section>",
-    "<section class=\"section leadership-section\">",
-    "<div class=\"container section-heading section-heading-row\"><div><p class=\"section-kicker\">Leadership</p><h2>Faculty guidance and student ownership.</h2></div><a class=\"button button-primary\" href=\"/leadership\">Meet the team</a></div>",
-    "<div class=\"container faculty-panel\" id=\"faculty-panel\"></div>",
-    "<div class=\"container leadership-grid leadership-preview\" id=\"leadership-grid\" aria-live=\"polite\"></div>",
     "</section>",
     "<section class=\"section events-section\">",
     "<div class=\"container section-heading section-heading-row\"><div><p class=\"section-kicker\">Events archive</p><h2>Recent workshops, competitions, and branch sessions.</h2></div><a class=\"button button-primary\" href=\"/events\">View all events</a></div>",
@@ -330,10 +386,10 @@ function renderHome() {
     "<div class=\"container events-grid events-preview\" id=\"events-grid\" data-preview-count=\"3\" aria-live=\"polite\"></div>",
     "</section>",
     "<section class=\"section courses-section\">",
-    "<div class=\"container courses-layout\"><div class=\"section-heading\"><p class=\"section-kicker\">Learning tracks</p><h2>Short, practical paths for technical growth.</h2><p>These tracks give contributors a clear place to start, teach, or mentor.</p><a class=\"text-link\" href=\"/courses\">Browse all tracks</a></div><div class=\"course-list\" id=\"course-list\" data-preview-count=\"3\"></div></div>",
+    "<div class=\"container courses-layout\"><div class=\"section-heading\"><p class=\"section-kicker\">Learning tracks</p><h2>Short, practical paths for technical growth.</h2><p>These tracks give members a clear place to start, teach, or mentor.</p><a class=\"text-link\" href=\"/courses\">Browse all tracks</a></div><div class=\"course-list\" id=\"course-list\" data-preview-count=\"3\"></div></div>",
     "</section>",
     "<section class=\"section cta-band\">",
-    "<div class=\"container cta-grid\"><div><p class=\"section-kicker\">Open source</p><h2>Contributors can improve the website without chasing duplicate repos.</h2></div><div><p>The project keeps source code, event data, routed public views, and deployment settings in one repository.</p><a class=\"button button-primary\" href=\"/open-source\">See contribution paths</a></div></div>",
+    "<div class=\"container cta-grid\"><div><p class=\"section-kicker\">Open source</p><h2>One public website repo with reviewed contribution paths.</h2></div><div><p>The website, CMS data, routed pages, event records, and deployment settings live together. Public contributors can propose improvements, while maintainers review and publish approved changes.</p><a class=\"button button-primary\" href=\"/open-source\">See source workflow</a></div></div>",
     "</section>"
   ].join("");
 }
@@ -342,7 +398,7 @@ function renderAbout() {
   return [
     pageHero("About the branch", "A campus home for people who want to build, teach, and ship.", "IEEE NUCES PWR supports technical learning, collaboration, leadership, and public documentation for the FAST NUCES Peshawar student community.", "assets/generated/hero-about.webp", "Generated campus workshop visual for IEEE NUCES PWR"),
     "<section class=\"section mission\"><div class=\"container mission-grid\"><div><p class=\"section-kicker\">Mission</p><h2>Turn student curiosity into visible technical work.</h2></div><div class=\"mission-copy\"><p>The branch creates space for students to learn by organizing workshops, joining competitions, preparing sessions, and documenting outcomes that future teams can build on.</p><p>Its work is practical: speaker coordination, event execution, media coverage, web publishing, member support, and technical mentoring.</p></div></div></section>",
-    "<section class=\"section operating-section\"><div class=\"container operating-grid\"><div class=\"operating-intro\"><p class=\"section-kicker\">How work moves</p><h2>A practical operating model for student contributors.</h2><p>Each team owns a visible part of the branch. That keeps responsibilities clear and makes it easier for new members to find useful work quickly.</p></div><div class=\"operating-steps\" aria-label=\"Branch operating model\"><article><span>01</span><h3>Plan the session</h3><p>Pick a clear learning outcome, speaker, venue, and promotion window.</p></article><article><span>02</span><h3>Run the event</h3><p>Coordinate registrations, media, certificates, logistics, and attendee support.</p></article><article><span>03</span><h3>Publish the record</h3><p>Add photos, outcomes, and reports so future teams can reuse the work.</p></article></div></div><div class=\"container team-showcase\" aria-labelledby=\"team-showcase-title\"><div class=\"team-showcase-head\"><div><p class=\"section-kicker\">Working teams</p><h2 id=\"team-showcase-title\">Working teams, one branch operating rhythm.</h2><p>Each working team stays connected to the branch center while owning a visible lane across logistics, media, web publishing, registrations, content, and event safety.</p></div><div class=\"team-count\" aria-hidden=\"true\"><strong data-team-count>--</strong><span>active lanes</span></div></div><div class=\"team-face-wall\" id=\"team-rail\" aria-label=\"Working teams\"></div></div></section>"
+    "<section class=\"section operating-section\"><div class=\"container operating-grid\"><div class=\"operating-intro\"><p class=\"section-kicker\">How work moves</p><h2>A practical operating model for student contributors.</h2><p>Each team owns a visible part of the branch. That keeps responsibilities clear and makes it easier for new members to find useful work quickly.</p></div><div class=\"operating-steps\" aria-label=\"Branch operating model\"><article><span>01</span><h3>Plan the session</h3><p>Pick a clear learning outcome, speaker, venue, and promotion window.</p></article><article><span>02</span><h3>Run the event</h3><p>Coordinate registrations, media, certificates, logistics, and attendee support.</p></article><article><span>03</span><h3>Publish the record</h3><p>Add photos, outcomes, and reports so future teams can reuse the work.</p></article></div></div></section>"
   ].join("");
 }
 
@@ -356,73 +412,73 @@ function renderLeadership() {
 
 function renderMembersPage() {
   return [
-    pageHero("Society members", "Every verified branch member should have a visible place.", "The directory brings faculty guidance, executive ownership, working teams, and additional society members into one public roster for IEEE NUCES PWR.", "assets/generated/hero-members.webp", "Generated society members visual for IEEE NUCES PWR"),
-    "<section class=\"section members-section\"><div class=\"container member-roster-panel\"><div><p class=\"section-kicker\">Member directory</p><h2>Complete named roster from the previous site.</h2><p>Every real named member found in the previous IEEE NUCES PWR websites is now visible here, with placeholder names excluded and the roster grouped by operating team below.</p></div><div class=\"member-roster-stats\" aria-label=\"Roster totals\"><span><strong data-member-count>--</strong> named members</span><span><strong data-lane-count>--</strong> groups</span></div></div><div class=\"container member-directory\" id=\"member-directory\" aria-live=\"polite\"></div></section>",
-    "<section class=\"section member-lanes-section\"><div class=\"container section-heading\"><p class=\"section-kicker\">Team groups</p><h2>Members grouped by the team they work with.</h2><p>Each team card shows its lead and members from the previous website source, with additional general body members kept in their own public group.</p></div><div class=\"container member-lane-grid\" id=\"member-team-lanes\"></div></section>"
+    pageHero("Society members", "Every verified branch member should have a visible place.", "Team members are grouped under their own operating teams so each roster stays clear and easy to scan.", "assets/generated/hero-members.webp", "Generated society members visual for IEEE NUCES PWR"),
+    "<section class=\"section members-section\"><div class=\"container member-roster-panel\"><div><p class=\"section-kicker\">Team directory</p><h2>Each team has its own member section.</h2><p>Web Development members appear under Web Development, Media members appear under Media, and every other operating team keeps its own roster.</p></div><div class=\"member-roster-stats\" aria-label=\"Roster totals\"><span><strong data-member-count>--</strong> named members</span><span><strong data-lane-count>--</strong> team sections</span></div></div></section>",
+    "<section class=\"section member-lanes-section\"><div class=\"container section-heading\"><p class=\"section-kicker\">Team sections</p><h2>Members grouped by the team they work with.</h2><p>Each section shows one team lead and that team&apos;s members only. General Body is listed below the teams as a separate roster.</p></div><div class=\"container member-lane-grid\" id=\"member-team-lanes\" aria-live=\"polite\"></div><div class=\"container member-general-body\" id=\"member-general-body\" aria-live=\"polite\"></div></section>"
   ].join("");
 }
 
 function renderEventsPage() {
   return [
     pageHero("Events archive", "Workshops, competitions, and branch sessions.", "Browse documented IEEE NUCES PWR activities and event reports from 2023 onward.", "assets/generated/hero-events.webp", "Generated event archive visual for IEEE NUCES PWR"),
-    "<section class=\"section events-section\"><div class=\"container section-heading section-heading-row\"><div><p class=\"section-kicker\">Archive</p><h2>Event records contributors can keep current.</h2></div><div class=\"filter-group\" aria-label=\"Filter events\"><button type=\"button\" class=\"filter-button is-active\" data-event-filter=\"all\">All</button><button type=\"button\" class=\"filter-button\" data-event-filter=\"2024\">2024</button><button type=\"button\" class=\"filter-button\" data-event-filter=\"2023\">2023</button></div></div><div class=\"container event-feature\" id=\"event-feature\"></div><div class=\"container events-grid\" id=\"events-grid\" aria-live=\"polite\"></div></section>"
+    "<section class=\"section events-section\"><div class=\"container section-heading section-heading-row\"><div><p class=\"section-kicker\">Archive</p><h2>Event records from workshops, competitions, and branch sessions.</h2></div><div class=\"filter-group\" aria-label=\"Filter events\"><button type=\"button\" class=\"filter-button is-active\" data-event-filter=\"all\">All</button><button type=\"button\" class=\"filter-button\" data-event-filter=\"2024\">2024</button><button type=\"button\" class=\"filter-button\" data-event-filter=\"2023\">2023</button></div></div><div class=\"container event-feature\" id=\"event-feature\"></div><div class=\"container events-grid\" id=\"events-grid\" aria-live=\"polite\"></div></section>"
   ].join("");
 }
 
 function renderCoursesPage() {
   return [
     pageHero("Learning tracks", "Short, practical paths for technical growth.", "These tracks help students start, teach, mentor, and build practical technical confidence.", "assets/generated/hero-courses.webp", "Generated technical learning visual for IEEE NUCES PWR"),
-    "<section class=\"section courses-section\"><div class=\"container courses-layout\"><div class=\"section-heading\"><p class=\"section-kicker\">Tracks</p><h2>Use these tracks to plan workshops and mentoring circles.</h2><p>Contributors can expand this page by adding syllabi, session material, prerequisites, and project outcomes.</p></div><div class=\"course-list\" id=\"course-list\"></div></div></section>"
+    "<section class=\"section courses-section\"><div class=\"container courses-layout\"><div class=\"section-heading\"><p class=\"section-kicker\">Tracks</p><h2>Use these tracks to plan workshops and mentoring circles.</h2><p>Members can use this page to plan sessions, share learning material, and connect each track with practical projects.</p></div><div class=\"course-list\" id=\"course-list\"></div></div></section>"
   ].join("");
 }
 
 function renderOpenSource() {
   return [
-    pageHero("Open source website", "One public repo, clear contribution paths.", "The website is structured for student maintainers, reviewers, and contributors who need a clean project they can safely improve.", "assets/generated/hero-open-source.webp", "Generated open-source workflow visual for IEEE NUCES PWR"),
-    "<section class=\"section opensource-section\"><div class=\"container opensource-grid\"><div><p class=\"section-kicker\">Contributor lanes</p><h2>Improve content, design, and engineering in focused pull requests.</h2><p>Shared page content is data-driven, event reports use app routes, and checks catch broken local links before deployment.</p></div><div class=\"contribution-board\" aria-label=\"Contributor lanes\"><article><span>Content</span><p>Add event reports, update team rosters, and improve branch copy.</p></article><article><span>Design</span><p>Polish responsive layouts, accessibility, media treatment, and visual consistency.</p></article><article><span>Engineering</span><p>Improve validation scripts, performance, image optimization, and GitHub Pages routing.</p></article></div></div></section>",
-    "<section class=\"section mission\"><div class=\"container feature-grid\"><article class=\"simple-card\"><h3>Repository checks</h3><p>Run <code>npm test</code> before opening a pull request to catch broken local links and invalid app routes.</p></article><article class=\"simple-card\"><h3>Content source</h3><p>Update <code>data/site-data.json</code> for events, teams, leaders, and courses.</p></article><article class=\"simple-card\"><h3>Deployment</h3><p>GitHub Pages publishes from <code>main</code> at <code>pwr.ieeenuces.org</code>.</p></article></div></section>"
+    pageHero("Open source website", "Public source, reviewed contributions.", "Built by Rayyan Shaheer and structured so contributors can propose improvements while IEEE NUCES PWR maintainers review, approve, and deploy production changes.", "assets/generated/hero-open-source.webp", "Generated open-source workflow visual for IEEE NUCES PWR"),
+    "<section class=\"section opensource-section\"><div class=\"container opensource-grid\"><div><p class=\"section-kicker\">Contributor lanes</p><h2>Improve content, design, and engineering through focused reviews.</h2><p>The source is public for transparency and contribution. Direct write access, CMS access, reviews, and deployments stay with authorized IEEE NUCES PWR maintainers.</p></div><div class=\"contribution-board\" aria-label=\"Contributor lanes\"><article><span>Content</span><p>Propose event reports, team roster updates, copy improvements, and branch record corrections.</p></article><article><span>Design</span><p>Improve responsive layouts, accessibility, media treatment, dark mode, and visual consistency.</p></article><article><span>Engineering</span><p>Improve validation scripts, performance, CMS workflow, image optimization, and GitHub Pages routing.</p></article></div></div></section>",
+    "<section class=\"section mission\"><div class=\"container feature-grid\"><article class=\"simple-card\"><h3>Repository checks</h3><p>Run <code>npm test</code> before submitting or publishing changes to catch broken local links and invalid app routes.</p></article><article class=\"simple-card\"><h3>CMS content</h3><p>Maintainers update <code>data/site-data.json</code> or use Decap CMS for events, teams, leaders, members, and learning tracks.</p></article><article class=\"simple-card\"><h3>Deployment</h3><p>GitHub Pages publishes approved changes from <code>main</code> at <code>pwr.ieeenuces.org</code>.</p></article></div></section>"
   ].join("");
 }
 
 function renderContact() {
   return [
-    pageHero("Join the branch", "Bring a skill, a question, or a project idea.", "Reach out for membership, collaborations, event proposals, or website contributions.", "assets/generated/hero-contact.webp", "Generated membership contact visual for IEEE NUCES PWR"),
-    "<section class=\"section join-section\"><div class=\"container join-grid\"><div><p class=\"section-kicker\">Contact</p><h2>Use one clear channel and we will route the request.</h2><p>Send membership questions, event ideas, collaboration requests, and website contribution notes to the branch inbox.</p><div class=\"contact-lines\"><a href=\"mailto:info@ieeenucespwr.org\">info@ieeenucespwr.org</a><a href=\"https://www.ieee.org/membership/\" target=\"_blank\" rel=\"noreferrer\">IEEE membership</a><a href=\"https://ieeexplore.ieee.org/\" target=\"_blank\" rel=\"noreferrer\">IEEE Xplore</a></div></div><form class=\"contact-form\" data-contact-form novalidate><label>Name<input name=\"name\" type=\"text\" autocomplete=\"name\" required></label><label>Email<input name=\"email\" type=\"email\" autocomplete=\"email\" required></label><label>Message<textarea name=\"message\" rows=\"5\" required></textarea></label><p class=\"form-status\" data-form-status role=\"status\"></p><button class=\"button button-primary\" type=\"submit\">Draft email</button></form></div></section>"
+    pageHero("Join the branch", "Bring a skill, a question, or a project idea.", "Reach out for membership, collaborations, event proposals, website contributions, or corrections.", "assets/generated/hero-contact.webp", "Generated membership contact visual for IEEE NUCES PWR"),
+    "<section class=\"section join-section\"><div class=\"container join-grid\"><div><p class=\"section-kicker\">Contact</p><h2>Use one clear channel and we will direct the request.</h2><p>Send membership questions, event ideas, collaboration requests, website contribution notes, and corrections to the branch inbox.</p><div class=\"contact-lines\"><a href=\"mailto:info@ieeenucespwr.org\">info@ieeenucespwr.org</a><a href=\"https://www.ieee.org/membership/\" target=\"_blank\" rel=\"noreferrer\">IEEE membership</a><a href=\"https://ieeexplore.ieee.org/\" target=\"_blank\" rel=\"noreferrer\">IEEE Xplore</a></div></div><form class=\"contact-form\" data-contact-form novalidate><label>Name<input name=\"name\" type=\"text\" autocomplete=\"name\" required></label><label>Email<input name=\"email\" type=\"email\" autocomplete=\"email\" required></label><label>Message<textarea name=\"message\" rows=\"5\" required></textarea></label><p class=\"form-status\" data-form-status role=\"status\"></p><button class=\"button button-primary\" type=\"submit\">Draft email</button></form></div></section>"
   ].join("");
 }
 
 function renderPrivacy() {
-  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Privacy</h1><p>This website is a public information site for IEEE NUCES PWR Student Branch. It does not use account tracking, advertising pixels, or analytics scripts by default.</p><h2>Information you send</h2><p>If you contact the branch by email, the information you include is handled by the branch team for membership, collaboration, event, or website contribution follow-up.</p><h2>External links</h2><p>The site links to IEEE resources and event material. External websites follow their own privacy policies.</p><h2>Media</h2><p>Event photos and branch media are published to document student activities. If a published image needs review, contact the branch team at info@ieeenucespwr.org.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
+  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Privacy</h1><p>This website is a public information site for IEEE NUCES PWR Student Branch. It does not use account tracking, advertising pixels, or analytics scripts by default.</p><h2>Information you send</h2><p>If you contact the branch by email, the information you include is handled by the branch team for membership, collaboration, event, or website correction follow-up.</p><h2>External links</h2><p>The site links to IEEE resources and event material. External websites follow their own privacy policies.</p><h2>Media</h2><p>Event photos and branch media are published to document student activities. If a published image needs review, contact the branch team at info@ieeenucespwr.org.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
 }
 
 function renderTerms() {
-  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Terms</h1><p>This website is maintained by student contributors for public branch information. Content should be accurate, respectful, and relevant to IEEE NUCES PWR activities.</p><h2>Use of content</h2><p>Website source code is available under the repository license. IEEE names, logos, and marks remain subject to IEEE brand and trademark rules.</p><h2>Contributions</h2><p>Contributors are expected to follow the contribution guide, code of conduct, and review process in the public repository.</p><h2>Corrections</h2><p>For corrections to event records, names, photos, or links, open an issue or contact info@ieeenucespwr.org.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
+  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Terms</h1><p>This website is maintained for public IEEE NUCES PWR branch information. Content should be accurate, respectful, and relevant to IEEE NUCES PWR activities.</p><h2>Use of content</h2><p>IEEE names, logos, and marks remain subject to IEEE brand and trademark rules. Event photos, summaries, and branch material should be used respectfully and with proper context.</p><h2>Website maintenance</h2><p>Website source code may be publicly visible, but edits, CMS access, reviews, and deployments are managed only by authorized IEEE NUCES PWR society members.</p><h2>Corrections</h2><p>For corrections to event records, names, photos, or links, contact info@ieeenucespwr.org.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
 }
 
 function renderNotFound(path) {
-  return "<section class=\"not-found\"><div class=\"container\"><p class=\"section-kicker\">404</p><h1>Page not found</h1><p>The address <code>" + escapeHtml(path) + "</code> does not match a published route on the IEEE NUCES PWR website.</p><div class=\"hero-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a><a class=\"button button-secondary\" href=\"/events\">Browse events</a></div></div></section>";
+  return "<section class=\"not-found\"><div class=\"container\"><p class=\"section-kicker\">404</p><h1>Page not found</h1><p>The address <code>" + escapeHtml(path) + "</code> does not match a published page on the IEEE NUCES PWR website.</p><div class=\"hero-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a><a class=\"button button-secondary\" href=\"/events\">Browse events</a></div></div></section>";
 }
 
 function genericEventReport(event) {
   return {
     subtitle: event.summary,
     accent: eventSlug(event),
-    stats: [event.date, event.type, "IEEE NUCES PWR", "Contributor-ready record"],
+    stats: [event.date, event.type, "IEEE NUCES PWR", "Branch event record"],
     sections: [
       {
         title: "Event overview",
-        paragraphs: [event.summary, "This routed event record keeps the archive organized without adding another standalone HTML document. Contributors can expand this report with photos, outcomes, speaker notes, and resources when verified details are available."]
+        paragraphs: [event.summary, "This report keeps the activity visible for students, faculty, alumni, and future branch teams. Photos, outcomes, speaker notes, and resources can be added when verified details are available."]
       },
       {
-        title: "Contributor notes",
+        title: "Record notes",
         list: [
-          "Keep the event title, date, and type updated in the shared CMS data file.",
-          "Place supporting photos under the relevant assets/events folder.",
-          "Add specific outcomes and resources after the branch team reviews them."
+          "Keep the event title, date, and activity type accurate.",
+          "Add supporting photos, outcomes, and resources after branch review.",
+          "Use the report to help future teams plan related sessions."
         ]
       }
     ],
-    info: [["Archive status", "Ready for contributor updates"], ["Maintained by", "IEEE NUCES PWR website contributors"]],
+    info: [["Archive status", "Ready for branch updates"], ["Maintained by", "IEEE NUCES PWR Student Branch"]],
     gallery: event.image && !event.image.includes("placeholder") ? [event.image] : []
   };
 }
@@ -441,7 +497,7 @@ function renderEventDetail(event, slug) {
   return [
     "<nav class=\"breadcrumb\" aria-label=\"Breadcrumb\"><div class=\"container breadcrumb-nav\"><a href=\"/\">Home</a><span>/</span><a href=\"/events\">Events</a><span>/</span><span>" + escapeHtml(event.title) + "</span></div></nav>",
     "<header class=\"event-report-hero\"><div class=\"container\"><p class=\"section-kicker\">Event report</p><h1>" + escapeHtml(event.title) + "</h1><p>" + escapeHtml(report.subtitle || event.summary) + "</p><div class=\"event-meta-header\">" + stats + "</div></div></header>",
-    "<section class=\"section event-report-section\"><div class=\"container event-report-grid\"><article class=\"event-content\">" + sections + "<div class=\"info-box\"><h3>Event details</h3>" + info + "</div></article><aside class=\"event-report-aside\"><img src=\"" + escapeAttribute(assetUrl(event.image || "assets/placeholder.jpg")) + "\" alt=\"" + escapeAttribute(event.title) + "\" loading=\"lazy\"><a class=\"button button-primary\" href=\"/events\">Back to events</a></aside></div>" + gallery + "</section>"
+    "<section class=\"section event-report-section\"><div class=\"container event-report-grid\"><article class=\"event-content\">" + sections + "<div class=\"info-box\"><h3>Event details</h3>" + info + "</div></article><aside class=\"event-report-aside\"><img src=\"" + escapeAttribute(assetUrl(event.image || "assets/placeholder.webp")) + "\" alt=\"" + escapeAttribute(event.title) + "\" loading=\"lazy\"><a class=\"button button-primary\" href=\"/events\">Back to events</a></aside></div>" + gallery + "</section>"
   ].join("");
 }
 
@@ -464,7 +520,7 @@ function renderFaculty() {
 
   const faculty = siteData.faculty;
   target.innerHTML = [
-    "<img src=\"" + escapeAttribute(assetUrl(faculty.image)) + "\" alt=\"" + escapeAttribute(faculty.name) + "\" loading=\"lazy\" width=\"560\" height=\"620\">",
+    "<div class=\"faculty-photo\"><img src=\"" + escapeAttribute(assetUrl(faculty.image)) + "\" alt=\"" + escapeAttribute(faculty.name) + "\" loading=\"lazy\" width=\"768\" height=\"768\"></div>",
     "<div class=\"faculty-body\">",
     "<p class=\"role\">" + escapeHtml(faculty.role) + "</p>",
     "<h3>" + escapeHtml(faculty.name) + "</h3>",
@@ -481,7 +537,7 @@ function renderLeaders() {
   target.innerHTML = limitItems(siteData.leaders, target).map((leader) => {
     return [
       "<article class=\"leader-card\">",
-      "<img src=\"" + escapeAttribute(assetUrl(leader.image)) + "\" alt=\"" + escapeAttribute(leader.name) + "\" loading=\"lazy\" width=\"640\" height=\"480\">",
+      "<div class=\"leader-photo\"><img src=\"" + escapeAttribute(assetUrl(leader.image)) + "\" alt=\"" + escapeAttribute(leader.name) + "\" loading=\"lazy\" width=\"768\" height=\"768\"></div>",
       "<div class=\"leader-card-body\">",
       "<p class=\"role\">" + escapeHtml(leader.role) + "</p>",
       "<h3>" + escapeHtml(leader.name) + "</h3>",
@@ -494,44 +550,6 @@ function renderLeaders() {
   }).join("");
 }
 
-function renderTeams() {
-  const target = bySelector("#team-rail");
-  if (!target || !siteData.teams) return;
-
-  const teams = siteData.teams;
-  const countTarget = bySelector("[data-team-count]");
-  if (countTarget) countTarget.textContent = String(teams.length).padStart(2, "0");
-
-  if (!teams.length) {
-    target.innerHTML = "";
-    return;
-  }
-
-  const total = String(teams.length).padStart(2, "0");
-  const first = teams[0];
-  const items = teams.map((team, index) => {
-    const number = String(index + 1).padStart(2, "0");
-    const label = team.name + ": " + team.focus;
-    return [
-      '<button class="team-orbit-item' + (index === 0 ? ' is-active' : '') + '" type="button" data-team-index="' + number + '" data-team-name="' + escapeAttribute(team.name) + '" data-team-focus="' + escapeAttribute(team.focus) + '" aria-pressed="' + String(index === 0) + '" aria-label="' + escapeAttribute(label) + '">',
-      '<span class="team-orbit-photo"><img src="' + escapeAttribute(assetUrl(team.image)) + '" alt="' + escapeAttribute(team.name + ' team lead') + '" loading="lazy" width="360" height="360"></span>',
-      '<span class="team-orbit-label"><span>' + number + '</span>' + escapeHtml(team.name) + '</span>',
-      '</button>'
-    ].join("");
-  }).join("");
-
-  target.innerHTML = [
-    '<div class="team-orbit-stage" data-team-orbit>',
-    '<div class="team-orbit-center" aria-live="polite">',
-    '<p class="team-card-kicker">working team</p>',
-    '<h3 data-team-active-name>' + escapeHtml(first.name) + '</h3>',
-    '<p data-team-active-focus>' + escapeHtml(first.focus) + '</p>',
-    '<span data-team-active-index>01 / ' + total + '</span>',
-    '</div>',
-    items,
-    '</div>'
-  ].join("");
-}
 function renderEvents() {
   const feature = bySelector("#event-feature");
   const grid = bySelector("#events-grid");
@@ -539,24 +557,30 @@ function renderEvents() {
 
   const [primary, ...events] = siteData.events;
   feature.innerHTML = [
+    "<div class=\"event-feature-media\">",
+    "<img src=\"" + escapeAttribute(assetUrl(primary.image)) + "\" alt=\"" + escapeAttribute(primary.title) + "\" loading=\"lazy\" width=\"720\" height=\"540\">",
+    "</div>",
     "<div class=\"event-feature-body\">",
     eventMeta(primary),
     "<h3>" + escapeHtml(primary.title) + "</h3>",
     "<p>" + escapeHtml(primary.summary) + "</p>",
-    "<a class=\"button button-secondary\" href=\"" + eventHref(primary) + "\">Read event report</a>",
-    "</div>",
-    "<img src=\"" + escapeAttribute(assetUrl(primary.image)) + "\" alt=\"" + escapeAttribute(primary.title) + "\" loading=\"lazy\" width=\"720\" height=\"540\">"
+    "<a class=\"button button-primary\" href=\"" + eventHref(primary) + "\">Read event report</a>",
+    "</div>"
   ].join("");
 
   grid.innerHTML = limitItems(events, grid).map((event) => {
     return [
-      "<article class=\"event-card\" data-event-year=\"" + escapeAttribute(event.year) + "\">",
+      "<article class=\"event-row\" data-event-year=\"" + escapeAttribute(event.year) + "\">",
+      "<a class=\"event-row-media\" href=\"" + eventHref(event) + "\" aria-label=\"Read " + escapeAttribute(event.title) + " event report\">",
       "<img src=\"" + escapeAttribute(assetUrl(event.image)) + "\" alt=\"" + escapeAttribute(event.title) + "\" loading=\"lazy\" width=\"640\" height=\"360\">",
-      "<div class=\"event-card-body\">",
+      "</a>",
+      "<div class=\"event-row-body\">",
+      "<div class=\"event-row-copy\">",
       eventMeta(event),
-      "<h3>" + escapeHtml(event.title) + "</h3>",
+      "<h3><a href=\"" + eventHref(event) + "\">" + escapeHtml(event.title) + "</a></h3>",
       "<p>" + escapeHtml(event.summary) + "</p>",
-      "<a class=\"text-link\" href=\"" + eventHref(event) + "\">View details</a>",
+      "</div>",
+      "<a class=\"text-link event-row-link\" href=\"" + eventHref(event) + "\">Read report</a>",
       "</div>",
       "</article>"
     ].join("");
@@ -597,7 +621,7 @@ function collectSocietyMembers() {
 }
 
 function memberTeamGroups() {
-  const groups = (siteData.teams || []).map((team, index) => {
+  return (siteData.teams || []).map((team, index) => {
     return {
       type: "team",
       number: String(index + 1).padStart(2, "0"),
@@ -607,31 +631,30 @@ function memberTeamGroups() {
       members: team.members || []
     };
   });
+}
 
-  const additional = new Map();
+function memberGeneralBodyGroups() {
+  const groups = new Map();
   (siteData.members || []).forEach((member) => {
     if (!member?.name) return;
-    const groupName = member.group || "Society Member";
-    if (!additional.has(groupName)) additional.set(groupName, []);
-    additional.get(groupName).push(member);
+    const groupName = member.group || "General Body";
+    if (!groups.has(groupName)) groups.set(groupName, []);
+    groups.get(groupName).push(member);
   });
 
-  additional.forEach((members, name) => {
-    groups.push({
-      type: "additional",
-      number: String(groups.length + 1).padStart(2, "0"),
+  return [...groups].map(([name, members], index) => {
+    return {
+      type: "general",
+      number: String(index + 1).padStart(2, "0"),
       name,
-      focus: "Additional verified society members",
-      image: members[0]?.image || "assets/placeholder.jpg",
+      focus: name === "General Body" ? "Society members listed outside operating teams" : "Additional verified society members",
       members
-    });
+    };
   });
-
-  return groups;
 }
 
 function renderGroupedMember(member, groupName) {
-  const image = member.image || "assets/placeholder.jpg";
+  const image = member.image || "assets/placeholder.webp";
   const role = member.role || groupName + " Member";
   return [
     "<article class=\"member-team-person\">",
@@ -646,60 +669,80 @@ function renderGroupedMember(member, groupName) {
 
 function renderMemberGroup(group) {
   const namedMembers = (group.members || []).filter((member) => member?.name && member.name.toLowerCase() !== "to be announced");
-  const lead = namedMembers.find((member) => /lead/i.test(member.role || "")) || namedMembers[0];
-  const image = lead?.image || group.image || "assets/placeholder.jpg";
+  const lead = namedMembers.find((member) => /lead/i.test(member.role || ""));
+  const rosterMembers = lead ? namedMembers.filter((member) => member !== lead) : namedMembers;
+  const image = lead?.image || group.image || "assets/placeholder.webp";
+  const imageAlt = lead ? group.name + " lead" : group.name + " roster";
   const countLabel = namedMembers.length === 1 ? "1 member" : namedMembers.length + " members";
+  const titleId = "member-team-title-" + group.number;
+  const leadLine = lead ? "<p class=\"member-team-lead\">" + escapeHtml(lead.name) + "</p>" : "";
+  const emptyText = namedMembers.length
+    ? "No additional members were published for this team in the previous website source."
+    : "No named members were published for this team in the previous website source.";
 
   return [
-    "<article class=\"member-team-card" + (group.type === "additional" ? " member-team-card-secondary" : "") + "\">",
+    "<section class=\"member-team-card" + (group.type === "additional" ? " member-team-card-secondary" : "") + "\" aria-labelledby=\"" + escapeAttribute(titleId) + "\">",
     "<div class=\"member-team-head\">",
-    "<img src=\"" + escapeAttribute(assetUrl(image)) + "\" alt=\"" + escapeAttribute(group.name + " roster") + "\" loading=\"lazy\" width=\"240\" height=\"240\">",
+    "<img src=\"" + escapeAttribute(assetUrl(image)) + "\" alt=\"" + escapeAttribute(imageAlt) + "\" loading=\"lazy\" width=\"240\" height=\"240\">",
     "<div>",
     "<span>" + escapeHtml(group.number) + "</span>",
-    "<h3>" + escapeHtml(group.name) + "</h3>",
-    "<p>" + escapeHtml(group.focus || "IEEE NUCES PWR society group") + "</p>",
+    "<h3 id=\"" + escapeAttribute(titleId) + "\">" + escapeHtml(group.name) + "</h3>",
+    leadLine,
+    "<p class=\"member-team-focus\">" + escapeHtml(group.focus || "IEEE NUCES PWR society group") + "</p>",
     "<strong>" + escapeHtml(countLabel) + "</strong>",
     "</div>",
     "</div>",
+    rosterMembers.length
+      ? "<div class=\"member-team-people\">" + rosterMembers.map((member) => renderGroupedMember(member, group.name)).join("") + "</div>"
+      : "<p class=\"member-team-empty\">" + escapeHtml(emptyText) + "</p>",
+    "</section>"
+  ].join("");
+}
+
+
+function renderGeneralBodyGroup(group, index) {
+  const namedMembers = (group.members || []).filter((member) => member?.name && member.name.toLowerCase() !== "to be announced");
+  const countLabel = namedMembers.length === 1 ? "1 member" : namedMembers.length + " members";
+  const titleId = "member-general-title-" + String(index + 1);
+
+  return [
+    "<section class=\"member-general-card\" aria-labelledby=\"" + escapeAttribute(titleId) + "\">",
+    "<div class=\"member-general-head\">",
+    "<div>",
+    "<h3 id=\"" + escapeAttribute(titleId) + "\">" + escapeHtml(group.name) + "</h3>",
+    "<p>" + escapeHtml(group.focus) + "</p>",
+    "</div>",
+    "<strong>" + escapeHtml(countLabel) + "</strong>",
+    "</div>",
     namedMembers.length
       ? "<div class=\"member-team-people\">" + namedMembers.map((member) => renderGroupedMember(member, group.name)).join("") + "</div>"
-      : "<p class=\"member-team-empty\">No named members were published for this team in the previous website source.</p>",
-    "</article>"
+      : "<p class=\"member-team-empty\">No general body members were published in the previous website source.</p>",
+    "</section>"
   ].join("");
 }
 
 function renderMembers() {
-  const directory = bySelector("#member-directory");
   const lanes = bySelector("#member-team-lanes");
-  const members = collectSocietyMembers();
-  const groups = memberTeamGroups();
+  const generalBody = bySelector("#member-general-body");
+  const teamGroups = memberTeamGroups();
+  const generalGroups = memberGeneralBodyGroups();
+  const countNamedMembers = (groups) => groups.reduce((total, group) => {
+    const namedMembers = (group.members || []).filter((member) => member?.name && member.name.toLowerCase() !== "to be announced");
+    return total + namedMembers.length;
+  }, 0);
+  const memberTotal = countNamedMembers(teamGroups) + countNamedMembers(generalGroups);
 
   const memberCount = bySelector("[data-member-count]");
   const laneCount = bySelector("[data-lane-count]");
-  if (memberCount) memberCount.textContent = String(members.length).padStart(2, "0");
-  if (laneCount) laneCount.textContent = String(groups.length).padStart(2, "0");
-
-  if (directory) {
-    directory.innerHTML = members.map((member) => {
-      const image = member.image || "assets/placeholder.jpg";
-      const summary = member.summary || member.detail || member.department || "IEEE NUCES PWR society member.";
-      return [
-        "<article class=\"member-card\">",
-        "<div class=\"member-photo\"><img src=\"" + escapeAttribute(assetUrl(image)) + "\" alt=\"" + escapeAttribute(member.name) + "\" loading=\"lazy\" width=\"520\" height=\"620\"></div>",
-        "<div class=\"member-card-body\">",
-        "<p class=\"member-group\">" + escapeHtml(member.group || "Society Member") + "</p>",
-        "<h3>" + escapeHtml(member.name) + "</h3>",
-        "<p class=\"member-role\">" + escapeHtml(member.role || member.department || "Member") + "</p>",
-        "<p>" + escapeHtml(summary) + "</p>",
-        linkList(member.links),
-        "</div>",
-        "</article>"
-      ].join("");
-    }).join("");
-  }
+  if (memberCount) memberCount.textContent = String(memberTotal).padStart(2, "0");
+  if (laneCount) laneCount.textContent = String(teamGroups.length).padStart(2, "0");
 
   if (lanes) {
-    lanes.innerHTML = groups.map(renderMemberGroup).join("");
+    lanes.innerHTML = teamGroups.map(renderMemberGroup).join("");
+  }
+
+  if (generalBody) {
+    generalBody.innerHTML = generalGroups.map(renderGeneralBodyGroup).join("");
   }
 }
 
@@ -755,7 +798,7 @@ function resolveRoute(path) {
     path: normalized,
     canonicalPath: normalized,
     title: "Page not found | IEEE NUCES PWR",
-    description: "The requested route is not available on the IEEE NUCES PWR website.",
+    description: "The requested page is not available on the IEEE NUCES PWR website.",
     html: renderNotFound(normalized),
     noindex: true
   };
@@ -767,7 +810,7 @@ function updateDocumentMeta(route) {
   setProperty("og:title", route.title);
   setProperty("og:description", route.description);
   setProperty("og:url", siteOrigin + (route.canonicalPath === "/" ? "/" : route.canonicalPath));
-  setProperty("og:image", siteOrigin + "/assets/ieee-logo.png");
+  setProperty("og:image", siteOrigin + "/assets/ieee-nuces-peshawar-campus-logo.png");
   setCanonical(siteOrigin + (route.canonicalPath === "/" ? "/" : route.canonicalPath));
 
   const robots = bySelector('meta[name="robots"]');
@@ -847,17 +890,16 @@ function renderRoute(path, options = {}) {
 function hydrateRoute() {
   renderFaculty();
   renderLeaders();
-  renderTeams();
   renderMembers();
   renderEvents();
   renderCourses();
+  decorateGeneratedImages();
   setupMotion();
   setupPressFeedback();
   setupEventFilters();
   setupContactForm();
   setupLightbox();
   setupSpotlightCards();
-  setupTeamFaces();
   setYear();
 }
 
@@ -946,13 +988,9 @@ function setupMotion() {
     ".section-heading",
     ".faculty-panel",
     ".leader-card",
-    ".member-card",
-    ".member-lane-card",
     ".member-roster-panel",
     ".operating-steps article",
-    ".team-card",
     ".event-feature",
-    ".event-card",
     ".course-card",
     ".opensource-grid",
     ".contribution-board article",
@@ -999,46 +1037,12 @@ function setupProgressListeners() {
 }
 
 function setupSpotlightCards() {
-  const cards = allBySelector(".leader-card, .member-card, .member-lane-card, .event-card, .course-card, .team-orbit-item, .team-card, .simple-card, .contribution-board article, .operating-steps article, .faculty-panel, .event-feature");
+  const cards = allBySelector(".leader-card, .event-row, .course-card, .team-orbit-item, .simple-card, .contribution-board article, .operating-steps article, .faculty-panel, .event-feature");
   cards.forEach((card) => {
     card.addEventListener("pointermove", (event) => {
       const rect = card.getBoundingClientRect();
       card.style.setProperty("--spot-x", Math.round(event.clientX - rect.left) + "px");
       card.style.setProperty("--spot-y", Math.round(event.clientY - rect.top) + "px");
-    });
-  });
-}
-
-function setupTeamFaces() {
-  allBySelector("[data-team-orbit]").forEach((stage) => {
-    const items = allBySelector(".team-orbit-item", stage);
-    const total = items.length;
-    if (!total) return;
-
-    const activeName = bySelector("[data-team-active-name]", stage);
-    const activeFocus = bySelector("[data-team-active-focus]", stage);
-    const activeIndex = bySelector("[data-team-active-index]", stage);
-    const totalText = String(total).padStart(2, "0");
-
-    const setActive = (selected) => {
-      items.forEach((item) => {
-        const isActive = item === selected;
-        item.classList.toggle("is-active", isActive);
-        item.setAttribute("aria-pressed", String(isActive));
-      });
-
-      if (activeName) activeName.textContent = selected.dataset.teamName || "";
-      if (activeFocus) activeFocus.textContent = selected.dataset.teamFocus || "";
-      if (activeIndex) activeIndex.textContent = (selected.dataset.teamIndex || "01") + " / " + totalText;
-    };
-
-    items.forEach((item, index) => {
-      const angle = -90 + (360 / total) * index;
-      item.style.setProperty("--team-angle", angle.toFixed(3) + "deg");
-      item.style.setProperty("--team-order", String(index));
-      item.addEventListener("click", () => setActive(item));
-      item.addEventListener("focus", () => setActive(item));
-      item.addEventListener("pointerenter", () => setActive(item));
     });
   });
 }
@@ -1113,7 +1117,9 @@ function setupLightbox() {
   const image = bySelector("#lightbox-img");
   const open = (index) => {
     currentImageIndex = index;
-    image.src = assetUrl(lightboxImages[index]);
+    const src = lightboxImages[index];
+    image.src = assetUrl(src);
+    setCoverImageLabel(imageCoverFrame(image), isGeneratedImagePath(src));
     lightbox.classList.add("active");
     lightbox.setAttribute("aria-hidden", "false");
   };
@@ -1125,7 +1131,9 @@ function setupLightbox() {
     currentImageIndex += direction;
     if (currentImageIndex < 0) currentImageIndex = lightboxImages.length - 1;
     if (currentImageIndex >= lightboxImages.length) currentImageIndex = 0;
-    image.src = assetUrl(lightboxImages[currentImageIndex]);
+    const src = lightboxImages[currentImageIndex];
+    image.src = assetUrl(src);
+    setCoverImageLabel(imageCoverFrame(image), isGeneratedImagePath(src));
   };
 
   allBySelector("[data-lightbox-index]").forEach((button) => {

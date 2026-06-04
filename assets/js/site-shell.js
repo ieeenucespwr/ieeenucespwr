@@ -5,7 +5,7 @@ const primaryNavigation = [
   { href: "/members", label: "Members" },
   { href: "/events", label: "Events" },
   { href: "/courses", label: "Courses" },
-  { href: "/open-source", label: "Open source" },
+  { href: "/open-source", label: "Open Source" },
   { href: "/contact", label: "Contact" }
 ];
 
@@ -13,6 +13,7 @@ const footerNavigation = [
   { href: "/about", label: "About" },
   { href: "/members", label: "Members" },
   { href: "/events", label: "Events" },
+  { href: "/open-source", label: "Open Source" },
   { href: "/contact", label: "Contact" },
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" }
@@ -34,9 +35,8 @@ function renderSiteHeader() {
   return [
     '<header class="site-header" data-header>',
     '  <nav class="nav container" aria-label="Primary navigation">',
-    '    <a class="brand" href="/" aria-label="IEEE NUCES PWR home">',
-    '      <img src="' + assetPath('assets/ieee-logo.png') + '" alt="IEEE logo" width="122" height="44">',
-    '      <span>NUCES PWR</span>',
+    '    <a class="brand" href="/" aria-label="IEEE NUCES Peshawar home">',
+    '      <img class="brand-logo" src="' + assetPath('assets/ieee-nuces-peshawar-campus-logo.webp') + '" alt="IEEE NUCES Peshawar logo" width="1024" height="849">',
     '    </a>',
     '    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>',
     '      <span></span>',
@@ -55,13 +55,13 @@ function renderSiteFooter() {
     '<footer class="site-footer">',
     '  <div class="container footer-grid">',
     '    <div>',
-    '      <img src="' + assetPath('assets/ieee-logo-white.png') + '" alt="IEEE logo" width="150" height="54">',
+    '      <img class="footer-logo" src="' + assetPath('assets/ieee-nuces-peshawar-campus-logo.webp') + '" alt="IEEE NUCES Peshawar logo" width="1024" height="849">',
     '      <p>Advancing technology for humanity at FAST NUCES Peshawar.</p>',
     '    </div>',
     '    <nav aria-label="Footer navigation">' + renderFooterNavigation() + '</nav>',
     '    <div class="footer-meta">',
     '      <p>Copyright <span data-year></span> IEEE NUCES PWR Student Branch.</p>',
-    '      <p>Built by Rayyan Shaheer as an open-source static website.</p>',
+    '      <p>Built by Rayyan Shaheer. Maintained by the IEEE NUCES PWR Student Branch community.</p>',
     '    </div>',
     '  </div>',
     '</footer>'
