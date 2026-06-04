@@ -33,55 +33,55 @@
     return root.dataset.theme === "dark" ? "dark" : "light";
   }
 
+  let toggleCount = 0;
+
   function syncToggle(control) {
-    const label = control.querySelector(".theme-toggle-label");
+    const input = control.querySelector(".theme-switch__input");
     const theme = currentTheme();
     const next = theme === "dark" ? "light" : "dark";
 
     control.dataset.themeState = theme;
-    if (label) label.textContent = next === "dark" ? "Night" : "Day";
-    control.setAttribute("aria-label", "Switch to " + next + " theme");
-    control.setAttribute("aria-pressed", String(theme === "dark"));
+    if (input) {
+      input.checked = theme === "dark";
+      input.setAttribute("aria-label", "Switch to " + next + " theme");
+      input.setAttribute("aria-checked", String(theme === "dark"));
+    }
   }
 
   function syncToggles() {
-    document.querySelectorAll(".theme-toggle").forEach(syncToggle);
+    document.querySelectorAll(".theme-switch").forEach(syncToggle);
   }
 
   function createToggle() {
-    const control = document.createElement("button");
-    control.className = "theme-toggle";
-    control.type = "button";
+    toggleCount += 1;
+    const control = document.createElement("div");
+    const id = "theme-switch-" + toggleCount;
+    control.className = "theme-switch";
     control.innerHTML = [
-      '<span class="theme-toggle-scene" aria-hidden="true">',
-      '  <span class="theme-toggle-sky">',
-      '    <span class="theme-cloud theme-cloud-one"></span>',
-      '    <span class="theme-cloud theme-cloud-two"></span>',
-      '    <span class="theme-star theme-star-one"></span>',
-      '    <span class="theme-star theme-star-two"></span>',
-      '    <span class="theme-star theme-star-three"></span>',
-      '  </span>',
-      '  <span class="theme-toggle-orb"><span></span></span>',
-      '</span>',
-      '<span class="theme-toggle-label"></span>'
+      '<input id="' + id + '" class="theme-switch__input" name="theme-switch" type="checkbox" role="switch">',
+      '<label class="theme-switch__label" for="' + id + '"><span class="sr-only">Toggle dark mode</span></label>'
     ].join('');
-    control.addEventListener("click", () => {
-      const next = currentTheme() === "dark" ? "light" : "dark";
+
+    const input = control.querySelector(".theme-switch__input");
+    input.addEventListener("change", () => {
+      const next = input.checked ? "dark" : "light";
       applyTheme(next);
       saveTheme(next);
       syncToggles();
     });
+
     ["pointerdown", "pointerup", "pointerleave", "blur"].forEach((eventName) => {
-      control.addEventListener(eventName, () => {
+      input.addEventListener(eventName, () => {
         control.classList.toggle("is-pressed", eventName === "pointerdown");
       });
     });
+
     syncToggle(control);
     return control;
   }
 
   function mountToggle(target) {
-    if (!target || target.querySelector(".theme-toggle")) return;
+    if (!target || target.querySelector(".theme-switch")) return;
     target.append(createToggle());
   }
 
