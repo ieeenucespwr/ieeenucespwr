@@ -23,7 +23,10 @@ function assetPath(relativePath) {
 }
 
 function renderPrimaryNavigation() {
-  return primaryNavigation.map((item) => '<a href="' + item.href + '">' + item.label + '</a>').join('');
+  return primaryNavigation.map((item) => {
+    const className = item.href === "/contact" ? ' class="nav-action"' : "";
+    return '<a href="' + item.href + '"' + className + '>' + item.label + '</a>';
+  }).join('');
 }
 
 function navigationAttributes(item) {
@@ -40,6 +43,7 @@ function renderSiteHeader() {
     '  <nav class="nav container" aria-label="Primary navigation">',
     '    <a class="brand" href="/" aria-label="IEEE NUCES Peshawar home">',
     '      <img class="brand-logo" src="' + assetPath('assets/ieee-nuces-peshawar-campus-logo.webp') + '" alt="IEEE NUCES Peshawar logo" width="1024" height="849">',
+    '      <span class="brand-copy"><strong>IEEE NUCES PWR</strong><small>Student Branch</small></span>',
     '    </a>',
     '    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>',
     '      <span></span>',

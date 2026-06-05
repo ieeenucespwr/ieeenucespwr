@@ -998,7 +998,7 @@ function setupProgressListeners() {
 }
 
 function setupSpotlightCards() {
-  const cards = allBySelector(".leader-card, .event-row, .course-card, .team-orbit-item, .simple-card, .operating-steps article, .faculty-panel, .event-feature");
+  const cards = allBySelector(".leader-card, .event-row, .course-card, .simple-card, .operating-steps article, .faculty-panel, .event-feature");
   cards.forEach((card) => {
     card.addEventListener("pointermove", (event) => {
       const rect = card.getBoundingClientRect();
