@@ -406,16 +406,16 @@ function renderCoursesPage() {
 function renderContact() {
   return [
     pageHero("Join the branch", "Bring a skill, a question, or a project idea.", "Reach out for membership, collaborations, event proposals, website corrections, or authorized web team access.", "assets/generated/hero-contact.webp", "Generated membership contact visual for IEEE NUCES PWR"),
-    "<section class=\"section join-section\"><div class=\"container join-grid\"><div><p class=\"section-kicker\">Contact</p><h2>Use one clear channel and we will direct the request.</h2><p>Send membership questions, event ideas, collaboration requests, website correction notes, and authorized web team access questions to the branch inbox.</p><div class=\"contact-lines\"><a href=\"mailto:info@ieeenucespwr.org\">info@ieeenucespwr.org</a><a href=\"https://www.ieee.org/membership/\" target=\"_blank\" rel=\"noreferrer\">IEEE membership</a><a href=\"https://ieeexplore.ieee.org/\" target=\"_blank\" rel=\"noreferrer\">IEEE Xplore</a></div></div><form class=\"contact-form\" data-contact-form novalidate><label>Name<input name=\"name\" type=\"text\" autocomplete=\"name\" required></label><label>Email<input name=\"email\" type=\"email\" autocomplete=\"email\" required></label><label>Message<textarea name=\"message\" rows=\"5\" required></textarea></label><p class=\"form-status\" data-form-status role=\"status\"></p><button class=\"button button-primary\" type=\"submit\">Draft email</button></form></div></section>"
+    "<section class=\"section join-section\"><div class=\"container join-grid\"><div class=\"contact-sidebar\"><p class=\"section-kicker\">Contact Us</p><h2>Let's build, collaborate, and innovate together.</h2><p>Have questions about IEEE membership, technical tracks, event registrations, or guest session collaborations? Reach out directly or send us an inquiry.</p><div class=\"contact-info-card\"><div class=\"contact-info-item\"><strong>Direct Branch Email</strong><a href=\"mailto:ieeenucespwr@gmail.com\" class=\"text-link\">ieeenucespwr@gmail.com</a></div><div class=\"contact-info-item\"><strong>Campus Location</strong><span>FAST NUCES Peshawar Campus, Industrial Estate, Hayatabad, Peshawar, KP, Pakistan</span></div><div class=\"contact-info-item\"><strong>Response Window</strong><span>Typically within 24 to 48 business hours</span></div></div><div class=\"contact-lines\"><a href=\"mailto:ieeenucespwr@gmail.com\">ieeenucespwr@gmail.com</a><a href=\"https://www.ieee.org/membership/\" target=\"_blank\" rel=\"noreferrer\">IEEE Global Membership</a><a href=\"https://ieeexplore.ieee.org/\" target=\"_blank\" rel=\"noreferrer\">IEEE Xplore Library</a><a href=\"http://pwr.nu.edu.pk/\" target=\"_blank\" rel=\"noreferrer\">FAST NUCES Peshawar</a></div></div><form class=\"contact-form\" data-contact-form action=\"https://formsubmit.co/ieeenucespwr@gmail.com\" method=\"POST\" novalidate><input type=\"text\" name=\"_honey\" style=\"display:none\" tabindex=\"-1\" autocomplete=\"off\"><input type=\"hidden\" name=\"_captcha\" value=\"false\"><input type=\"hidden\" name=\"_template\" value=\"table\"><input type=\"hidden\" name=\"_subject\" data-form-subject value=\"[IEEE NUCES PWR] New Contact Form Inquiry\"><div class=\"form-header\"><h3 class=\"form-title\">Send us a message</h3><p class=\"form-subtitle\">Fill out the details below and our team will get back to you.</p></div><div class=\"contact-form-grid\"><label><span class=\"label-text\">Full Name <span class=\"req\">*</span></span><input name=\"name\" type=\"text\" autocomplete=\"name\" placeholder=\"e.g. Rayyan Shaheer\" required></label><label><span class=\"label-text\">Email Address <span class=\"req\">*</span></span><input name=\"email\" type=\"email\" autocomplete=\"email\" placeholder=\"e.g. name@nu.edu.pk or personal email\" required></label><label><span class=\"label-text\">Phone / WhatsApp <span class=\"optional-tag\">(Optional)</span></span><input name=\"phone\" type=\"tel\" autocomplete=\"tel\" placeholder=\"+92 300 1234567\"></label><label><span class=\"label-text\">Affiliation / University <span class=\"optional-tag\">(Optional)</span></span><input name=\"affiliation\" type=\"text\" placeholder=\"e.g. FAST NUCES Peshawar\"></label><label><span class=\"label-text\">Inquiry Purpose <span class=\"req\">*</span></span><select name=\"category\" required><option value=\"\" disabled selected>Select a category...</option><option value=\"Membership & Registration\">Branch Membership &amp; Registration</option><option value=\"Event / Workshop Information\">Event / Workshop Information</option><option value=\"Partnership & Sponsorship\">Partnership &amp; Sponsorship</option><option value=\"Speaker / Workshop Proposal\">Speaker / Workshop Proposal</option><option value=\"Web & Technical Team\">Web &amp; Technical Team</option><option value=\"General Inquiry\">General Inquiry</option><option value=\"Feedback / Website Correction\">Feedback / Website Correction</option></select></label><label><span class=\"label-text\">Student Roll No / ID <span class=\"optional-tag\">(If student)</span></span><input name=\"roll_no\" type=\"text\" placeholder=\"e.g. 22P-9001\"></label><label class=\"contact-form-full\"><span class=\"label-text\">Department / Discipline <span class=\"optional-tag\">(Optional)</span></span><select name=\"department\"><option value=\"\" selected>Select department / discipline (if applicable)...</option><option value=\"Computer Science\">BS Computer Science (BS CS)</option><option value=\"Software Engineering\">BS Software Engineering (BS SE)</option><option value=\"Artificial Intelligence\">BS Artificial Intelligence (BS AI)</option><option value=\"Data Science\">BS Data Science (BS DS)</option><option value=\"Electrical Engineering\">BS Electrical Engineering (BS EE)</option><option value=\"Graduate Studies (MS/PhD)\">Graduate Studies (MS / PhD)</option><option value=\"External / Non-FASTian\">External / Industry / Other Institution</option></select></label><label class=\"contact-form-full\"><span class=\"label-text\">Subject <span class=\"req\">*</span></span><input name=\"subject\" type=\"text\" placeholder=\"Brief subject or summary of your message\" required></label><label class=\"contact-form-full\"><span class=\"label-text\">Message <span class=\"req\">*</span></span><textarea name=\"message\" rows=\"5\" placeholder=\"Write your message, detailed questions, or proposal here...\" required></textarea></label></div><div class=\"form-status\" data-form-status role=\"status\" aria-live=\"polite\"></div><div class=\"form-actions\"><button class=\"button button-primary\" type=\"submit\" data-form-submit-btn><span class=\"btn-text\">Send message</span></button></div></form></div></section>"
   ].join("");
 }
 
 function renderPrivacy() {
-  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Privacy</h1><p>This website is a public information site for IEEE NUCES PWR Student Branch. It does not use account tracking, advertising pixels, or analytics scripts by default.</p><h2>Information you send</h2><p>If you contact the branch by email, the information you include is handled by the branch team for membership, collaboration, event, or website correction follow-up.</p><h2>External links</h2><p>The site links to IEEE resources and event material. External websites follow their own privacy policies.</p><h2>Media</h2><p>Event photos and branch media are published to document student activities. If a published image needs review, contact the branch team at info@ieeenucespwr.org.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
+  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Privacy</h1><p>This website is a public information site for IEEE NUCES PWR Student Branch. It does not use account tracking, advertising pixels, or analytics scripts by default.</p><h2>Information you send</h2><p>If you contact the branch by email or through the contact form, the information you include is handled by the branch team for membership, collaboration, event, or website correction follow-up.</p><h2>External links</h2><p>The site links to IEEE resources and event material. External websites follow their own privacy policies.</p><h2>Media</h2><p>Event photos and branch media are published to document student activities. If a published image needs review, contact the branch team at ieeenucespwr@gmail.com.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
 }
 
 function renderTerms() {
-  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Terms</h1><p>This website is maintained for public IEEE NUCES PWR branch information. Content should be accurate, respectful, and relevant to IEEE NUCES PWR activities.</p><h2>Use of content</h2><p>IEEE names, logos, and marks remain subject to IEEE brand and trademark rules. Event photos, summaries, and branch material should be used respectfully and with proper context.</p><h2>Website maintenance</h2><p>The website source code may be public for viewing and reuse, but edits, commits, CMS access, reviews, and deployments are limited to authorized IEEE NUCES PWR Web Development or Technical Team members. Access is granted by the launch team.</p><h2>Corrections</h2><p>For corrections to event records, names, photos, or links, contact info@ieeenucespwr.org.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
+  return "<article class=\"container legal-page\"><p class=\"section-kicker\">Website policy</p><h1>Terms</h1><p>This website is maintained for public IEEE NUCES PWR branch information. Content should be accurate, respectful, and relevant to IEEE NUCES PWR activities.</p><h2>Use of content</h2><p>IEEE names, logos, and marks remain subject to IEEE brand and trademark rules. Event photos, summaries, and branch material should be used respectfully and with proper context.</p><h2>Website maintenance</h2><p>The website source code may be public for viewing and reuse, but edits, commits, CMS access, reviews, and deployments are limited to authorized IEEE NUCES PWR Web Development or Technical Team members. Access is granted by the launch team.</p><h2>Corrections</h2><p>For corrections to event records, names, photos, or links, contact ieeenucespwr@gmail.com.</p><div class=\"legal-actions\"><a class=\"button button-primary\" href=\"/\">Back to home</a></div></article>";
 }
 
 function renderNotFound(path) {
@@ -1044,30 +1044,113 @@ function setupContactForm() {
   const status = bySelector("[data-form-status]");
   if (!form || !status) return;
 
-  form.addEventListener("submit", (event) => {
+  const submitBtn = bySelector("[data-form-submit-btn]", form);
+  const btnText = submitBtn ? bySelector(".btn-text", submitBtn) : null;
+  const subjectInput = bySelector("[data-form-subject]", form);
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const data = new FormData(form);
-    const name = String(data.get("name") || "").trim();
-    const email = String(data.get("email") || "").trim();
-    const message = String(data.get("message") || "").trim();
-    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
-    status.classList.remove("is-error");
-    form.classList.remove("is-invalid");
-    if (!name || !email || !message || !isValidEmail) {
-      status.textContent = "Enter your name, a valid email, and a short message.";
-      status.classList.add("is-error");
-      form.classList.add("is-invalid");
-      window.setTimeout(() => form.classList.remove("is-invalid"), 280);
+    const honey = String(data.get("_honey") || "").trim();
+    if (honey) {
+      // Spam honeypot triggered
+      status.className = "form-status";
+      status.textContent = "Thank you! Your message has been sent successfully.";
+      form.reset();
       return;
     }
 
-    const subject = encodeURIComponent("IEEE NUCES PWR inquiry from " + name);
-    const body = encodeURIComponent(message + "\n\nFrom: " + name + "\nEmail: " + email);
+    const name = String(data.get("name") || "").trim();
+    const email = String(data.get("email") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
+    const affiliation = String(data.get("affiliation") || "").trim();
+    const category = String(data.get("category") || "").trim();
+    const rollNo = String(data.get("roll_no") || "").trim();
+    const department = String(data.get("department") || "").trim();
+    const subject = String(data.get("subject") || "").trim();
+    const message = String(data.get("message") || "").trim();
 
-    status.textContent = "Opening your email client with a drafted message.";
-    window.location.href = "mailto:info@ieeenucespwr.org?subject=" + subject + "&body=" + body;
+    const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    status.className = "form-status";
+    status.innerHTML = "";
+    form.classList.remove("is-invalid");
+
+    const errors = [];
+    if (!name) errors.push("full name");
+    if (!email || !isValidEmail) errors.push("valid email address");
+    if (!category) errors.push("inquiry category");
+    if (!subject) errors.push("subject");
+    if (!message) errors.push("message");
+
+    if (errors.length > 0) {
+      status.textContent = "Please provide: " + errors.join(", ") + ".";
+      status.classList.add("is-error");
+      form.classList.add("is-invalid");
+      window.setTimeout(() => form.classList.remove("is-invalid"), 280);
+
+      const firstInvalid = form.querySelector(":invalid") || (!name ? form.querySelector('[name="name"]') : (!isValidEmail ? form.querySelector('[name="email"]') : form.querySelector('[name="message"]')));
+      if (firstInvalid && typeof firstInvalid.focus === "function") firstInvalid.focus();
+      return;
+    }
+
+    const fullSubject = "[IEEE NUCES PWR] " + (category ? category + ": " : "") + subject + " (from " + name + ")";
+    if (subjectInput) subjectInput.value = fullSubject;
+
+    const payload = {
+      name: name,
+      email: email,
+      phone: phone || "Not specified",
+      affiliation: affiliation || "Not specified",
+      category: category,
+      roll_no: rollNo || "Not specified",
+      department: department || "Not specified",
+      subject: subject,
+      message: message,
+      _subject: fullSubject,
+      _captcha: "false",
+      _template: "table"
+    };
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.classList.add("is-submitting");
+    }
+    if (btnText) btnText.textContent = "Sending message...";
+    status.className = "form-status is-loading";
+    status.textContent = "Submitting your inquiry to the IEEE NUCES PWR team...";
+
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/ieeenucespwr@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (response.ok && (!result || result.success === "true" || result.success === true || result.message)) {
+        status.className = "form-status";
+        status.innerHTML = "<strong>Thank you, " + escapeHtml(name) + "!</strong><br>Your message has been sent successfully to the IEEE NUCES PWR branch team (<code>ieeenucespwr@gmail.com</code>). We will review your inquiry and get back to you shortly.";
+        form.reset();
+      } else {
+        throw new Error(result && result.message ? result.message : "Submission failed");
+      }
+    } catch (err) {
+      status.className = "form-status is-error";
+      const fallbackMailto = "mailto:ieeenucespwr@gmail.com?subject=" + encodeURIComponent(fullSubject) + "&body=" + encodeURIComponent(message + "\n\n---\nName: " + name + "\nEmail: " + email + (phone ? "\nPhone: " + phone : "") + (rollNo ? "\nRoll No: " + rollNo : "") + (department ? "\nDepartment: " + department : ""));
+      status.innerHTML = "Could not submit automatically. Please <a href=\"" + fallbackMailto + "\" class=\"text-link\">click here to send via email client</a> or write directly to <a href=\"mailto:ieeenucespwr@gmail.com\">ieeenucespwr@gmail.com</a>.";
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove("is-submitting");
+      }
+      if (btnText) btnText.textContent = "Submit Message";
+    }
   });
 }
 
