@@ -44,11 +44,33 @@ The shared website content is stored in `data/site-data.json`. Authorized Web De
 - New images are placed in the correct `assets/` folder.
 - Public names, photos, and roles have permission to be published.
 
-## Branch Naming
+## Branching & Pull Request Workflow
 
-Use short branch names:
+All contributors must strictly follow the promotion pipeline:
 
-- `content/add-devops-report`
-- `fix/mobile-nav`
-- `design/events-section`
-- `docs/update-readme`
+```text
+[ dev-<name> / feature/* ]  ──(PR)──>  [ main ]  ──(PR)──>  [ prod ]
+```
+
+1. **Step 1: Develop on your branch**
+   - Work on your dedicated developer branch (e.g., `dev-rayyan`, `dev-fawad`) or a scoped feature branch (`fix/mobile-nav`, `content/new-event`).
+   - Commit and push your changes to your branch.
+
+2. **Step 2: Pull Request to `main` (`dev-*` &rarr; `main`)**
+   - Open a PR targeting the **`main`** branch.
+   - Run `npm test` locally to ensure all link checks and validations pass.
+   - Review and merge into `main`.
+
+3. **Step 3: Pull Request to `prod` (`main` &rarr; `prod`)**
+   - **DO NOT create PRs directly from `dev-*` to `prod`.**
+   - Once changes are merged and verified on `main`, open a Pull Request from **`main` into `prod`** to release changes to production.
+
+## Branch Naming Conventions
+
+Use standardized branch prefixes:
+
+- `dev-<name>` (e.g., `dev-rayyan`, `dev-fawad`)
+- `content/<topic>` (e.g., `content/add-devops-report`)
+- `fix/<issue>` (e.g., `fix/mobile-nav`)
+- `design/<topic>` (e.g., `design/events-section`)
+- `docs/<topic>` (e.g., `docs/update-readme`)
