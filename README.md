@@ -22,6 +22,12 @@ npm start
 
 Open `http://localhost:5500`.
 
+To run the local CMS backend proxy for zero-config editing:
+
+```bash
+npm run cms
+```
+
 Run checks before publishing changes:
 
 ```bash
@@ -36,15 +42,19 @@ index.html              Main app shell
 styles.css              Site styles
 assets/js/site-shell.js Header and footer
 assets/js/site.js       Page rendering and interactions
-admin/                  CMS admin
+admin/                  Decap CMS admin with GitHub Token login
 assets/                 Images, icons, and event media
 data/site-data.json     Shared branch content
+docs/cms.md             CMS setup & authentication guide
 scripts/                Local maintenance scripts
 ```
 
 ## Updating Content
 
-Most branch content lives in `data/site-data.json` and can also be edited from `/admin/` after CMS access is configured.
+Most branch content lives in `data/site-data.json` and can be edited directly or through Decap CMS at `/admin/`:
+
+- **Production CMS**: Visit `https://pwr.ieeenuces.org/admin/` and log in with your GitHub Personal Access Token (PAT with `repo` scope). See [`docs/cms.md`](docs/cms.md) for full instructions.
+- **Local CMS**: Run `npm run cms` alongside `npm start` and visit `http://localhost:5500/admin/`.
 
 Common updates:
 

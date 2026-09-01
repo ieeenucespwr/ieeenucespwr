@@ -1,11 +1,17 @@
 backend:
   name: github
-  repo: rayyanshaheer/ieee-new-website
+  repo: ieeenucespwr/ieeenucespwr
   branch: main
   open_authoring: true
-  # GitHub Pages needs an OAuth proxy unless this site is served through Netlify auth.
+  # Authentication is supported via:
+  # 1. Direct GitHub Personal Access Token (PAT) login on /admin/
+  # 2. Local backend server (npm run cms) on localhost
+  # 3. Optional OAuth Proxy (uncomment below if hosting an OAuth proxy):
   # base_url: https://your-decap-oauth-proxy.example.com
   # auth_endpoint: auth
+
+# Enable local backend proxy for offline/local development without OAuth credentials
+local_backend: true
 
 publish_mode: editorial_workflow
 site_url: https://pwr.ieeenuces.org

@@ -7,9 +7,363 @@
     <title>IEEE NUCES PWR CMS</title>
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon_io/favicon-32x32.png">
     <link href="config.yml" type="text/yaml" rel="cms-config-url">
+    <style>
+      :root {
+        --ieee-blue: #00629b;
+        --ieee-dark: #0b1f3a;
+        --ieee-accent: #00a3e0;
+        --surface: #ffffff;
+        --border: #d0d7de;
+        --text: #1f2937;
+        --text-muted: #64748b;
+        --radius: 8px;
+        --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      }
+
+      #cms-token-modal-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(11, 31, 58, 0.65);
+        backdrop-filter: blur(4px);
+        z-index: 999999;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      }
+
+      #cms-token-modal-backdrop.is-open {
+        display: flex;
+      }
+
+      .cms-token-card {
+        background: var(--surface);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        width: 100%;
+        max-width: 480px;
+        border: 1px solid var(--border);
+        overflow: hidden;
+        animation: fadeIn 0.18s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: scale(0.96); }
+        to { opacity: 1; transform: scale(1); }
+      }
+
+      .cms-token-header {
+        background: linear-gradient(135deg, var(--ieee-dark) 0%, var(--ieee-blue) 100%);
+        color: #ffffff;
+        padding: 18px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .cms-token-header h2 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .cms-token-close {
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 1.4rem;
+        cursor: pointer;
+        line-height: 1;
+        padding: 0 4px;
+        opacity: 0.8;
+      }
+
+      .cms-token-close:hover {
+        opacity: 1;
+      }
+
+      .cms-token-body {
+        padding: 20px;
+        color: var(--text);
+      }
+
+      .cms-token-body p {
+        margin: 0 0 14px 0;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--text-muted);
+      }
+
+      .cms-token-label {
+        display: block;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+        color: var(--text);
+      }
+
+      .cms-token-input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 12px;
+        font-size: 0.9rem;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        outline: none;
+        font-family: monospace;
+        transition: border-color 0.15s ease;
+      }
+
+      .cms-token-input:focus {
+        border-color: var(--ieee-blue);
+        box-shadow: 0 0 0 3px rgba(0, 98, 155, 0.15);
+      }
+
+      .cms-token-instructions {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        padding: 12px;
+        margin-top: 14px;
+        font-size: 0.82rem;
+        line-height: 1.45;
+        color: #475569;
+      }
+
+      .cms-token-instructions ol {
+        margin: 6px 0 0 0;
+        padding-left: 18px;
+      }
+
+      .cms-token-instructions li {
+        margin-bottom: 4px;
+      }
+
+      .cms-token-instructions a {
+        color: var(--ieee-blue);
+        text-decoration: underline;
+      }
+
+      .cms-token-footer {
+        padding: 14px 20px;
+        background: #f8fafc;
+        border-top: 1px solid var(--border);
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+      }
+
+      .cms-btn {
+        padding: 8px 16px;
+        font-size: 0.88rem;
+        font-weight: 500;
+        border-radius: 6px;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all 0.15s ease;
+      }
+
+      .cms-btn-primary {
+        background: var(--ieee-blue);
+        color: #ffffff;
+      }
+
+      .cms-btn-primary:hover {
+        background: #004f7c;
+      }
+
+      .cms-btn-secondary {
+        background: #ffffff;
+        border-color: var(--border);
+        color: var(--text);
+      }
+
+      .cms-btn-secondary:hover {
+        background: #f1f5f9;
+      }
+
+      .cms-btn-danger {
+        background: #fee2e2;
+        border-color: #fecaca;
+        color: #991b1b;
+      }
+
+      .cms-btn-danger:hover {
+        background: #fecaca;
+      }
+
+      #cms-token-trigger-btn {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+        z-index: 99999;
+        background: var(--ieee-dark);
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: 9px 14px;
+        border-radius: 20px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        transition: transform 0.15s ease, background 0.15s ease;
+      }
+
+      #cms-token-trigger-btn:hover {
+        background: var(--ieee-blue);
+        transform: translateY(-1px);
+      }
+    </style>
   </head>
   <body>
     <noscript>Enable JavaScript to use the IEEE NUCES PWR CMS.</noscript>
+
+    <!-- GitHub Token Login Modal -->
+    <div id="cms-token-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="cms-modal-title">
+      <div class="cms-token-card">
+        <div class="cms-token-header">
+          <h2 id="cms-modal-title">🔑 GitHub Token Authentication</h2>
+          <button class="cms-token-close" id="cms-token-close-btn" aria-label="Close modal">&times;</button>
+        </div>
+        <div class="cms-token-body">
+          <p>
+            Sign in to the CMS using a GitHub Personal Access Token (PAT) with repository access. This allows editing content on GitHub Pages without a backend proxy.
+          </p>
+
+          <label class="cms-token-label" for="cms-token-input">GitHub Personal Access Token (PAT):</label>
+          <input
+            type="password"
+            id="cms-token-input"
+            class="cms-token-input"
+            placeholder="ghp_... or github_pat_..."
+            autocomplete="off"
+            spellcheck="false"
+          >
+
+          <div class="cms-token-instructions">
+            <strong>How to create a token:</strong>
+            <ol>
+              <li>Go to <a href="https://github.com/settings/tokens/new?scopes=repo&description=IEEE+NUCES+PWR+CMS" target="_blank" rel="noopener">GitHub Token Settings (classic)</a>.</li>
+              <li>Select the <code>repo</code> scope (Full control of private and public repositories).</li>
+              <li>Generate the token, copy it, and paste it into the box above.</li>
+            </ol>
+          </div>
+        </div>
+        <div class="cms-token-footer">
+          <button type="button" class="cms-btn cms-btn-danger" id="cms-token-clear-btn" style="display: none;">Sign Out / Clear</button>
+          <button type="button" class="cms-btn cms-btn-secondary" id="cms-token-cancel-btn">Cancel</button>
+          <button type="button" class="cms-btn cms-btn-primary" id="cms-token-save-btn">Save &amp; Log In</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Trigger Button -->
+    <button id="cms-token-trigger-btn" type="button" title="Log in or change GitHub Token">
+      <span>🔑</span> GitHub Token Login
+    </button>
+
+    <script>
+      (function() {
+        const STORAGE_KEY_DECAP = "decap-cms-user";
+        const STORAGE_KEY_NETLIFY = "netlify-cms-user";
+
+        const backdrop = document.getElementById("cms-token-modal-backdrop");
+        const triggerBtn = document.getElementById("cms-token-trigger-btn");
+        const closeBtn = document.getElementById("cms-token-close-btn");
+        const cancelBtn = document.getElementById("cms-token-cancel-btn");
+        const saveBtn = document.getElementById("cms-token-save-btn");
+        const clearBtn = document.getElementById("cms-token-clear-btn");
+        const tokenInput = document.getElementById("cms-token-input");
+
+        function getStoredUser() {
+          try {
+            const raw = localStorage.getItem(STORAGE_KEY_DECAP) || localStorage.getItem(STORAGE_KEY_NETLIFY);
+            return raw ? JSON.parse(raw) : null;
+          } catch (e) {
+            return null;
+          }
+        }
+
+        function updateUIState() {
+          const user = getStoredUser();
+          if (user && user.token) {
+            triggerBtn.innerHTML = "<span>✓</span> Token Active (Edit)";
+            triggerBtn.style.background = "#059669";
+            clearBtn.style.display = "inline-block";
+          } else {
+            triggerBtn.innerHTML = "<span>🔑</span> GitHub Token Login";
+            triggerBtn.style.background = "var(--ieee-dark)";
+            clearBtn.style.display = "none";
+          }
+        }
+
+        function openModal() {
+          const user = getStoredUser();
+          if (user && user.token) {
+            tokenInput.value = user.token;
+          } else {
+            tokenInput.value = "";
+          }
+          backdrop.classList.add("is-open");
+          tokenInput.focus();
+        }
+
+        function closeModal() {
+          backdrop.classList.remove("is-open");
+        }
+
+        function saveToken() {
+          const token = tokenInput.value.trim();
+          if (!token) {
+            alert("Please enter a valid GitHub Personal Access Token.");
+            return;
+          }
+          const userPayload = JSON.stringify({
+            backendName: "github",
+            token: token
+          });
+          localStorage.setItem(STORAGE_KEY_DECAP, userPayload);
+          localStorage.setItem(STORAGE_KEY_NETLIFY, userPayload);
+          closeModal();
+          window.location.reload();
+        }
+
+        function clearToken() {
+          if (confirm("Are you sure you want to remove your saved GitHub token and sign out?")) {
+            localStorage.removeItem(STORAGE_KEY_DECAP);
+            localStorage.removeItem(STORAGE_KEY_NETLIFY);
+            closeModal();
+            window.location.reload();
+          }
+        }
+
+        triggerBtn.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+        cancelBtn.addEventListener("click", closeModal);
+        saveBtn.addEventListener("click", saveToken);
+        clearBtn.addEventListener("click", clearToken);
+
+        tokenInput.addEventListener("keydown", function(e) {
+          if (e.key === "Enter") saveToken();
+          if (e.key === "Escape") closeModal();
+        });
+
+        backdrop.addEventListener("click", function(e) {
+          if (e.target === backdrop) closeModal();
+        });
+
+        updateUIState();
+      })();
+    </script>
+
     <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
   </body>
 </html>

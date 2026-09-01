@@ -18,7 +18,9 @@ const contentTypes = {
   ".jpg": "image/jpeg",
   ".jpeg": "image/jpeg",
   ".ico": "image/x-icon",
-  ".webp": "image/webp"
+  ".webp": "image/webp",
+  ".yml": "text/yaml; charset=utf-8",
+  ".yaml": "text/yaml; charset=utf-8"
 };
 
 function safePath(urlPath) {
