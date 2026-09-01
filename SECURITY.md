@@ -8,7 +8,7 @@ The `main` branch is the supported version.
 
 ## Reporting a Vulnerability
 
-Email `info@ieeenucespwr.org` with:
+Email `ieeenucespwr@gmail.com` with:
 
 - A short description of the issue
 - The affected page or file
