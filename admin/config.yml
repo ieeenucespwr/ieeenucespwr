@@ -1,0 +1,133 @@
+backend:
+  name: github
+  repo: ieeenucespwr/ieeenucespwr
+  branch: main
+  open_authoring: true
+  # Authentication is supported via:
+  # 1. Direct GitHub Personal Access Token (PAT) login on /admin/
+  # 2. Local backend server (npm run cms) on localhost
+  # 3. Optional OAuth Proxy (uncomment below if hosting an OAuth proxy):
+  # base_url: https://your-decap-oauth-proxy.example.com
+  # auth_endpoint: auth
+
+# Enable local backend proxy for offline/local development without OAuth credentials
+local_backend: true
+
+publish_mode: editorial_workflow
+site_url: https://pwr.ieeenuces.org
+display_url: https://pwr.ieeenuces.org
+logo:
+  src: /assets/ieee-nuces-peshawar-campus-logo.webp
+  show_in_header: true
+media_folder: assets/uploads
+public_folder: assets/uploads
+show_preview_links: true
+slug:
+  encoding: ascii
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: branch_content
+    label: Branch Content
+    files:
+      - label: Shared Website Content
+        name: site_data
+        file: data/site-data.json
+        format: json
+        editor:
+          preview: false
+        fields:
+          - label: Faculty Advisor
+            name: faculty
+            widget: object
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Detail, name: detail, widget: text }
+              - { label: Image, name: image, widget: image }
+              - label: Links
+                name: links
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
+          - label: Executive Leaders
+            name: leaders
+            widget: list
+            summary: "{{fields.name}} - {{fields.role}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string }
+              - { label: Department, name: department, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Summary, name: summary, widget: text }
+              - label: Links
+                name: links
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
+          - label: Additional Society Members
+            name: members
+            widget: list
+            required: false
+            summary: "{{fields.name}} - {{fields.role}}"
+            hint: "Use this for verified society members who are not already listed as faculty advisor or executive leaders."
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Role, name: role, widget: string, required: false }
+              - { label: Group, name: group, widget: string, required: false, hint: "Example: Society Member, Volunteer, Ambassador" }
+              - { label: Department, name: department, widget: string, required: false }
+              - { label: Image, name: image, widget: image, required: false }
+              - { label: Summary, name: summary, widget: text, required: false }
+              - label: Links
+                name: links
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: Label, name: label, widget: string }
+                  - { label: URL, name: url, widget: string }
+          - label: Operating Teams
+            name: teams
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Name, name: name, widget: string }
+              - { label: Lead Image, name: image, widget: image }
+              - { label: Focus, name: focus, widget: string }
+              - label: Team Members
+                name: members
+                widget: list
+                required: false
+                summary: "{{fields.name}} - {{fields.role}}"
+                fields:
+                  - { label: Name, name: name, widget: string }
+                  - { label: Role, name: role, widget: string, required: false }
+                  - { label: Image, name: image, widget: image, required: false }
+                  - { label: Summary, name: summary, widget: text, required: false }
+          - label: Events
+            name: events
+            widget: list
+            summary: "{{fields.title}} - {{fields.date}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Date Label, name: date, widget: string, hint: "Example: November 2024" }
+              - { label: Year, name: year, widget: string, pattern: ["^\\d{4}$", "Use a four-digit year."] }
+              - { label: Type, name: type, widget: string }
+              - { label: App Route, name: href, widget: string, hint: "Example: /events/event-name" }
+              - { label: Image, name: image, widget: image }
+              - { label: Summary, name: summary, widget: text }
+          - label: Learning Tracks
+            name: courses
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Image, name: image, widget: image }
+              - { label: Summary, name: summary, widget: text }

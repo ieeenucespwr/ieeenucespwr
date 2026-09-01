@@ -1,179 +1,83 @@
 # IEEE NUCES PWR Student Branch Website
 
-Modern, responsive website for IEEE NUCES PWR Student Branch with dark mode support and smooth animations.
+Official website for IEEE NUCES PWR Student Branch at FAST NUCES Peshawar.
 
-## 🚀 Quick Start
+Built by Rayyan Shaheer. The source code is public for viewing and reuse, while edits, commits, CMS access, reviews, and production deployments are limited to authorized IEEE NUCES PWR Web Development or Technical Team members. Access is granted by the launch team.
 
-### Prerequisites
-- Node.js (version 14 or higher) - [Download here](https://nodejs.org/)
-- npm (comes with Node.js)
+## Tech Stack
 
-### Installation
-1. Clone or download the repository.
-2. Navigate to the project directory.
-3. Install dependencies:
-   ```bash
-   npm install
-   ```
+- Static HTML, CSS, and JavaScript
+- GitHub Pages hosting
+- Decap CMS for content editing
+- Node.js scripts for local preview and link checks
 
-### Building the CSS
-This website uses Tailwind CSS, which leverages PostCSS for CSS processing. To build the styles:
+## Local Development
+
+Install dependencies and start the local server:
 
 ```bash
-npm run build:css
+npm install
+npm start
 ```
 
-This compiles `input.css` into `styles.css` with minification.
+Open `http://localhost:5500`.
 
-For development, use the watch mode to automatically rebuild on changes:
-```bash
-npm run watch:css
-```
-
-### Running the Website
-After building the CSS, serve the website locally:
+To run the local CMS backend proxy for zero-config editing:
 
 ```bash
-python -m http.server 5500
+npm run cms
 ```
 
-Then open http://localhost:5500 in your browser.
-
-Alternatively, use any static server or open `index.html` directly in the browser.
-
-## ⚡ Performance Optimization
-
-### Optimize Images (IMPORTANT)
-The website has lazy loading enabled, but images need compression:
+Run checks before publishing changes:
 
 ```bash
-./optimize-images.sh
+npm test
 ```
 
-This reduces image sizes by 70-75% (from ~15MB to ~3-5MB).
+## Project Structure
 
-**What it does:**
-- Resizes team photos: Lead (320x320px), Members (192x192px)
-- Resizes executive photos (768x768px)
-- Resizes event images (max 1200px width)
-- Compresses all images: Team <80KB, Events <200KB
-- Creates backup in `assets_backup/`
+```text
+index.html              Main app shell
+404.html                Fallback page
+styles.css              Site styles
+assets/js/site-shell.js Header and footer
+assets/js/site.js       Page rendering and interactions
+admin/                  Decap CMS admin with GitHub Token login
+assets/                 Images, icons, and event media
+data/site-data.json     Shared branch content
+docs/cms.md             CMS setup & authentication guide
+scripts/                Local maintenance scripts
+```
 
-**Expected results:**
-- 70-75% size reduction
-- Faster page load (<1 second)
-- Better PageSpeed score (90+)
+## Updating Content
 
-### Manual Optimization (Advanced)
+Most branch content lives in `data/site-data.json` and can be edited directly or through Decap CMS at `/admin/`:
 
-#### Convert to WebP (25-35% better compression)
+- **Production CMS**: Visit `https://pwr.ieeenuces.org/admin/` and log in with your GitHub Personal Access Token (PAT with `repo` scope). See [`docs/cms.md`](docs/cms.md) for full instructions.
+- **Local CMS**: Run `npm run cms` alongside `npm start` and visit `http://localhost:5500/admin/`.
+
+Common updates:
+
+- Add or update events, teams, leaders, members, and learning tracks.
+- Add event photos under `assets/events/`.
+- Add team and member photos under the matching `assets/` folders.
+- Keep image filenames readable and compress large files before committing.
+
+After changing routes or event entries, run:
+
 ```bash
-# Install tools
-sudo apt-get install webp
-
-# Convert images
-find assets -name "*.jpg" -exec bash -c 'cwebp -q 80 "$0" -o "${0%.jpg}.webp"' {} \;
+npm run sync-routes
+npm test
 ```
 
-#### Resize Specific Images
-```bash
-# Team leads: 320x320
-convert image.jpg -resize 320x320 -quality 85 image.jpg
+## Deployment
 
-# Team members: 192x192  
-convert image.jpg -resize 192x192 -quality 85 image.jpg
+GitHub Pages publishes the site from the `main` branch. Keep `CNAME` set to `pwr.ieeenuces.org`.
 
-# Events: max 1200px width
-convert image.jpg -resize 1200x1200\> -quality 80 image.jpg
-```
+This repo is the canonical website repo for the branch. Keep future website work here instead of splitting updates across duplicate repositories.
 
-#### Compress Existing Files
-```bash
-# Install tools
-sudo apt-get install jpegoptim
+## Contributing
 
-# Compress
-jpegoptim --size=100k --strip-all image.jpg
-```
+The public repository can be viewed or reused, but commit access is restricted to authorized IEEE NUCES PWR Web Development or Technical Team members. Anyone seeking edit access should first join the society and be approved through the branch process. Read `CONTRIBUTING.md`, `CODE_OF_CONDUCT.md`, and `SECURITY.md` before requesting or applying website changes.
 
-#### Target Sizes
-
-| Image Type | Target Size | Dimensions |
-|------------|-------------|------------|
-| Team Lead | <80KB | 320x320px |
-| Team Member | <50KB | 192x192px |
-| Executive | <150KB | 768x768px |
-| Event Photo | <200KB | 1200px max |
-| Logo | <50KB | As needed |
-
-#### Restore Backup
-If needed:
-```bash
-rm -rf assets && mv assets_backup/assets assets
-```
-
-### Verify Performance
-Test at: https://pagespeed.web.dev/
-- Target: 90+ (Mobile), 95+ (Desktop)
-
-Check image loading:
-1. Open DevTools → Network tab
-2. Filter by "Img"
-3. Scroll page - images load progressively ✓
-
-### Performance Features
-- ✅ Lazy loading on all images
-- ✅ Deferred non-critical CSS/JS
-- ✅ Progressive image loading
-- ✅ Optimized external resources
-
-## 📁 Key Files
-
-```
-index.html              # Main page
-styles.css              # Styles
-script.js               # Functionality
-optimize-images.sh      # Image compression script
-```
-
-## 🎨 Sections
-
-- Hero with particles background
-- About (Faculty, Executives, Teams)
-- Events (2023-2024)
-- Member Spotlight
-- Professional Courses
-- Footer with links
-
-## 🛠️ Tech Stack
-
-- HTML5, CSS3, JavaScript
-- Tailwind CSS
-- Particles.js, AOS animations
-- Font Awesome icons
-
-## 📝 Customization
-
-### Add Team Members
-Edit `index.html`:
-```html
-<img src="assets/team_photos/[team]/member.jpg" alt="Name" loading="lazy">
-<p>Member Name</p>
-```
-
-### Add Events
-Update event cards in `index.html` events section.
-
-### Dark Mode
-Auto-saved toggle in navbar.
-
-## 📊 Performance Targets
-
-After running `optimize-images.sh`:
-- Load Time: <1s
-- PageSpeed Score: 90+
-- LCP: <2.5s
-
----
-
-Built by IEEE NUCES PWR Web Development Team | Last Updated: December 2025
+Built by Rayyan Shaheer. IEEE names, logos, and marks remain subject to IEEE brand and trademark rules.
