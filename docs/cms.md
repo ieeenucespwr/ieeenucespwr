@@ -16,16 +16,25 @@ https://pwr.ieeenuces.org/admin/
 
 Authorized team members can log into the live CMS directly using a GitHub Personal Access Token without needing an external OAuth server:
 
-1. **Generate a GitHub Personal Access Token**:
-   - Go to [GitHub Token Settings (classic)](https://github.com/settings/tokens/new?scopes=repo&description=IEEE+NUCES+PWR+CMS).
-   - Give the token a name (e.g. `IEEE NUCES PWR CMS`).
-   - Select the **`repo`** scope (Full control of private and public repositories).
-   - Generate and copy the token (`ghp_...`).
-2. **Log into the CMS**:
-   - Visit `https://pwr.ieeenuces.org/admin/`.
-   - Click the **"🔑 GitHub Token Login"** button at the bottom-right.
-   - Paste your token and click **"Save & Log In"**.
-   - The CMS will load and authenticate directly against the GitHub repository.
+#### Recommended: Fine-Grained Token (Repository Scoped)
+1. Go to [GitHub Fine-Grained Token Settings](https://github.com/settings/personal-access-tokens/new).
+2. Set token name (e.g. `IEEE NUCES PWR CMS`) and expiration.
+3. Under **Repository access**, choose **Only select repositories** and select `ieeenucespwr/ieeenucespwr` (or your personal fork).
+4. Under **Repository permissions**, grant:
+   - **Contents**: `Read and write` (to view and edit site content and images).
+   - **Pull requests**: `Read and write` (to manage editorial workflow branches/drafts).
+5. Generate and copy the token (`github_pat_...`).
+
+#### Alternative: Classic Token
+1. Go to [GitHub Token Settings (classic)](https://github.com/settings/tokens/new?scopes=repo&description=IEEE+NUCES+PWR+CMS).
+2. Select the **`repo`** scope (full control over all repositories).
+3. Generate and copy the token (`ghp_...`).
+
+#### Log into the CMS:
+1. Visit `https://pwr.ieeenuces.org/admin/`.
+2. Click the **"🔑 GitHub Token Login"** button at the bottom-right.
+3. Paste your token and click **"Save & Log In"**.
+4. The CMS will load and authenticate directly against the GitHub repository.
 
 ---
 
