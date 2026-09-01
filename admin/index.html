@@ -42,7 +42,10 @@
         border-radius: var(--radius);
         box-shadow: var(--shadow);
         width: 100%;
-        max-width: 480px;
+        max-width: 520px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
         border: 1px solid var(--border);
         overflow: hidden;
         animation: fadeIn 0.18s ease-out;
@@ -56,7 +59,7 @@
       .cms-token-header {
         background: linear-gradient(135deg, var(--ieee-dark) 0%, var(--ieee-blue) 100%);
         color: #ffffff;
-        padding: 18px 20px;
+        padding: 16px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -89,6 +92,7 @@
       .cms-token-body {
         padding: 20px;
         color: var(--text);
+        overflow-y: auto;
       }
 
       .cms-token-body p {
@@ -134,7 +138,19 @@
         color: #475569;
       }
 
-      .cms-token-instructions ol {
+      .cms-token-instructions details {
+        margin-top: 8px;
+      }
+
+      .cms-token-instructions summary {
+        cursor: pointer;
+        font-weight: 600;
+        color: var(--ieee-blue);
+        user-select: none;
+      }
+
+      .cms-token-instructions ol,
+      .cms-token-instructions ul {
         margin: 6px 0 0 0;
         padding-left: 18px;
       }
@@ -143,9 +159,30 @@
         margin-bottom: 4px;
       }
 
+      .cms-token-instructions code {
+        background: #e2e8f0;
+        padding: 1px 4px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.85em;
+        color: #0f172a;
+      }
+
       .cms-token-instructions a {
         color: var(--ieee-blue);
         text-decoration: underline;
+      }
+
+      .cms-badge-rec {
+        display: inline-block;
+        background: #dcfce7;
+        color: #166534;
+        font-size: 0.72rem;
+        font-weight: 700;
+        padding: 1px 6px;
+        border-radius: 10px;
+        margin-left: 4px;
+        vertical-align: middle;
       }
 
       .cms-token-footer {
@@ -250,11 +287,29 @@
 
           <div class="cms-token-instructions">
             <strong>How to create a token:</strong>
-            <ol>
-              <li>Go to <a href="https://github.com/settings/tokens/new?scopes=repo&description=IEEE+NUCES+PWR+CMS" target="_blank" rel="noopener">GitHub Token Settings (classic)</a>.</li>
-              <li>Select the <code>repo</code> scope (Full control of private and public repositories).</li>
-              <li>Generate the token, copy it, and paste it into the box above.</li>
-            </ol>
+            <details open style="margin-top: 8px;">
+              <summary>Fine-Grained Token <span class="cms-badge-rec">Recommended</span></summary>
+              <ol>
+                <li>Open <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">GitHub Fine-Grained Token Settings</a>.</li>
+                <li><strong>Repository access:</strong> Choose <em>"Only select repositories"</em> &rarr; <code>ieeenucespwr/ieeenucespwr</code> (or your fork).</li>
+                <li><strong>Permissions:</strong> Grant:
+                  <ul>
+                    <li><code>Contents</code>: <strong>Read and write</strong></li>
+                    <li><code>Pull requests</code>: <strong>Read and write</strong></li>
+                  </ul>
+                </li>
+                <li>Generate the token, copy it, and paste it above.</li>
+              </ol>
+            </details>
+
+            <details style="margin-top: 8px;">
+              <summary>Classic Token (Alternative)</summary>
+              <ol>
+                <li>Open <a href="https://github.com/settings/tokens/new?scopes=repo&description=IEEE+NUCES+PWR+CMS" target="_blank" rel="noopener">GitHub Token Settings (classic)</a>.</li>
+                <li>Select the <code>repo</code> scope (Full control of all private and public repositories).</li>
+                <li>Generate the token, copy it, and paste it above.</li>
+              </ol>
+            </details>
           </div>
         </div>
         <div class="cms-token-footer">

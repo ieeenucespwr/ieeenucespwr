@@ -70,11 +70,18 @@ npm run sync-routes
 npm test
 ```
 
-## Deployment
+## Branching & Deployment Workflow
 
-GitHub Pages publishes the site from the `main` branch. Keep `CNAME` set to `pwr.ieeenuces.org`.
+The repository enforces a structured promotion pipeline:
 
-This repo is the canonical website repo for the branch. Keep future website work here instead of splitting updates across duplicate repositories.
+```text
+[ dev-* / feature branches ] ──(PR)──> [ main ] ──(PR)──> [ prod ]
+```
+
+1. Contributors work on individual branches (`dev-rayyan`, `dev-fawad`, `feature/*`).
+2. Pull Requests are always merged into **`main`** first.
+3. Once tested and verified on `main`, a Pull Request is opened from **`main` &rarr; `prod`**.
+4. Direct PRs from `dev-*` to `prod` are prohibited.
 
 ## Contributing
 
